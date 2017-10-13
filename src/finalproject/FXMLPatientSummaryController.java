@@ -12,7 +12,7 @@ import javafx.scene.layout.HBox;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-/**Class: FXMLDocumentController
+/**Class: FXMLPatientSummaryController
  * @author Matthew Camp
  * Version 1.0
  * Course: Advanced Programming Fall 2017
@@ -20,7 +20,7 @@ import java.util.ResourceBundle;
  * Controller class for the main JavaFX GUI handling patient summary information
  *
  */
-public class FXMLDocumentController implements Initializable {
+public class FXMLPatientSummaryController implements Initializable {
 
     @FXML
     private AnchorPane anchorPane;
