@@ -1,14 +1,149 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="200" prefWidth="320" xmlns:fx="http://javafx.com/fxml/1" fx:controller="finalproject.FXMLDocumentController">
-    <children>
-        <Button layoutX="126" layoutY="90" text="Click Me!" onAction="#handleButtonAction" fx:id="button" />
-        <Label layoutX="126" layoutY="120" minHeight="16" minWidth="69" fx:id="label" />
-    </children>
+<AnchorPane id="AnchorPane" fx:id="anchorPane" prefHeight="700.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="finalproject.FXMLDocumentController">
+   <children>
+      <GridPane alignment="CENTER" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="310.0" minWidth="10.0" prefWidth="216.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="410.0" minWidth="0.0" prefWidth="14.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="549.0" minWidth="10.0" prefWidth="530.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints maxHeight="229.0" minHeight="0.0" prefHeight="56.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="569.0" minHeight="10.0" prefHeight="476.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="128.0" minHeight="10.0" prefHeight="119.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label fx:id="lblTitle" text="Patient Summary" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+               <font>
+                  <Font size="28.0" />
+               </font>
+            </Label>
+            <ListView fx:id="listviewPatients" prefHeight="200.0" prefWidth="351.0" GridPane.rowIndex="1" />
+            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="10.0" GridPane.rowIndex="2">
+               <children>
+                  <Button fx:id="btnNewParient" mnemonicParsing="false" onAction="#handleAddPatient" text="New Patient" />
+                  <Button fx:id="btnRemovePatient" mnemonicParsing="false" onAction="#handleRemovePatient" text="Remove Patient" />
+                  <Separator prefWidth="200.0" />
+                  <Button fx:id="btnAddVisit" mnemonicParsing="false" onAction="#handleAddVisit" text="Add Patient Visit" />
+               </children>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <GridPane.margin>
+                  <Insets left="40.0" right="40.0" />
+               </GridPane.margin>
+            </VBox>
+            <GridPane GridPane.columnIndex="2" GridPane.rowIndex="1" GridPane.rowSpan="2">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="257.0" minWidth="10.0" prefWidth="119.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="456.0" minWidth="10.0" prefWidth="331.0" />
+              </columnConstraints>
+              <rowConstraints>
+                  <RowConstraints maxHeight="44.0" minHeight="2.0" prefHeight="15.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="82.0" minHeight="10.0" prefHeight="15.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="88.0" minHeight="10.0" prefHeight="15.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="15.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="15.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="15.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="15.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="60.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="60.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="15.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="20.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Label text="Name" GridPane.rowIndex="1" />
+                  <Label text="Address" GridPane.rowIndex="2" />
+                  <Label text="Phone Number" GridPane.rowIndex="3" />
+                  <Label text="Email" GridPane.rowIndex="4" />
+                  <Label text="Date of Birth" GridPane.rowIndex="5" />
+                  <Label text="Marital Status" GridPane.rowIndex="6" />
+                  <Label text="Allergies" GridPane.rowIndex="7" />
+                  <Label text="Current Medications" GridPane.rowIndex="8" />
+                  <Label text="Insurance" GridPane.rowIndex="9" />
+                  <Label text="Patient ID" />
+                  <Label fx:id="lblPatientId" text="&lt;patient id&gt;" GridPane.columnIndex="1" />
+                  <TextField fx:id="txtPatientName" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <TextField fx:id="txtPatientAddress" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <TextField fx:id="txtPatientEmail" prefHeight="25.0" prefWidth="277.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                  <ComboBox fx:id="cboxPatientMaritalStatus" prefHeight="25.0" prefWidth="188.0" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                  <HBox fx:id="hboxPhone" prefHeight="100.0" prefWidth="200.0" spacing="5.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                     <children>
+                        <Label text="(" />
+                        <TextField fx:id="txtPatientPhoneAreaCode" prefColumnCount="3" />
+                        <Label text=")" />
+                        <TextField fx:id="txtPatientPhonePrefix" prefColumnCount="3" />
+                        <Label text="-" />
+                        <TextField fx:id="txtPatientPhoneLineNumber" prefColumnCount="4" />
+                     </children>
+                     <padding>
+                        <Insets top="12.0" />
+                     </padding>
+                  </HBox>
+                  <HBox fx:id="hboxAllergies" alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="10.0" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="7" GridPane.valignment="CENTER">
+                     <children>
+                        <ListView fx:id="listviewPatientAllergies" prefHeight="85.0" prefWidth="233.0">
+                           <padding>
+                              <Insets bottom="5.0" top="5.0" />
+                           </padding>
+                        </ListView>
+                        <Button fx:id="btnPatientEditAllergies" alignment="CENTER" mnemonicParsing="false" onAction="#handleEditAllergies" text="Edit Allergies" textAlignment="CENTER" wrapText="true">
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                        </Button>
+                     </children>
+                     <padding>
+                        <Insets bottom="5.0" top="5.0" />
+                     </padding>
+                  </HBox>
+                  <HBox fx:id="hboxMeds" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="8">
+                     <children>
+                        <HBox fx:id="hboxAllergies1" alignment="CENTER_LEFT" prefHeight="85.0" prefWidth="392.0" spacing="10.0">
+                           <children>
+                              <ListView fx:id="listviewPatientMeds" prefHeight="85.0" prefWidth="233.0">
+                                 <padding>
+                                    <Insets bottom="5.0" top="5.0" />
+                                 </padding>
+                              </ListView>
+                              <Button fx:id="btnPatientEditMeds" alignment="CENTER" mnemonicParsing="false" onAction="#handleEditMeds" text="Edit Meds" textAlignment="CENTER" wrapText="true">
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin>
+                              </Button>
+                           </children>
+                           <padding>
+                              <Insets bottom="5.0" top="5.0" />
+                           </padding>
+                        </HBox>
+                     </children>
+                  </HBox>
+                  <TextField fx:id="txtPatientInsurance" GridPane.columnIndex="1" GridPane.rowIndex="9" />
+                  <Button fx:id="btnConfirmPatient" alignment="CENTER" mnemonicParsing="false" onAction="#handleConfirmPatient" text="Confirm Patient" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="10" GridPane.valignment="CENTER" />
+                  <DatePicker GridPane.columnIndex="1" GridPane.rowIndex="5" />
+               </children>
+               <GridPane.margin>
+                  <Insets bottom="20.0" left="40.0" right="40.0" />
+               </GridPane.margin>
+            </GridPane>
+         </children>
+      </GridPane>
+   </children>
 </AnchorPane>

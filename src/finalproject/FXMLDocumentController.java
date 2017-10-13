@@ -2,29 +2,131 @@
  */
 package finalproject;
 
-import finalproject.database.Patient;
-import finalproject.database.PatientVisit;
-import java.net.URL;
-import java.util.List;
-import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Label;
+import javafx.scene.control.*;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.HBox;
 
-/**
+import java.net.URL;
+import java.util.ResourceBundle;
+
+/**Class: FXMLDocumentController
+ * @author Matthew Camp
+ * Version 1.0
+ * Course: Advanced Programming Fall 2017
+ * Written: , 2017
+ * Controller class for the main JavaFX GUI handling patient summary information
  *
- * @author jnbcb
  */
 public class FXMLDocumentController implements Initializable {
-    
+
     @FXML
-    private Label label;
+    private AnchorPane anchorPane;
+
+    @FXML
+    private Label lblTitle;
+
+    @FXML
+    private ListView<?> listviewPatients;
+
+    @FXML
+    private Button btnNewParient;
+
+    @FXML
+    private Button btnRemovePatient;
+
+    @FXML
+    private Button btnAddVisit;
+
+    @FXML
+    private Label lblPatientId;
+
+    @FXML
+    private TextField txtPatientName;
+
+    @FXML
+    private TextField txtPatientAddress;
+
+    @FXML
+    private TextField txtPatientEmail;
+
+    @FXML
+    private ComboBox<?> cboxPatientMaritalStatus;
+
+    @FXML
+    private HBox hboxPhone;
+
+    @FXML
+    private TextField txtPatientPhoneAreaCode;
+
+    @FXML
+    private TextField txtPatientPhonePrefix;
+
+    @FXML
+    private TextField txtPatientPhoneLineNumber;
+
+    @FXML
+    private HBox hboxAllergies;
+
+    @FXML
+    private ListView<?> listviewPatientAllergies;
+
+    @FXML
+    private Button btnPatientEditAllergies;
+
+    @FXML
+    private HBox hboxMeds;
+
+    @FXML
+    private HBox hboxAllergies1;
+
+    @FXML
+    private ListView<?> listviewPatientMeds;
+
+    @FXML
+    private Button btnPatientEditMeds;
+
+    @FXML
+    private TextField txtPatientInsurance;
+
+    @FXML
+    private Button btnConfirmPatient;
+
+    @FXML
+    void handleAddPatient(ActionEvent event) {
+
+    }
+
+    @FXML
+    void handleAddVisit(ActionEvent event) {
+
+    }
+
+    @FXML
+    void handleConfirmPatient(ActionEvent event) {
+
+    }
+
+    @FXML
+    void handleEditAllergies(ActionEvent event) {
+
+    }
+
+    @FXML
+    void handleEditMeds(ActionEvent event) {
+
+    }
+
+    @FXML
+    void handleRemovePatient(ActionEvent event) {
+
+    }
     
     @FXML
     private void handleButtonAction(ActionEvent event) {
         System.out.println("You clicked me!");
-        label.setText("Hello World!");
                 
         DbHelper helper = new DbHelper();
 //        Patient patient = new Patient("bob", "123 street", "444-444-4444", "123@gmail.com", "12/12/2012",
@@ -50,10 +152,6 @@ public class FXMLDocumentController implements Initializable {
 //            System.out.println(patientV);
 //        }
         helper.clearDatabase();
-        
-        
-        
-        
     }
     
     @Override
