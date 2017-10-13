@@ -4,11 +4,17 @@ package finalproject;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -111,12 +117,31 @@ public class FXMLPatientSummaryController implements Initializable {
 
     @FXML
     void handleEditAllergies(ActionEvent event) {
+    	Stage allergyDialog = getStage("FXMLEditAllergies.fxml");
+    	allergyDialog.initOwner(FinalProject.GetMainInstance());
+    	allergyDialog.initModality(Modality.APPLICATION_MODAL);
+    	allergyDialog.showAndWait();
+	}
 
-    }
+	private Stage getStage(String file) {
+		Stage dialog = new Stage();
+		try {
+			Parent root = FXMLLoader.load(getClass().getResource(file));
+			Scene scene = new Scene(root);
+			dialog.setScene(scene);
+			return dialog;
+		} catch (IOException e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
 
     @FXML
     void handleEditMeds(ActionEvent event) {
-
+    	Stage medicationsDialog = getStage("FXMLEditMeds.fxml");
+    	medicationsDialog.initOwner(FinalProject.GetMainInstance());
+    	medicationsDialog.initModality(Modality.APPLICATION_MODAL);
+    	medicationsDialog.showAndWait();
     }
 
     @FXML

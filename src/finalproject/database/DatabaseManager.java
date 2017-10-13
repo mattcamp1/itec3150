@@ -241,7 +241,7 @@ public class DatabaseManager {
         try {
             statement = connection.createStatement();
             result = statement.executeQuery(query);
-            LinkedList<Patient> patientList = new LinkedList<>();
+            LinkedList<Patient> patientList = new LinkedList<Patient>();
             Patient patient = null;
             while (result.next()){
                 patient = constructPatient(result);
@@ -311,7 +311,7 @@ public class DatabaseManager {
         try {
             statement = connection.createStatement();
             result = statement.executeQuery(query);
-            LinkedList<PatientVisit> visitList = new LinkedList<>();
+            LinkedList<PatientVisit> visitList = new LinkedList<PatientVisit>();
             PatientVisit visit = null;
             while(result.next()){
                 visit = constructVisit(result);
