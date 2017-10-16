@@ -53,4 +53,18 @@ public class Medication {
 	public void setDoseCount(int doseCount) {
 		this.doseCount = doseCount;
 	}
+        
+        @Override
+        public String toString(){
+            return this.name + " " + this.reason + " " + this.doseCount + " " +  this.doseMilligrams;
+        }
+        
+        public static Medication getMedicationFromString(String medicationStringFromDatabase){
+            String[] array = medicationStringFromDatabase.split(" ");
+            String name = array[0];
+            String reason = array[1];
+            int doseCount = Integer.valueOf(array[2]);
+            int doseMilligrams = Integer.valueOf(array[3]);
+            return new Medication(name, reason, doseMilligrams, doseCount);
+        }
 }

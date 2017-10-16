@@ -43,4 +43,19 @@ public class Allergy {
 	public void setSeverity(int severity) {
 		this.severity = severity;
 	}
+        
+                @Override
+        public String toString(){
+            return this.substance + " " + this.effects + " " + this.severity;
+        }
+        
+        public static Allergy getAllergyFromString(String databaseAllergyString){
+            String[] array = databaseAllergyString.split(" ");
+            String substance = array[0];
+            String effects = array[1];
+            int severity = Integer.valueOf(array[2]);
+            return new Allergy(substance, effects, severity);
+        }
+        
+        
 }
