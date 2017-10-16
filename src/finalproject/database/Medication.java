@@ -1,5 +1,8 @@
 package finalproject.database;
 
+import java.util.LinkedList;
+import java.util.List;
+
 /**Class: Medication
  * @author Matthew Camp
  * Version 1.0
@@ -56,15 +59,24 @@ public class Medication {
         
         @Override
         public String toString(){
-            return this.name + " " + this.reason + " " + this.doseCount + " " +  this.doseMilligrams;
+            return this.name + " " + this.reason + " " + this.doseCount + " " +  this.doseMilligrams + "END";
         }
         
-        public static Medication getMedicationFromString(String medicationStringFromDatabase){
-            String[] array = medicationStringFromDatabase.split(" ");
+        public static Medication getMedicationFromString(String medication){
+            String[] array = medication.split(" ");
             String name = array[0];
             String reason = array[1];
             int doseCount = Integer.valueOf(array[2]);
             int doseMilligrams = Integer.valueOf(array[3]);
             return new Medication(name, reason, doseMilligrams, doseCount);
+        }
+        
+        public static List<Medication> getMedicationList(String medications){
+            String[] arrayMed = medications.split("END");
+            List<Medication> list = new LinkedList<>();
+            for (int index = 0; index < arrayMed.length; index++){
+                list.add(getMedicationFromString(arrayMed[index]));
+            }
+            return list;
         }
 }

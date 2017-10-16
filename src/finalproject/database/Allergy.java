@@ -1,5 +1,8 @@
 package finalproject.database;
 
+import java.util.LinkedList;
+import java.util.List;
+
 /**Class: Allergy
  * @author Matthew Camp
  * Version 1.0
@@ -46,16 +49,23 @@ public class Allergy {
         
                 @Override
         public String toString(){
-            return this.substance + " " + this.effects + " " + this.severity;
+            return this.substance + " " + this.effects + " " + this.severity + "END";
         }
         
-        public static Allergy getAllergyFromString(String databaseAllergyString){
-            String[] array = databaseAllergyString.split(" ");
+        public static Allergy getAllergyFromString(String allergy){
+            String[] array = allergy.split(" ");
             String substance = array[0];
             String effects = array[1];
             int severity = Integer.valueOf(array[2]);
             return new Allergy(substance, effects, severity);
         }
         
-        
+        public static List<Allergy> getAllergyList(String allergies){
+            String[] arrayAllergy = allergies.split("END");
+            List<Allergy> list = new LinkedList<>();
+            for (int index = 0; index < arrayAllergy.length; index++){
+                list.add(getAllergyFromString(arrayAllergy[index]));
+            }
+            return list;
+        }
 }
