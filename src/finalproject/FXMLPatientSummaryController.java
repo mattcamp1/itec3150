@@ -45,8 +45,6 @@ public class FXMLPatientSummaryController extends BaseController<Patient> {
     @FXML
     private Button btnRemovePatient;
 
-    @FXML
-    private Button btnAddVisit;
 
     @FXML
     private Label lblPatientId;
@@ -101,13 +99,18 @@ public class FXMLPatientSummaryController extends BaseController<Patient> {
 
     @FXML
     private Button btnConfirmPatient;
+    @FXML
+    private Button viewVisitButton;
+    @FXML
+    private Button addAllergyButton;
+    @FXML
+    private Button addMedicationButton;
 
     @FXML
     void handleAddPatient(ActionEvent event) {
 
     }
 
-    @FXML
     void handleAddVisit(ActionEvent event) {
     	Patient patient = listviewPatients.getSelectionModel().getSelectedItem();
     	if (patient == null) patient = new Patient();
@@ -178,35 +181,6 @@ public class FXMLPatientSummaryController extends BaseController<Patient> {
 
     }
     
-    @FXML
-    private void handleButtonAction(ActionEvent event) {
-        System.out.println("You clicked me!");
-                
-        DbHelper helper = new DbHelper();
-//        Patient patient = new Patient("bob", "123 street", "444-444-4444", "123@gmail.com", "12/12/2012",
-//                "single", "bees", "viagra", "uninsured");
-//        Patient patient = helper.getPatient(1);
-//        patient.setName("joe");
-//        helper.updatePatient(patient);
-//        System.out.println(helper.getPatient(1));
-
-//
-//        PatientVisit visit = new PatientVisit(patient.getId(), "dr sally",
-//               "150/180", 77, 14, "ICD-10", "patient will die", "ibuprofen");
-//
- //       helper.insertPatient(patient);
-//        helper.insertVisit(visit, 0);
-//        List<Patient> list = helper.getPatientList();
-//        for (Patient patient1 : list){
-//            System.out.println(patient1);
-//        }
-//        List<PatientVisit> vlist = helper.getPatientVisitList(1);
-//        if (vlist.isEmpty()) System.out.println("empty");
-//        for (PatientVisit patientV : vlist){
-//            System.out.println(patientV);
-//        }
-        helper.clearDatabase();
-    }
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -217,4 +191,16 @@ public class FXMLPatientSummaryController extends BaseController<Patient> {
 	public void initData(Patient patient, Patient target) {
 		// NO-OP?
 	}
+
+    @FXML
+    private void viewVisits(ActionEvent event) {
+    }
+
+    @FXML
+    private void addAllergy(ActionEvent event) {
+    }
+
+    @FXML
+    private void addMedication(ActionEvent event) {
+    }
 }

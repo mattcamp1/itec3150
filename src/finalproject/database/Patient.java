@@ -40,6 +40,7 @@ public class Patient {
         this.allergies = allergies;
         this.currentMedication = currentMedication;
         this.insurance = insurance;
+        this.id = -1;
     }
 
     public int getId() {

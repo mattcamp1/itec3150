@@ -11,7 +11,7 @@ package finalproject.database;
  * This class stores information for each time the patient visits a doctor. Do not use setVisitId outside of databaseManager
  *
  */
-
+// change br to temp
 public class PatientVisit {
 
     private int patientId;

@@ -16,8 +16,7 @@
 <?import javafx.scene.text.Font?>
 
 <!-- TODO: Add in remaining elemnts from PatientVisit class -->
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="finalproject.FXMLPatientVisitController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <VBox alignment="TOP_CENTER" prefHeight="600.0" prefWidth="400.0" spacing="20.0">
          <children>
@@ -95,8 +94,8 @@
                         <Separator prefHeight="1.0" prefWidth="370.0" />
                      </children>
                   </VBox>
-                  <Label text="Doctor Notes" GridPane.halignment="RIGHT" GridPane.rowIndex="3" />
-                  <TextArea fx:id="txtDoctorNotes" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                  <Label text="Diagnosis" GridPane.halignment="RIGHT" GridPane.rowIndex="3" />
+                  <TextArea fx:id="txtDiagnosis" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
                      <GridPane.margin>
                         <Insets right="20.0" />
                      </GridPane.margin>

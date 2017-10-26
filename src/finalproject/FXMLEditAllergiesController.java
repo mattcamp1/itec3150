@@ -25,17 +25,6 @@ public class FXMLEditAllergiesController extends BaseController<Allergy> {
 
 	private Allergy currentAllergy;
 
-	@FXML
-	private ListView<Allergy> listviewAllergies;
-
-	@FXML
-	private Button btnAllergyAdd;
-
-	@FXML
-	private Button btnAllergyRemove;
-
-	@FXML
-	private Button btnConfirmChanges;
 
 	@FXML
 	private Slider sldrAllergySeverity;
@@ -55,17 +44,14 @@ public class FXMLEditAllergiesController extends BaseController<Allergy> {
 	@FXML
 	private Button btnResetAllergy;
 
-	@FXML
 	void handleAddAllergy(ActionEvent event) {
 
 	}
 
-	@FXML
 	void handleConfirmChanges(ActionEvent event) {
 
 	}
 
-	@FXML
 	void handleRemoveAllergy(ActionEvent event) {
 
 	}

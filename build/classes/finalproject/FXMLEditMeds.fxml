@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="300.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="finalproject.FXMLEditMedsController">
+<AnchorPane prefHeight="300.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="finalproject.FXMLEditMedsController">
    <children>
       <VBox alignment="CENTER" layoutX="6.0" prefHeight="300.0" prefWidth="400.0" spacing="20.0">
          <children>
@@ -47,7 +47,7 @@
                         <Button fx:id="btnResetMedication" mnemonicParsing="false" onAction="#handleReset" text="Reset" />
                      </children>
                   </HBox>
-                  <Label text="Dose Count" GridPane.rowIndex="3" />
+                  <Label text="Doses Per Day" GridPane.rowIndex="3" />
                   <TextField fx:id="txtMedDose" prefHeight="25.0" prefWidth="173.0" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="2">
                      <GridPane.margin>
                         <Insets right="200.0" />
