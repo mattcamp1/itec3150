@@ -13,7 +13,7 @@ package finalproject.database;
  */
 // change br to temp
 public class PatientVisit {
-
+// add date
     private int patientId;
     private int visitId;
     private String doctorName;
