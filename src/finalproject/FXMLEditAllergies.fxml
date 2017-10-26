@@ -40,8 +40,8 @@
                   <Label text="Severity" GridPane.rowIndex="2" />
                   <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="10.0" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="2" GridPane.valignment="CENTER">
                      <children>
-                        <Slider fx:id="sldrAllergySeverity" blockIncrement="1.0" majorTickUnit="1.0" max="10.0" minorTickCount="1" onMouseClicked="#updateSeverity" prefWidth="200.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" />
-                        <TextField fx:id="txtAllergySeverity" onInputMethodTextChanged="#updateSeverity" prefColumnCount="2" />
+                        <Slider fx:id="sldrAllergySeverity" blockIncrement="1.0" majorTickUnit="1.0" max="10.0" minorTickCount="1" prefWidth="200.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" />
+                        <TextField fx:id="txtAllergySeverity" prefColumnCount="2" />
                      </children>
                      <padding>
                         <Insets right="20.0" />

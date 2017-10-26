@@ -62,7 +62,7 @@ public class Allergy {
         
         public static List<Allergy> getAllergyList(String allergies){
             String[] arrayAllergy = allergies.split("END");
-            List<Allergy> list = new LinkedList<>();
+            List<Allergy> list = new LinkedList<Allergy>();
             for (int index = 0; index < arrayAllergy.length; index++){
                 list.add(getAllergyFromString(arrayAllergy[index]));
             }

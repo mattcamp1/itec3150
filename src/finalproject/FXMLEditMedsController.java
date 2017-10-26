@@ -1,10 +1,15 @@
 package finalproject;
 
+import finalproject.database.Medication;
+import finalproject.database.Patient;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
+
+import java.net.URL;
+import java.util.ResourceBundle;
 
 /**Class: FXMLEditMedsController
  * @author Matthew Camp
@@ -14,7 +19,7 @@ import javafx.scene.control.TextField;
  * Controller class for the JavaFX GUI handling medications
  *
  */
-public class FXMLEditMedsController {
+public class FXMLEditMedsController extends BaseController<Medication> {
 
 	@FXML
 	private ListView<?> listviewMedications;
@@ -71,4 +76,13 @@ public class FXMLEditMedsController {
 
 	}
 
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
+		// TODO
+	}
+
+	@Override
+	public void initData(Patient patient,  Medication target) {
+		// TODO
+	}
 }

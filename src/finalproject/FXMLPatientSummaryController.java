@@ -2,18 +2,20 @@
  */
 package finalproject;
 
+import finalproject.database.Allergy;
+import finalproject.database.Medication;
 import finalproject.database.Patient;
+import finalproject.database.PatientVisit;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
-import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 import java.io.IOException;
 import java.net.URL;
@@ -27,7 +29,7 @@ import java.util.ResourceBundle;
  * Controller class for the main JavaFX GUI handling patient summary information
  *
  */
-public class FXMLPatientSummaryController implements Initializable {
+public class FXMLPatientSummaryController extends BaseController<Patient> {
 
     @FXML
     private AnchorPane anchorPane;
@@ -78,7 +80,7 @@ public class FXMLPatientSummaryController implements Initializable {
     private HBox hboxAllergies;
 
     @FXML
-    private ListView<?> listviewPatientAllergies;
+    private ListView<Allergy> listviewPatientAllergies;
 
     @FXML
     private Button btnPatientEditAllergies;
@@ -90,7 +92,7 @@ public class FXMLPatientSummaryController implements Initializable {
     private HBox hboxAllergies1;
 
     @FXML
-    private ListView<?> listviewPatientMeds;
+    private ListView<Medication> listviewPatientMeds;
 
     @FXML
     private Button btnPatientEditMeds;
@@ -109,10 +111,8 @@ public class FXMLPatientSummaryController implements Initializable {
     @FXML
     void handleAddVisit(ActionEvent event) {
     	Patient patient = listviewPatients.getSelectionModel().getSelectedItem();
-    	Stage visitInfo = getStage("FXMLPatientVisit.fxml");
-    	visitInfo.initOwner(FinalProject.getMainInstance());
-    	visitInfo.initModality(Modality.APPLICATION_MODAL);
-    	visitInfo.showAndWait();
+    	if (patient == null) patient = new Patient();
+    	showDialog(Dialogs.Visit, patient, new PatientVisit());
     }
 
     @FXML
@@ -122,31 +122,56 @@ public class FXMLPatientSummaryController implements Initializable {
 
     @FXML
     void handleEditAllergies(ActionEvent event) {
-    	Stage allergyDialog = getStage("FXMLEditAllergies.fxml");
-    	allergyDialog.initOwner(FinalProject.getMainInstance());
-    	allergyDialog.initModality(Modality.APPLICATION_MODAL);
-    	allergyDialog.showAndWait();
-	}
+    	Patient patient = listviewPatients.getSelectionModel().getSelectedItem();
+    	Allergy allergy = listviewPatientAllergies.getSelectionModel().getSelectedItem();
+    	if (patient == null) patient = new Patient();
+    	showDialog(Dialogs.Allergies, patient, allergy);
+    }
 
-	private Stage getStage(String file) {
-		Stage dialog = new Stage();
-		try {
-			Parent root = FXMLLoader.load(getClass().getResource(file));
-			Scene scene = new Scene(root);
-			dialog.setScene(scene);
-			return dialog;
+	private <T> Stage showDialog(Dialogs dialog, Patient patient, T target) {
+    	try {
+			FXMLLoader loader = new FXMLLoader(
+					getClass().getResource(dialog.toString())
+			);
+
+			Stage stage = new Stage(StageStyle.DECORATED);
+			stage.setScene(new Scene((AnchorPane) loader.load()));
+
+			BaseController controller;
+			switch (dialog) {
+				case Allergies:
+					controller = loader.<FXMLEditAllergiesController>getController();
+					break;
+
+				case Meds:
+					controller = loader.<FXMLEditMedsController>getController();
+					break;
+
+				case Visit:
+					controller = loader.<FXMLPatientVisitController>getController();
+					break;
+
+				default:
+					throw new IllegalArgumentException();
+			}
+
+			controller.initData(patient, target);
+			stage.show();
+			return stage;
+
 		} catch (IOException e) {
 			e.printStackTrace();
 			return null;
+		} catch (IllegalArgumentException e) {
+    		return null;
 		}
 	}
 
     @FXML
     void handleEditMeds(ActionEvent event) {
-    	Stage medicationsDialog = getStage("FXMLEditMeds.fxml");
-    	medicationsDialog.initOwner(FinalProject.getMainInstance());
-    	medicationsDialog.initModality(Modality.APPLICATION_MODAL);
-    	medicationsDialog.showAndWait();
+    	Patient patient = listviewPatients.getSelectionModel().getSelectedItem();
+		Medication med = listviewPatientMeds.getSelectionModel().getSelectedItem();
+		showDialog(Dialogs.Meds, patient, med);
     }
 
     @FXML
@@ -187,6 +212,10 @@ public class FXMLPatientSummaryController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }    
-    
+    }
+
+	@Override
+	public void initData(Patient patient, Patient target) {
+		// NO-OP?
+	}
 }

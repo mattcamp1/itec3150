@@ -1,6 +1,120 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" />
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <VBox alignment="TOP_CENTER" prefHeight="600.0" prefWidth="400.0" spacing="20.0">
+         <children>
+            <Label alignment="CENTER" contentDisplay="CENTER" text="Patient Visit" textAlignment="CENTER">
+               <font>
+                  <Font size="25.0" />
+               </font>
+               <padding>
+                  <Insets top="10.0" />
+               </padding>
+            </Label>
+            <GridPane hgap="20.0" prefHeight="600.0" vgap="10.0">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="195.0" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="285.0" minWidth="10.0" prefWidth="270.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints maxHeight="138.0" minHeight="0.0" prefHeight="24.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="203.0" minHeight="0.0" prefHeight="115.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="201.0" minHeight="0.0" prefHeight="144.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="235.0" minHeight="0.0" prefHeight="148.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Label contentDisplay="CENTER" text="Date" GridPane.halignment="RIGHT">
+                     <GridPane.margin>
+                        <Insets />
+                     </GridPane.margin>
+                  </Label>
+                  <DatePicker fx:id="txtDate" GridPane.columnIndex="1" />
+                  <Label alignment="CENTER" text="Reason" GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
+                  <TextArea fx:id="txtReason" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                     <GridPane.margin>
+                        <Insets right="20.0" />
+                     </GridPane.margin>
+                  </TextArea>
+                  <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" spacing="10.0" GridPane.columnSpan="2" GridPane.rowIndex="2">
+                     <children>
+                        <Separator prefWidth="200.0" />
+                        <Label alignment="CENTER" text="Vitals">
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                        </Label>
+                        <GridPane hgap="10.0" vgap="2.0">
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="174.0" minWidth="10.0" prefWidth="122.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="243.0" minWidth="10.0" prefWidth="238.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <Label text="Pulse" GridPane.halignment="RIGHT" />
+                              <TextField fx:id="txtVitalPulse" GridPane.columnIndex="1" />
+                              <Label contentDisplay="CENTER" text="Blood Pressure" GridPane.halignment="RIGHT" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                                 <GridPane.margin>
+                                    <Insets />
+                                 </GridPane.margin>
+                              </Label>
+                              <HBox prefHeight="1.0" prefWidth="200.0" spacing="10.0" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="1" GridPane.valignment="BOTTOM">
+                                 <children>
+                                    <TextField fx:id="txtVitalBPTop" alignment="BOTTOM_CENTER" />
+                                    <TextField fx:id="txtVitalBPBottom" />
+                                 </children>
+                              </HBox>
+                              <Label text="Temperature" GridPane.halignment="RIGHT" GridPane.rowIndex="2" />
+                              <TextField fx:id="txtVitalTemp" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                           </children>
+                           <VBox.margin>
+                              <Insets left="40.0" right="40.0" />
+                           </VBox.margin>
+                        </GridPane>
+                        <Separator prefHeight="1.0" prefWidth="370.0" />
+                     </children>
+                  </VBox>
+                  <Label text="Diagnosis" GridPane.halignment="RIGHT" GridPane.rowIndex="3" />
+                  <TextArea fx:id="txtDiagnosis" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                     <GridPane.margin>
+                        <Insets right="20.0" />
+                     </GridPane.margin>
+                  </TextArea>
+               </children>
+               <padding>
+                  <Insets left="10.0" right="10.0" />
+               </padding>
+            </GridPane>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="40.0">
+               <children>
+                  <Button fx:id="btnSubmit" mnemonicParsing="false" text="Submit" />
+                  <Button fx:id="btnCancel" mnemonicParsing="false" text="Cancel" />
+               </children>
+            </HBox>
+         </children>
+         <padding>
+            <Insets bottom="20.0" />
+         </padding>
+      </VBox>
+   </children>
+</AnchorPane>

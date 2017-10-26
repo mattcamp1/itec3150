@@ -1,6 +1,7 @@
 package finalproject;
 
 import finalproject.database.Allergy;
+import finalproject.database.Patient;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -8,6 +9,9 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.Slider;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+
+import java.net.URL;
+import java.util.ResourceBundle;
 
 /**Class: FXMLEditAllergiesController
  * @author Matthew Camp
@@ -17,7 +21,7 @@ import javafx.scene.control.TextField;
  * Controller class for the JavaFX GUI handling allergies
  *
  */
-public class FXMLEditAllergiesController {
+public class FXMLEditAllergiesController extends BaseController<Allergy> {
 
 	private Allergy currentAllergy;
 
@@ -76,4 +80,13 @@ public class FXMLEditAllergiesController {
 
 	}
 
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
+		// TODO
+	}
+
+	@Override
+	public void initData(Patient patient, Allergy target) {
+		// TODO
+	}
 }

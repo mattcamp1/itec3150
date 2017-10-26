@@ -73,7 +73,7 @@ public class Medication {
         
         public static List<Medication> getMedicationList(String medications){
             String[] arrayMed = medications.split("END");
-            List<Medication> list = new LinkedList<>();
+            List<Medication> list = new LinkedList<Medication>();
             for (int index = 0; index < arrayMed.length; index++){
                 list.add(getMedicationFromString(arrayMed[index]));
             }

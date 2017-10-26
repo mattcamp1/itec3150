@@ -24,6 +24,8 @@ public class PatientVisit {
     private String doctorNotes;
     private String newPrescriptions;
 
+    public PatientVisit() { }
+
     public PatientVisit(int patientId, String doctorName, String bloodPressure, int pulse, int breathRate, String icdCode, String doctorNotes, String newPrescriptions) {
         this.patientId = patientId;
         this.doctorName = doctorName;
