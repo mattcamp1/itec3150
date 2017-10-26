@@ -27,7 +27,7 @@ public class FinalProject extends Application {
         stage.show();
     }
 
-    public static Stage GetMainInstance() {
+    public static Stage getMainInstance() {
     	return mainStage;
 	}
 

@@ -2,6 +2,7 @@
  */
 package finalproject;
 
+import finalproject.database.Patient;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -35,7 +36,7 @@ public class FXMLPatientSummaryController implements Initializable {
     private Label lblTitle;
 
     @FXML
-    private ListView<?> listviewPatients;
+    private ListView<Patient> listviewPatients;
 
     @FXML
     private Button btnNewParient;
@@ -107,7 +108,11 @@ public class FXMLPatientSummaryController implements Initializable {
 
     @FXML
     void handleAddVisit(ActionEvent event) {
-
+    	Patient patient = listviewPatients.getSelectionModel().getSelectedItem();
+    	Stage visitInfo = getStage("FXMLPatientVisit.fxml");
+    	visitInfo.initOwner(FinalProject.getMainInstance());
+    	visitInfo.initModality(Modality.APPLICATION_MODAL);
+    	visitInfo.showAndWait();
     }
 
     @FXML
@@ -118,7 +123,7 @@ public class FXMLPatientSummaryController implements Initializable {
     @FXML
     void handleEditAllergies(ActionEvent event) {
     	Stage allergyDialog = getStage("FXMLEditAllergies.fxml");
-    	allergyDialog.initOwner(FinalProject.GetMainInstance());
+    	allergyDialog.initOwner(FinalProject.getMainInstance());
     	allergyDialog.initModality(Modality.APPLICATION_MODAL);
     	allergyDialog.showAndWait();
 	}
@@ -139,7 +144,7 @@ public class FXMLPatientSummaryController implements Initializable {
     @FXML
     void handleEditMeds(ActionEvent event) {
     	Stage medicationsDialog = getStage("FXMLEditMeds.fxml");
-    	medicationsDialog.initOwner(FinalProject.GetMainInstance());
+    	medicationsDialog.initOwner(FinalProject.getMainInstance());
     	medicationsDialog.initModality(Modality.APPLICATION_MODAL);
     	medicationsDialog.showAndWait();
     }
