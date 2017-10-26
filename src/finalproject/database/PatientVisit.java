@@ -24,6 +24,7 @@ public class PatientVisit {
     private String doctorNotes;
     private String newPrescriptions;
 
+    // Temporary
     public PatientVisit() { }
 
     public PatientVisit(int patientId, String doctorName, String bloodPressure, int pulse, int breathRate, String icdCode, String doctorNotes, String newPrescriptions) {

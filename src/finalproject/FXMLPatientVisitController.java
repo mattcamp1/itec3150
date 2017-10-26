@@ -18,10 +18,6 @@ public class FXMLPatientVisitController extends BaseController<PatientVisit> {
 
 	private Patient patient;
 
-	public FXMLPatientVisitController(Patient patient) {
-		this.patient = patient;
-	}
-
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO

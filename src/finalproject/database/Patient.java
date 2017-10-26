@@ -25,9 +25,8 @@ public class Patient {
     private String currentMedication;
     private String insurance;
 
-    public Patient() {
-
-    }
+    // Temporary
+    public Patient() { }
     
     public Patient(String name, String address, String phoneNumber, 
             String email, String dob, String maritalStatus, String allergies,
