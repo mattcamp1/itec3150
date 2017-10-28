@@ -21,7 +21,6 @@ import java.util.ResourceBundle;
  */
 public class FXMLEditMedsController extends BaseController<Medication> {
 
-
 	@FXML
 	private TextField txtMedName;
 
@@ -40,7 +39,6 @@ public class FXMLEditMedsController extends BaseController<Medication> {
 	@FXML
 	private TextField txtMedReason;
         
-        
         private Patient patient;
         private Medication medication;
         private boolean isEdit;
@@ -52,23 +50,7 @@ public class FXMLEditMedsController extends BaseController<Medication> {
 
 	@FXML
 	void handleSaveMedication(ActionEvent event) {
-            if (isEdit){
-                Medication medication = getMedicationFromFields();
-                List<Medication> meds = Medication.getMedicationList(patient.getCurrentMedication());
-                for (int index = 0; index < meds.size(); index++){
-                    if (meds.get(index).getName().equalsIgnoreCase(medication.getName())){
-                        meds.set(index, medication);
-                        break;
-                    }
-                }
-                String patientMedString = "";
-                for (Medication ptMed: meds){
-                    patientMedString += ptMed.toString();
-                }
-                patient.setCurrentMedication(patientMedString);
-            } else {
-                
-            }
+
 	}
 
 	@Override
@@ -79,16 +61,7 @@ public class FXMLEditMedsController extends BaseController<Medication> {
 	@Override
 	public void initData(Patient patient,  Medication target) {
 		// TODO
-                this.patient = patient;
-                this.medication = target;
-                this.isEdit = true;
-                txtMedName.setText(medication.getName());
-                txtMedDose.setText(String.valueOf(medication.getDoseMilligrams()));
-                txtMedReason.setText(medication.getReason());
-                txtMedDoseCount.setText(String.valueOf(medication.getDoseCount()));
+                
 	}
         
-        private Medication getMedicationFromFields(){
-            return new Medication(txtMedName.getText(), txtMedReason.getText(), Integer.valueOf(txtMedDose.getText()), Integer.valueOf(txtMedDoseCount.getText()));
-        }
 }

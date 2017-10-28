@@ -56,13 +56,45 @@ public class PatientContract {
         
         public static final String COLUMN_PULSE = "pulse";
         
-        public static final String COLUMN_BREATH = "breath_rate";
-        
-        public static final String COLUMN_ICD = "icd_code";
+        public static final String COLUMN_TEMP = "temperature";
         
         public static final String COLUMN_NOTES = "doctor_notes";
         
-        public static final String COLUMN_PRESCRIBED = "given_prescriptions";
+        public static final String COLUMN_DATE = "date";
         
+        public static final String COLUMN_REASON = "reason";
+        
+    }
+    
+    public static final class MedicationEntry{
+        
+        public static final String TABLE_NAME = "medications";
+                
+        public static final String COLUMN_P_ID = "p_id";
+                
+        public static final String COLUMN_ID = "m_id";
+               
+        public static final String COLUMN_NAME = "name";
+        
+        public static final String COLUMN_REASON = "reason";
+        
+        public static final String COLUMN_DOSE_MIL = "miligrams";
+        
+        public static final String COLUMN_COUNT = "dose_count";
+    }
+    
+    public static final class AllergyEntry{
+        
+        public static final String TABLE_NAME = "allergies";
+        
+         public static final String COLUMN_P_ID = "p_id";
+         
+         public static final String COLUMN_ID = "a_id";
+         
+         public static final String COLUMN_SUBSTANCE = "substance";
+         
+         public static final String COLUMN_EFFECTS = "effects";
+         
+         public static final String COLUMN_SEVERITY = "severity";
     }
 }

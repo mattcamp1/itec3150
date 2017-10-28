@@ -2,10 +2,19 @@
  */
 package finalproject;
 
+import finalproject.database.Dialogs;
 import finalproject.database.Allergy;
+import finalproject.database.AllergyDb;
+import finalproject.database.AllergyDbManager;
 import finalproject.database.Medication;
+import finalproject.database.MedicationDb;
+import finalproject.database.MedicationDbManager;
 import finalproject.database.Patient;
+import finalproject.database.PatientDb;
+import finalproject.database.PatientDbManager;
 import finalproject.database.PatientVisit;
+import finalproject.database.VisitDb;
+import finalproject.database.VisitDbManager;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -119,7 +128,27 @@ public class FXMLPatientSummaryController extends BaseController<Patient> {
 
     @FXML
     void handleConfirmPatient(ActionEvent event) {
-
+        // testing db
+        
+        //Patient patient = new Patient("name", "home", "999", "@gmail", "today", "single", "none");
+        PatientDbManager pman = new PatientDbManager();
+        //pman.insert(patient); // patient inserted
+        //System.out.println(pman.get(1)); // patient printed
+        VisitDbManager vman = new VisitDbManager();
+        //PatientVisit visit = new PatientVisit(1, "tomorrow", "bob", "1/1", 99, 99, "cancer", "as good as dead");
+        //vman.insert(visit); // visit inserted
+        //System.out.println(vman.get(1)); // visit printed
+        MedicationDbManager mman = new MedicationDbManager();
+        //Medication medication = new Medication(1, "viagra", "limp", 500, 60);
+        // mman.insert(medication); inserted
+        //System.out.println(mman.get(1)); printed
+        AllergyDbManager aman = new AllergyDbManager();
+//        Allergy allergy = new Allergy(1, "bullshit", "death", 9);
+//        aman.insert(allergy);
+        //System.out.println(aman.get(1));
+        
+        
+        
     }
 
     @FXML

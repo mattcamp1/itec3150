@@ -21,24 +21,19 @@ public class Patient {
     private String email; // maybe check here for format
     private String dob;
     private String maritalStatus;
-    private String allergies;
-    private String currentMedication;
     private String insurance;
 
     // Temporary
     public Patient() { }
     
     public Patient(String name, String address, String phoneNumber, 
-            String email, String dob, String maritalStatus, String allergies,
-            String currentMedication, String insurance){
+            String email, String dob, String maritalStatus, String insurance){
         this.name = name;
         this.address = address;
         this.phoneNumber = phoneNumber;
         this.email = email;
         this.dob = dob;
         this.maritalStatus = maritalStatus;
-        this.allergies = allergies;
-        this.currentMedication = currentMedication;
         this.insurance = insurance;
         this.id = -1;
     }
@@ -99,22 +94,6 @@ public class Patient {
         this.maritalStatus = maritalStatus;
     }
 
-    public String getAllergies() {
-        return allergies;
-    }
-
-    public void setAllergies(String allergies) {
-        this.allergies = allergies;
-    }
-
-    public String getCurrentMedication() {
-        return currentMedication;
-    }
-
-    public void setCurrentMedication(String currentMedication) {
-        this.currentMedication = currentMedication;
-    }
-
     public String getInsurance() {
         return insurance;
     }
@@ -123,7 +102,7 @@ public class Patient {
         this.insurance = insurance;
     }
     
-    // for testing purposes
+    // change for listview
     @Override
     public String toString(){
         return this.getId() + " " + this.getName() + " " + this.getInsurance();

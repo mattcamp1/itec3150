@@ -11,31 +11,30 @@ package finalproject.database;
  * This class stores information for each time the patient visits a doctor. Do not use setVisitId outside of databaseManager
  *
  */
-// change br to temp
+
 public class PatientVisit {
-// add date
+
     private int patientId;
     private int visitId;
     private String doctorName;
     private String bloodPressure;
     private int pulse;
-    private int breathRate;
-    private String icdCode;
+    private int temperature;
     private String doctorNotes;
-    private String newPrescriptions;
+    private String date;
+    private String reason;
 
-    // Temporary
     public PatientVisit() { }
 
-    public PatientVisit(int patientId, String doctorName, String bloodPressure, int pulse, int breathRate, String icdCode, String doctorNotes, String newPrescriptions) {
+    public PatientVisit(int patientId, String date, String doctorName, String bloodPressure, int pulse, int temperature, String reason, String doctorNotes) {
         this.patientId = patientId;
         this.doctorName = doctorName;
         this.bloodPressure = bloodPressure;
         this.pulse = pulse;
-        this.breathRate = breathRate;
-        this.icdCode = icdCode;
+        this.temperature = temperature;
         this.doctorNotes = doctorNotes;
-        this.newPrescriptions = newPrescriptions;
+        this.date = date;
+        this.reason = reason;
     }
 
     public int getPatientId() {
@@ -78,20 +77,12 @@ public class PatientVisit {
         this.pulse = pulse;
     }
 
-    public int getBreathRate() {
-        return breathRate;
+    public int getTemperature() {
+        return temperature;
     }
 
-    public void setBreathRate(int breathRate) {
-        this.breathRate = breathRate;
-    }
-
-    public String getIcdCode() {
-        return icdCode;
-    }
-
-    public void setIcdCode(String icdCode) {
-        this.icdCode = icdCode;
+    public void setTempereature(int temperature) {
+        this.temperature = temperature;
     }
 
     public String getDoctorNotes() {
@@ -102,14 +93,23 @@ public class PatientVisit {
         this.doctorNotes = doctorNotes;
     }
 
-    public String getNewPrescriptions() {
-        return newPrescriptions;
+    public String getDate() {
+        return date;
     }
 
-    public void setNewPrescriptions(String newPrescriptions) {
-        this.newPrescriptions = newPrescriptions;
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    public String getReason() {
+        return reason;
+    }
+
+    public void setReason(String reason) {
+        this.reason = reason;
     }
     
+    // change for list view
     @Override
     public String toString(){
         return this.visitId + " " + this.doctorNotes + this.patientId;

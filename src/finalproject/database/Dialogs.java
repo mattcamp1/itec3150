@@ -1,4 +1,4 @@
-package finalproject;
+package finalproject.database;
 
 public enum Dialogs {
 	Summary ("FXMLPatientSummary.fxml"),
