@@ -133,7 +133,7 @@ public class VisitDb {
         try {
             statement = connection.createStatement();
             result = statement.executeQuery(query);
-            LinkedList<PatientVisit> visitList = new LinkedList<>();
+            LinkedList<PatientVisit> visitList = new LinkedList<PatientVisit>();
             PatientVisit visit = null;
             while (result.next()) {
                 visit = constructVisit(result);

@@ -39,9 +39,9 @@ public class FXMLEditMedsController extends BaseController<Medication> {
 	@FXML
 	private TextField txtMedReason;
         
-        private Patient patient;
-        private Medication medication;
-        private boolean isEdit;
+	private Patient patient;
+	private Medication medication;
+	private boolean isEdit;
 
 	@FXML
 	void handleReset(ActionEvent event) {
@@ -63,5 +63,9 @@ public class FXMLEditMedsController extends BaseController<Medication> {
 		// TODO
                 
 	}
-        
+
+	@Override
+	public Medication validateForm() {
+		return null;
+	}
 }

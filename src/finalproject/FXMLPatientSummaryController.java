@@ -1,20 +1,7 @@
-/*
- */
 package finalproject;
 
-import finalproject.database.Dialogs;
-import finalproject.database.Allergy;
-import finalproject.database.AllergyDb;
-import finalproject.database.AllergyDbManager;
-import finalproject.database.Medication;
-import finalproject.database.MedicationDb;
-import finalproject.database.MedicationDbManager;
-import finalproject.database.Patient;
-import finalproject.database.PatientDb;
-import finalproject.database.PatientDbManager;
-import finalproject.database.PatientVisit;
-import finalproject.database.VisitDb;
-import finalproject.database.VisitDbManager;
+import finalproject.database.*;
+import finalproject.helpers.AlertHelper;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -27,7 +14,10 @@ import javafx.stage.StageStyle;
 
 import java.io.IOException;
 import java.net.URL;
+import java.time.format.DateTimeFormatter;
+import java.util.Collection;
 import java.util.ResourceBundle;
+import java.util.regex.Pattern;
 
 /**Class: FXMLPatientSummaryController
  * @author Matthew Camp
@@ -38,6 +28,11 @@ import java.util.ResourceBundle;
  *
  */
 public class FXMLPatientSummaryController extends BaseController<Patient> {
+
+	private PatientDbManager patientManager;
+
+	private final String EMAIL_REGEX = "(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|\"(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21\\x23-\\x5b\\x5d-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])*\")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21-\\x5a\\x53-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])+)\\])";
+	private final String[] PHONE_REGEX = {"[0-9]{3}", "[0-9]{4}"};
 
     @FXML
     private AnchorPane anchorPane;
@@ -54,7 +49,6 @@ public class FXMLPatientSummaryController extends BaseController<Patient> {
     @FXML
     private Button btnRemovePatient;
 
-
     @FXML
     private Label lblPatientId;
 
@@ -68,7 +62,7 @@ public class FXMLPatientSummaryController extends BaseController<Patient> {
     private TextField txtPatientEmail;
 
     @FXML
-    private ComboBox<?> cboxPatientMaritalStatus;
+    private ComboBox<MaritalStatus> cboxPatientMaritalStatus;
 
     @FXML
     private HBox hboxPhone;
@@ -108,26 +102,121 @@ public class FXMLPatientSummaryController extends BaseController<Patient> {
 
     @FXML
     private Button btnConfirmPatient;
+
     @FXML
     private Button viewVisitButton;
+
     @FXML
     private Button addAllergyButton;
+
     @FXML
     private Button addMedicationButton;
+
+    @FXML
+	private DatePicker dpickDateOfBirth;
 
     @FXML
     void handleAddPatient(ActionEvent event) {
 
     }
 
+    private void populateCombos() {
+    	cboxPatientMaritalStatus.getItems().clear();
+    	cboxPatientMaritalStatus.getItems().addAll(MaritalStatus.values());
+	}
+
+	// TODO
     void handleAddVisit(ActionEvent event) {
     	Patient patient = listviewPatients.getSelectionModel().getSelectedItem();
     	if (patient == null) patient = new Patient();
     	showDialog(Dialogs.Visit, patient, new PatientVisit());
     }
 
+    public Patient validateForm() {
+    	ValidationStatus status = new ValidationStatus();
+    	String name = "";
+		String address = "";
+		String phone = "";
+		String email = "";
+		String dob = "";
+		String marriage = "";
+		String insurance = "";
+
+		if (txtPatientName.getText().isEmpty()) {
+    		status.addFieldError("Name");
+		} else {
+    		name = txtPatientName.getText();
+		}
+
+		if (txtPatientAddress.getText().isEmpty()) {
+    		status.addFieldError("Address");
+		} else {
+    		address = txtPatientAddress.getText();
+		}
+
+		if (txtPatientPhoneAreaCode.getText().isEmpty() || txtPatientPhonePrefix.getText().isEmpty() || txtPatientPhoneLineNumber.getText().isEmpty()) {
+    		status.addFieldError("Phone Number");
+		} else {
+    		phone = "";
+    		if (Pattern.matches(PHONE_REGEX[0], txtPatientPhoneAreaCode.getText())) {
+    			phone = txtPatientPhoneAreaCode.getText();
+
+				if (Pattern.matches(PHONE_REGEX[0], txtPatientPhonePrefix.getText())) {
+					phone += txtPatientPhonePrefix.getText();
+
+					if (Pattern.matches(PHONE_REGEX[1], txtPatientPhoneLineNumber.getText())) {
+						phone += txtPatientPhoneLineNumber.getText();
+					} else {
+						status.addFieldError("Phone Number");
+					}
+				} else {
+					status.addFieldError("Phone Number");
+				}
+			} else {
+    			status.addFieldError("Phone Number");
+			}
+		}
+
+		if (txtPatientEmail.getText().isEmpty()) {
+    		status.addFieldError("Email");
+		} else {
+    		if (Pattern.matches(EMAIL_REGEX, txtPatientEmail.getText())) {
+    			email = txtPatientEmail.getText();
+			} else {
+    			status.addFieldError("Email");
+			}
+		}
+
+		if (dpickDateOfBirth.getValue() == null) {
+    		status.addFieldError("Date of Birth");
+		} else {
+			dob = dpickDateOfBirth.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+		}
+
+		if (cboxPatientMaritalStatus.getSelectionModel().isEmpty() || cboxPatientMaritalStatus.getSelectionModel().getSelectedItem() == null) {
+    		status.addFieldError("Marital Status");
+		} else {
+    		marriage = cboxPatientMaritalStatus.getSelectionModel().getSelectedItem().toString();
+		}
+
+		if (txtPatientInsurance.getText().isEmpty()) {
+    		status.addFieldError("Insurance");
+		} else {
+    		insurance = txtPatientInsurance.getText();
+		}
+
+		if (status.getIsValid()) {
+    		return new Patient(name, address, phone, email, dob, marriage, insurance);
+		} else {
+			AlertHelper.ShowWarning("Invalid Patient Information", "Please fix the following fields", status.getErrors());
+			return null;
+		}
+	}
+
+	// TODO: Test with working database
     @FXML
     void handleConfirmPatient(ActionEvent event) {
+    	// region Testing Database
         // testing db
         
         //Patient patient = new Patient("name", "home", "999", "@gmail", "today", "single", "none");
@@ -146,9 +235,19 @@ public class FXMLPatientSummaryController extends BaseController<Patient> {
 //        Allergy allergy = new Allergy(1, "bullshit", "death", 9);
 //        aman.insert(allergy);
         //System.out.println(aman.get(1));
-        
-        
-        
+		// endregion
+
+		Patient patient;
+
+		if (listviewPatients.getSelectionModel().getSelectedItem() == null) {
+			System.out.println("[FXMLPatientSummaryController] Inserting new patient");
+			patient = validateForm();
+			patientManager.insert(patient);
+		} else {
+			System.out.println("[FXMLPatientSummaryController] Updating existing patient");
+			patient = validateForm();
+			patientManager.update(patient);
+		}
     }
 
     @FXML
@@ -198,6 +297,7 @@ public class FXMLPatientSummaryController extends BaseController<Patient> {
 		}
 	}
 
+	// TODO
     @FXML
     void handleEditMeds(ActionEvent event) {
     	Patient patient = listviewPatients.getSelectionModel().getSelectedItem();
@@ -205,30 +305,45 @@ public class FXMLPatientSummaryController extends BaseController<Patient> {
 		showDialog(Dialogs.Meds, patient, med);
     }
 
+    // TODO
     @FXML
     void handleRemovePatient(ActionEvent event) {
 
     }
     
-    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+    	populateCombos();
+    	populatePatientList();
     }
 
 	@Override
 	public void initData(Patient patient, Patient target) {
-		// NO-OP?
+    	// NO-OP
 	}
 
+	private void populatePatientList() {
+    	try {
+			listviewPatients.getItems().clear();
+			patientManager = new PatientDbManager();
+			Collection<Patient> patients = patientManager.getList(-1);
+			listviewPatients.getItems().addAll(patients);
+		} catch (NullPointerException e) {
+    		AlertHelper.ShowError("An error occurred", "Error accessing PATIENT table", e);
+		}
+	}
+
+	// TODO
     @FXML
     private void viewVisits(ActionEvent event) {
     }
 
+    // TODO
     @FXML
     private void addAllergy(ActionEvent event) {
     }
 
+    // TODO
     @FXML
     private void addMedication(ActionEvent event) {
     }

@@ -50,4 +50,9 @@ public class FXMLPatientVisitController extends BaseController<PatientVisit> {
 	public void initData(Patient patient, PatientVisit target) {
 		this.patient = patient;
 	}
+
+	@Override
+	public PatientVisit validateForm() {
+		return null;
+	}
 }

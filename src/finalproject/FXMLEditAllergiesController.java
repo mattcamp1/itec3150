@@ -5,7 +5,6 @@ import finalproject.database.Patient;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import javafx.scene.control.ListView;
 import javafx.scene.control.Slider;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
@@ -25,7 +24,6 @@ public class FXMLEditAllergiesController extends BaseController<Allergy> {
 
 	private Allergy currentAllergy;
 
-
 	@FXML
 	private Slider sldrAllergySeverity;
 
@@ -44,21 +42,28 @@ public class FXMLEditAllergiesController extends BaseController<Allergy> {
 	@FXML
 	private Button btnResetAllergy;
 
-	void handleAddAllergy(ActionEvent event) {
-
-	}
-
-	void handleConfirmChanges(ActionEvent event) {
-
-	}
-
-	void handleRemoveAllergy(ActionEvent event) {
-
+	/**
+	 * Populates the fields in the form with existing data if it exists, otherwise
+	 * the fields are cleared out to blank value.
+	 */
+	private void repopulateFields() {
+		if (currentAllergy == null) {
+			sldrAllergySeverity.adjustValue(0);
+			txtAllergyEffect.setText(null);
+			txtAllergySubstance.setText(null);
+			txtAllergySeverity.setText("0");
+		} else {
+			sldrAllergySeverity.adjustValue(currentAllergy.getSeverity());
+			txtAllergyEffect.setText(currentAllergy.getEffects());
+			txtAllergySubstance.setText(currentAllergy.getSubstance());
+			txtAllergySeverity.setText(String.valueOf(currentAllergy.getSeverity()));
+		}
 	}
 
 	@FXML
 	void handleReset(ActionEvent event) {
-
+		currentAllergy = null;
+		repopulateFields();
 	}
 
 	@FXML
@@ -68,11 +73,17 @@ public class FXMLEditAllergiesController extends BaseController<Allergy> {
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		// TODO
+		// NO-OP
 	}
 
 	@Override
 	public void initData(Patient patient, Allergy target) {
-		// TODO
+		currentAllergy = target;
+		repopulateFields();
+	}
+
+	@Override
+	public Allergy validateForm() {
+		return null;
 	}
 }
