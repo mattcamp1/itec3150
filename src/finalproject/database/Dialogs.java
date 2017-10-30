@@ -1,5 +1,6 @@
 package finalproject.database;
 
+
 public enum Dialogs {
 	Summary ("FXMLPatientSummary.fxml"),
 	Visit ("FXMLPatientVisit.fxml"),

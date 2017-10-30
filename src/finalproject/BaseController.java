@@ -3,6 +3,7 @@ package finalproject;
 import finalproject.database.Patient;
 import javafx.fxml.Initializable;
 
+
 /**Class: BaseController
  * @author Matthew Camp
  * Version 1.0

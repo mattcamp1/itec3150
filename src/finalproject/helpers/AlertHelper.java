@@ -1,9 +1,10 @@
 package finalproject.helpers;
 
-import javafx.scene.control.Alert;
-
 import java.io.PrintWriter;
 import java.io.StringWriter;
+
+import javafx.scene.control.Alert;
+
 
 /**Class: AlertHelper
  * @author Matthew Camp

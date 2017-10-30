@@ -1,7 +1,5 @@
-/*
- */
-
 package finalproject.database;
+
 
 /**Class: PatientVisit
  * @author Jarrod Bailey

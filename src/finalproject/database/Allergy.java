@@ -1,5 +1,6 @@
 package finalproject.database;
 
+
 /**
  * Class: Allergy
  *

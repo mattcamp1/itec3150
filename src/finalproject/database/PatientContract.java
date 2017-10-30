@@ -1,6 +1,3 @@
-/*
- */
-
 package finalproject.database;
 
 /**Class: Patient Contract
@@ -11,6 +8,7 @@ package finalproject.database;
  * This class provides constants for use with the corresponding database. This helps prevent errors in the database.
  *
  */
+
 
 public class PatientContract {
     

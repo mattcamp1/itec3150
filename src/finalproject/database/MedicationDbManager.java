@@ -1,8 +1,7 @@
-/*
- */
 package finalproject.database;
 
 import java.util.List;
+
 
 /**
  * Class:

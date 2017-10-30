@@ -1,6 +1,3 @@
-/*
- */
-
 package finalproject.database;
 
 /**Class: Patient
@@ -11,6 +8,7 @@ package finalproject.database;
  * This is the patient class to store patient information. Do not use setId outside of databaseManager
  *
  */
+
 
 public class Patient {
     

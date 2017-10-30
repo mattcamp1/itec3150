@@ -2,6 +2,14 @@ package finalproject;
 
 import finalproject.database.*;
 import finalproject.helpers.AlertHelper;
+
+import java.io.IOException;
+import java.net.URL;
+import java.time.format.DateTimeFormatter;
+import java.util.Collection;
+import java.util.ResourceBundle;
+import java.util.regex.Pattern;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -12,12 +20,6 @@ import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
-import java.io.IOException;
-import java.net.URL;
-import java.time.format.DateTimeFormatter;
-import java.util.Collection;
-import java.util.ResourceBundle;
-import java.util.regex.Pattern;
 
 /**Class: FXMLPatientSummaryController
  * @author Matthew Camp

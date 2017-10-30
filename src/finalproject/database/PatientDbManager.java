@@ -1,9 +1,7 @@
-/*
- */
-
 package finalproject.database;
 
 import java.util.List;
+
 
 /**Class: PatientDbManager
  * @author Jarrod Bailey
