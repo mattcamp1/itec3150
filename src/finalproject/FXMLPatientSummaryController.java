@@ -285,7 +285,7 @@ public class FXMLPatientSummaryController extends BaseController<Patient> {
 					throw new IllegalArgumentException();
 			}
 
-			controller.initData(patient, target);
+			controller.initData(this, patient, target);
 			stage.show();
 			return stage;
 
@@ -313,13 +313,18 @@ public class FXMLPatientSummaryController extends BaseController<Patient> {
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-    	populateCombos();
-    	populatePatientList();
+
     }
 
+    @Override
+    public void populateData() {
+		populateCombos();
+		populatePatientList();
+	}
+
 	@Override
-	public void initData(Patient patient, Patient target) {
-    	// NO-OP
+	public void initData(BaseController parent, Patient patient, Patient target) {
+    	super.initData(parent, patient, target);
 	}
 
 	private void populatePatientList() {

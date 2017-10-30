@@ -38,9 +38,7 @@ public class FXMLEditMedsController extends BaseController<Medication> {
 
 	@FXML
 	private TextField txtMedReason;
-        
-	private Patient patient;
-	private Medication medication;
+
 	private boolean isEdit;
 
 	@FXML
@@ -55,13 +53,17 @@ public class FXMLEditMedsController extends BaseController<Medication> {
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
+		// NO-OP
+	}
+
+	@Override
+	public void populateData() {
 		// TODO
 	}
 
 	@Override
-	public void initData(Patient patient,  Medication target) {
-		// TODO
-                
+	public void initData(BaseController parent, Patient patient,  Medication target) {
+		super.initData(parent, patient, target);
 	}
 
 	@Override

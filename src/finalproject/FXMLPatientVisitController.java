@@ -21,7 +21,6 @@ import javafx.scene.control.TextField;
  */
 public class FXMLPatientVisitController extends BaseController<PatientVisit> {
 
-	private Patient patient;
     @FXML
     private DatePicker txtDate;
     @FXML
@@ -47,8 +46,13 @@ public class FXMLPatientVisitController extends BaseController<PatientVisit> {
 	}
 
 	@Override
-	public void initData(Patient patient, PatientVisit target) {
-		this.patient = patient;
+	public void initData(BaseController parent, Patient patient, PatientVisit target) {
+		super.initData(parent, patient, target);
+	}
+
+	@Override
+	public void populateData() {
+		// TODO
 	}
 
 	@Override

@@ -22,8 +22,6 @@ import java.util.ResourceBundle;
  */
 public class FXMLEditAllergiesController extends BaseController<Allergy> {
 
-	private Allergy currentAllergy;
-
 	@FXML
 	private Slider sldrAllergySeverity;
 
@@ -42,28 +40,25 @@ public class FXMLEditAllergiesController extends BaseController<Allergy> {
 	@FXML
 	private Button btnResetAllergy;
 
-	/**
-	 * Populates the fields in the form with existing data if it exists, otherwise
-	 * the fields are cleared out to blank value.
-	 */
-	private void repopulateFields() {
-		if (currentAllergy == null) {
+	@Override
+	public void populateData() {
+		if (target == null) {
 			sldrAllergySeverity.adjustValue(0);
 			txtAllergyEffect.setText(null);
 			txtAllergySubstance.setText(null);
 			txtAllergySeverity.setText("0");
 		} else {
-			sldrAllergySeverity.adjustValue(currentAllergy.getSeverity());
-			txtAllergyEffect.setText(currentAllergy.getEffects());
-			txtAllergySubstance.setText(currentAllergy.getSubstance());
-			txtAllergySeverity.setText(String.valueOf(currentAllergy.getSeverity()));
+			sldrAllergySeverity.adjustValue(target.getSeverity());
+			txtAllergyEffect.setText(target.getEffects());
+			txtAllergySubstance.setText(target.getSubstance());
+			txtAllergySeverity.setText(String.valueOf(target.getSeverity()));
 		}
 	}
 
 	@FXML
 	void handleReset(ActionEvent event) {
-		currentAllergy = null;
-		repopulateFields();
+		target = null;
+		populateData();
 	}
 
 	@FXML
@@ -77,9 +72,10 @@ public class FXMLEditAllergiesController extends BaseController<Allergy> {
 	}
 
 	@Override
-	public void initData(Patient patient, Allergy target) {
-		currentAllergy = target;
-		repopulateFields();
+	public void initData(BaseController parent, Patient patient, Allergy target) {
+		super.initData(parent, patient, target);
+
+		populateData();
 	}
 
 	@Override

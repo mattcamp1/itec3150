@@ -11,4 +11,6 @@ package finalproject;
 public interface IValidation<T> {
 
 	T validateForm();
+
+	void populateData();
 }

@@ -13,5 +13,15 @@ import javafx.fxml.Initializable;
  */
 public abstract class BaseController<T> implements Initializable, IValidation<T> {
 
-	public abstract void initData(Patient patient, T target);
+	protected BaseController parent;
+	protected Patient patient;
+	protected T target;
+
+	public void initData(BaseController parent, Patient patient, T target) {
+		this.parent = parent;
+		this.patient = patient;
+		this.target = target;
+
+		populateData();
+	}
 }
