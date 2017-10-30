@@ -42,7 +42,7 @@ public class FXMLPatientVisitController extends BaseController<PatientVisit> {
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		// TODO
+		// NO-OP
 	}
 
 	@Override
@@ -52,7 +52,7 @@ public class FXMLPatientVisitController extends BaseController<PatientVisit> {
 
 	@Override
 	public void populateData() {
-		// TODO
+		// TODO: Fill in data
 	}
 
 	@Override

@@ -4,6 +4,8 @@ package finalproject;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import finalproject.database.PatientVisit;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -15,10 +17,10 @@ import javafx.scene.control.ListView;
  *
  * @author jnbcb
  */
-public class FXMLVisitListController implements Initializable {
+public class FXMLVisitListController extends BaseController<PatientVisit> {
 
     @FXML
-    private ListView<?> visitListView;
+    private ListView<PatientVisit> visitListView;
     @FXML
     private Button viewVisitButton;
     @FXML
@@ -29,7 +31,7 @@ public class FXMLVisitListController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        // NO-OP
     }    
 
     @FXML
@@ -39,5 +41,15 @@ public class FXMLVisitListController implements Initializable {
     @FXML
     private void addVisit(ActionEvent event) {
     }
-    
+
+    @Override
+    public PatientVisit validateForm() {
+        // TODO: Send patient visit data back to parent form
+        return null;
+    }
+
+    @Override
+    public void populateData() {
+    	// TODO: Fill in data
+    }
 }

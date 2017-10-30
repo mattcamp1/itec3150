@@ -115,11 +115,6 @@ public class FXMLPatientSummaryController extends BaseController<Patient> {
     @FXML
 	private DatePicker dpickDateOfBirth;
 
-    @FXML
-    void handleAddPatient(ActionEvent event) {
-
-    }
-
     private void populateCombos() {
     	cboxPatientMaritalStatus.getItems().clear();
     	cboxPatientMaritalStatus.getItems().addAll(MaritalStatus.values());
@@ -297,7 +292,6 @@ public class FXMLPatientSummaryController extends BaseController<Patient> {
 		}
 	}
 
-	// TODO
     @FXML
     void handleEditMeds(ActionEvent event) {
     	Patient patient = listviewPatients.getSelectionModel().getSelectedItem();
@@ -305,10 +299,14 @@ public class FXMLPatientSummaryController extends BaseController<Patient> {
 		showDialog(Dialogs.Meds, patient, med);
     }
 
-    // TODO
+	@FXML
+	void handleAddPatient(ActionEvent event) {
+		// TODO: Add patient
+	}
+
     @FXML
     void handleRemovePatient(ActionEvent event) {
-
+    	// TODO: Remove patient
     }
     
     @Override
@@ -338,18 +336,18 @@ public class FXMLPatientSummaryController extends BaseController<Patient> {
 		}
 	}
 
-	// TODO
     @FXML
     private void viewVisits(ActionEvent event) {
+    	// TODO: Add visit
     }
 
-    // TODO
     @FXML
     private void addAllergy(ActionEvent event) {
+    	// TODO: Add allergy
     }
 
-    // TODO
     @FXML
     private void addMedication(ActionEvent event) {
+    	// TODO: Add med
     }
 }
