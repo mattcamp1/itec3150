@@ -258,6 +258,7 @@ public class FXMLPatientSummaryController extends BaseController<Patient> {
     @FXML
     void handleEditAllergies(ActionEvent event) {
         Allergy allergy = listviewPatientAllergies.getSelectionModel().getSelectedItem();
+        System.out.println(allergy); // testing
         if (patient == null || allergy == null) {
             AlertHelper.ShowWarning("Editing Error", null, "Please select a patient and allergy to edit.");
         } else {
@@ -367,8 +368,8 @@ public class FXMLPatientSummaryController extends BaseController<Patient> {
         dpickDateOfBirth.setValue(LocalDate.parse(patient.getDob(), DateTimeFormatter.ofPattern("MM/dd/yyyy")));
         cboxPatientMaritalStatus.setValue(Enum.valueOf(MaritalStatus.class, patient.getMaritalStatus()));
 
-        MedicationDbManager medDatabase = new MedicationDbManager();
-        Collection<Medication> medList = medDatabase.getList(patient.getId());
+        //MedicationDbManager medDatabase = new MedicationDbManager();
+        //Collection<Medication> medList = medDatabase.getList(patient.getId());
         fillMeds(patient.getId());
         fillAllergies(patient.getId());
     }
