@@ -5,6 +5,7 @@ import finalproject.helpers.AlertHelper;
 
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Collection;
 import java.util.ResourceBundle;
@@ -15,8 +16,10 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
@@ -35,6 +38,9 @@ public class FXMLPatientSummaryController extends BaseController<Patient> {
 
 	private final String EMAIL_REGEX = "(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|\"(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21\\x23-\\x5b\\x5d-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])*\")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21-\\x5a\\x53-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])+)\\])";
 	private final String[] PHONE_REGEX = {"[0-9]{3}", "[0-9]{4}"};
+
+	private final Medication DEFAULT_MEDICATION = new Medication(-1, "", "", 0, 0);
+	private final Allergy DEFAULT_ALLERGY = new Allergy(-1, "", "", 0);
 
     @FXML
     private AnchorPane anchorPane;
@@ -125,7 +131,7 @@ public class FXMLPatientSummaryController extends BaseController<Patient> {
 	// TODO
     void handleAddVisit(ActionEvent event) {
     	Patient patient = listviewPatients.getSelectionModel().getSelectedItem();
-    	if (patient == null) patient = new Patient();
+    	if (patient == null) return;
     	showDialog(Dialogs.Visit, patient, new PatientVisit());
     }
 
@@ -249,10 +255,12 @@ public class FXMLPatientSummaryController extends BaseController<Patient> {
 
     @FXML
     void handleEditAllergies(ActionEvent event) {
-    	Patient patient = listviewPatients.getSelectionModel().getSelectedItem();
     	Allergy allergy = listviewPatientAllergies.getSelectionModel().getSelectedItem();
-    	if (patient == null) patient = new Patient();
-    	showDialog(Dialogs.Allergies, patient, allergy);
+    	if (patient == null || allergy == null) {
+    		AlertHelper.ShowWarning("Editing Error", null, "Please select a patient and allergy to edit.");
+		} else {
+			showDialog(Dialogs.Allergies, patient, allergy);
+		}
     }
 
 	private <T> Stage showDialog(Dialogs dialog, Patient patient, T target) {
@@ -283,7 +291,9 @@ public class FXMLPatientSummaryController extends BaseController<Patient> {
 			}
 
 			controller.initData(this, patient, target);
-			stage.show();
+			stage.setResizable(false);
+			stage.initModality(Modality.APPLICATION_MODAL);
+			stage.showAndWait();
 			return stage;
 
 		} catch (IOException e) {
@@ -313,13 +323,14 @@ public class FXMLPatientSummaryController extends BaseController<Patient> {
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-
+    	populateData();
     }
 
     @Override
     public void populateData() {
 		populateCombos();
 		populatePatientList();
+		populatePatientInfo(patient);
 	}
 
 	@Override
@@ -338,6 +349,24 @@ public class FXMLPatientSummaryController extends BaseController<Patient> {
 		}
 	}
 
+	private void populatePatientInfo(Patient patient) {
+    	if (patient == null) return;
+
+    	txtPatientInsurance.setText(patient.getInsurance());
+    	txtPatientEmail.setText(patient.getEmail());
+    	txtPatientPhoneLineNumber.setText(patient.getPhoneNumber().substring(6));
+    	txtPatientPhonePrefix.setText(patient.getPhoneNumber().substring(3, 6));
+    	txtPatientPhoneAreaCode.setText(patient.getPhoneNumber().substring(0, 3));
+    	txtPatientAddress.setText(patient.getAddress());
+    	txtPatientName.setText(patient.getName());
+    	lblPatientId.setText(String.valueOf(patient.getId()));
+    	dpickDateOfBirth.setValue(LocalDate.parse(patient.getDob(), DateTimeFormatter.ofPattern("MM/dd/yyyy")));
+    	cboxPatientMaritalStatus.setValue(Enum.valueOf(MaritalStatus.class, patient.getMaritalStatus()));
+
+    	MedicationDbManager medDatabase = new MedicationDbManager();
+    	Collection<Medication> medList = medDatabase.getList(patient.getId());
+	}
+
     @FXML
     private void viewVisits(ActionEvent event) {
     	// TODO: Add visit
@@ -345,11 +374,17 @@ public class FXMLPatientSummaryController extends BaseController<Patient> {
 
     @FXML
     private void addAllergy(ActionEvent event) {
-    	// TODO: Add allergy
+		showDialog(Dialogs.Allergies, patient, DEFAULT_ALLERGY);
     }
 
     @FXML
     private void addMedication(ActionEvent event) {
-    	// TODO: Add med
+    	showDialog(Dialogs.Meds, patient, DEFAULT_MEDICATION);
     }
+
+    @FXML
+	private void listviewOnMouseClicked(MouseEvent event) {
+    	patient = listviewPatients.getSelectionModel().getSelectedItem();
+    	populateData();
+	}
 }

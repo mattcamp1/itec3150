@@ -34,6 +34,7 @@ public class AlertHelper {
 
 	private static void ShowAlert(Alert.AlertType type, String title, String header, Object content) {
 		Alert alert = new Alert(type);
+		alert.setResizable(false);
 		alert.setHeaderText(header);
 		alert.setTitle(title);
 		alert.setContentText(content.toString());

@@ -13,22 +13,15 @@ import javafx.stage.Stage;
  */
 public class FinalProject extends Application {
 
-    private static Stage mainStage;
-    
     @Override
     public void start(Stage stage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("FXMLPatientSummary.fxml"));
         Scene scene = new Scene(root);
+        stage.setResizable(false);
         stage.setScene(scene);
-
-        mainStage = stage;
 
         stage.show();
     }
-
-    public static Stage getMainInstance() {
-    	return mainStage;
-	}
 
     /**
      * @param args the command line arguments

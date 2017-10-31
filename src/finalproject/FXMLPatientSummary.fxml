@@ -35,7 +35,7 @@
                   <Font size="28.0" />
                </font>
             </Label>
-            <ListView fx:id="listviewPatients" prefHeight="307.0" prefWidth="216.0" GridPane.rowIndex="1" />
+            <ListView fx:id="listviewPatients" onMouseClicked="#listviewOnMouseClicked" prefHeight="307.0" prefWidth="216.0" GridPane.rowIndex="1" />
             <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="10.0" GridPane.rowIndex="2">
                <children>
                   <Button fx:id="btnNewParient" mnemonicParsing="false" onAction="#handleAddPatient" text="New Patient" />

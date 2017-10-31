@@ -20,9 +20,6 @@ public class Patient {
     private String dob;
     private String maritalStatus;
     private String insurance;
-
-    // Temporary
-    public Patient() { }
     
     public Patient(String name, String address, String phoneNumber, 
             String email, String dob, String maritalStatus, String insurance){

@@ -65,7 +65,17 @@ public class FXMLEditAllergiesController extends BaseController<Allergy> {
 
 	@FXML
 	void handleSaveAllergy(ActionEvent event) {
+		// TODO: Add validation
+		// TODO: Figure out why I get "true" as a result, but the allergy is not added to the Allergy database
+		target = new Allergy(patient.getId(), txtAllergySubstance.getText(), txtAllergyEffect.getText(), Integer.parseInt(txtAllergySeverity.getText()));
+		boolean result;
+		if (target.getId() == -1) {
+			result = dbManager.insert(target);
+		} else {
+			result = dbManager.update(target);
+		}
 
+		System.out.println(result);
 	}
 
 	@Override

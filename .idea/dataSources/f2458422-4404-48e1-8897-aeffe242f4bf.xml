@@ -9,116 +9,176 @@
     <collation id="3" parent="1" name="BINARY"/>
     <collation id="4" parent="1" name="NOCASE"/>
     <collation id="5" parent="1" name="RTRIM"/>
-    <table id="6" parent="2" name="patient_visits"/>
-    <table id="7" parent="2" name="patients"/>
-    <table id="8" parent="2" name="sqlite_master">
+    <table id="6" parent="2" name="allergies"/>
+    <table id="7" parent="2" name="medications"/>
+    <table id="8" parent="2" name="patient_visits"/>
+    <table id="9" parent="2" name="patients"/>
+    <table id="10" parent="2" name="sqlite_master">
       <System>1</System>
     </table>
-    <column id="9" parent="6" name="v_id">
+    <column id="11" parent="6" name="a_id">
       <DataType>INTEGER|0</DataType>
     </column>
-    <column id="10" parent="6" name="p_id">
+    <column id="12" parent="6" name="p_id">
       <Position>1</Position>
       <DataType>INTEGER|0</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="11" parent="6" name="doctor_name">
+    <column id="13" parent="6" name="substance">
       <Position>2</Position>
       <DataType>TEXT|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="12" parent="6" name="blood_pressure">
+    <column id="14" parent="6" name="effects">
       <Position>3</Position>
       <DataType>TEXT|0</DataType>
     </column>
-    <column id="13" parent="6" name="pulse">
+    <column id="15" parent="6" name="severity">
       <Position>4</Position>
       <DataType>INTEGER|0</DataType>
     </column>
-    <column id="14" parent="6" name="breath_rate">
-      <Position>5</Position>
-      <DataType>INTEGER|0</DataType>
-    </column>
-    <column id="15" parent="6" name="icd_code">
-      <Position>6</Position>
-      <DataType>TEXT|0</DataType>
-    </column>
-    <column id="16" parent="6" name="doctor_notes">
-      <Position>7</Position>
-      <DataType>TEXT|0</DataType>
-    </column>
-    <column id="17" parent="6" name="given_prescriptions">
-      <Position>8</Position>
-      <DataType>TEXT|0</DataType>
-    </column>
-    <key id="18" parent="6">
-      <ColNames>v_id</ColNames>
+    <key id="16" parent="6">
+      <ColNames>a_id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="19" parent="6">
+    <foreign-key id="17" parent="6">
       <ColNames>p_id</ColNames>
       <RefTableName>patients</RefTableName>
       <RefColNames>p_id</RefColNames>
     </foreign-key>
-    <column id="20" parent="7" name="p_id">
+    <column id="18" parent="7" name="m_id">
       <DataType>INTEGER|0</DataType>
     </column>
-    <column id="21" parent="7" name="name">
+    <column id="19" parent="7" name="p_id">
+      <Position>1</Position>
+      <DataType>INTEGER|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="20" parent="7" name="name">
+      <Position>2</Position>
+      <DataType>TEXT|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="21" parent="7" name="reason">
+      <Position>3</Position>
+      <DataType>TEXT|0</DataType>
+    </column>
+    <column id="22" parent="7" name="miligrams">
+      <Position>4</Position>
+      <DataType>INTEGER|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="23" parent="7" name="dose_count">
+      <Position>5</Position>
+      <DataType>INTEGER|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="24" parent="7">
+      <ColNames>m_id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="25" parent="7">
+      <ColNames>p_id</ColNames>
+      <RefTableName>patients</RefTableName>
+      <RefColNames>p_id</RefColNames>
+    </foreign-key>
+    <column id="26" parent="8" name="v_id">
+      <DataType>INTEGER|0</DataType>
+    </column>
+    <column id="27" parent="8" name="p_id">
+      <Position>1</Position>
+      <DataType>INTEGER|0</DataType>
+    </column>
+    <column id="28" parent="8" name="doctor_name">
+      <Position>2</Position>
+      <DataType>TEXT|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="29" parent="8" name="blood_pressure">
+      <Position>3</Position>
+      <DataType>TEXT|0</DataType>
+    </column>
+    <column id="30" parent="8" name="pulse">
+      <Position>4</Position>
+      <DataType>INTEGER|0</DataType>
+    </column>
+    <column id="31" parent="8" name="temperature">
+      <Position>5</Position>
+      <DataType>INTEGER|0</DataType>
+    </column>
+    <column id="32" parent="8" name="doctor_notes">
+      <Position>6</Position>
+      <DataType>TEXT|0</DataType>
+    </column>
+    <column id="33" parent="8" name="date">
+      <Position>7</Position>
+      <DataType>TEXT|0</DataType>
+    </column>
+    <column id="34" parent="8" name="reason">
+      <Position>8</Position>
+      <DataType>TEXT|0</DataType>
+    </column>
+    <key id="35" parent="8">
+      <ColNames>v_id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="36" parent="8">
+      <ColNames>p_id</ColNames>
+      <RefTableName>patients</RefTableName>
+      <RefColNames>p_id</RefColNames>
+    </foreign-key>
+    <column id="37" parent="9" name="p_id">
+      <DataType>INTEGER|0</DataType>
+    </column>
+    <column id="38" parent="9" name="name">
       <Position>1</Position>
       <DataType>TEXT|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="22" parent="7" name="address">
+    <column id="39" parent="9" name="address">
       <Position>2</Position>
       <DataType>TEXT|0</DataType>
     </column>
-    <column id="23" parent="7" name="phone_number">
+    <column id="40" parent="9" name="phone_number">
       <Position>3</Position>
       <DataType>TEXT|0</DataType>
     </column>
-    <column id="24" parent="7" name="email">
+    <column id="41" parent="9" name="email">
       <Position>4</Position>
       <DataType>TEXT|0</DataType>
     </column>
-    <column id="25" parent="7" name="dob">
+    <column id="42" parent="9" name="dob">
       <Position>5</Position>
       <DataType>TEXT|0</DataType>
     </column>
-    <column id="26" parent="7" name="marital_status">
+    <column id="43" parent="9" name="marital_status">
       <Position>6</Position>
       <DataType>TEXT|0</DataType>
     </column>
-    <column id="27" parent="7" name="allergies">
+    <column id="44" parent="9" name="insurance">
       <Position>7</Position>
       <DataType>TEXT|0</DataType>
     </column>
-    <column id="28" parent="7" name="current_medication">
-      <Position>8</Position>
-      <DataType>TEXT|0</DataType>
-    </column>
-    <column id="29" parent="7" name="insurance">
-      <Position>9</Position>
-      <DataType>TEXT|0</DataType>
-    </column>
-    <key id="30" parent="7">
+    <key id="45" parent="9">
       <ColNames>p_id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="31" parent="8" name="type">
+    <column id="46" parent="10" name="type">
       <DataType>text|0</DataType>
     </column>
-    <column id="32" parent="8" name="name">
+    <column id="47" parent="10" name="name">
       <Position>1</Position>
       <DataType>text|0</DataType>
     </column>
-    <column id="33" parent="8" name="tbl_name">
+    <column id="48" parent="10" name="tbl_name">
       <Position>2</Position>
       <DataType>text|0</DataType>
     </column>
-    <column id="34" parent="8" name="rootpage">
+    <column id="49" parent="10" name="rootpage">
       <Position>3</Position>
       <DataType>integer|0</DataType>
     </column>
-    <column id="35" parent="8" name="sql">
+    <column id="50" parent="10" name="sql">
       <Position>4</Position>
       <DataType>text|0</DataType>
     </column>
