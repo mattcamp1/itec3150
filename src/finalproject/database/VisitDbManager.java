@@ -1,6 +1,7 @@
 package finalproject.database;
 
 import java.util.List;
+import java.util.Observable;
 
 
 /**Class: 
@@ -12,7 +13,7 @@ import java.util.List;
  *
  */
 // add update
-public class VisitDbManager implements DatabaseManager<PatientVisit>{
+public class VisitDbManager extends Observable implements DatabaseManager<PatientVisit>{
         
     /**
      * Inserts a patients visit into database
@@ -25,6 +26,8 @@ public class VisitDbManager implements DatabaseManager<PatientVisit>{
         VisitDb manager = new VisitDb();
         boolean success = manager.insertVisit(visit);
         manager.close();
+        setChanged();
+        notifyObservers();
         return success;
     }
     
@@ -59,6 +62,8 @@ public class VisitDbManager implements DatabaseManager<PatientVisit>{
          VisitDb manager = new VisitDb();
         boolean success = manager.updateVisit(visit);
         manager.close();
+        setChanged();
+        notifyObservers();
         return success;
     }
 
@@ -67,6 +72,8 @@ public class VisitDbManager implements DatabaseManager<PatientVisit>{
          VisitDb manager = new VisitDb();
         boolean success = manager.deleteVisit(vId);
         manager.close();
+        setChanged();
+        notifyObservers();
         return success;
     }
 }

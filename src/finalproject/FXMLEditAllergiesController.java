@@ -1,6 +1,7 @@
 package finalproject;
 
 import finalproject.database.Allergy;
+import finalproject.database.DatabaseManager;
 import finalproject.database.Patient;
 
 import java.net.URL;
@@ -12,6 +13,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Slider;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
 
 /**Class: FXMLEditAllergiesController
@@ -44,7 +46,7 @@ public class FXMLEditAllergiesController extends BaseController<Allergy> {
 
 	@Override
 	public void populateData() {
-		if (target == null) {
+		if (target.getId() == 0) {
 			sldrAllergySeverity.adjustValue(0);
 			txtAllergyEffect.setText(null);
 			txtAllergySubstance.setText(null);
@@ -66,8 +68,8 @@ public class FXMLEditAllergiesController extends BaseController<Allergy> {
 	@FXML
 	void handleSaveAllergy(ActionEvent event) {
 		// TODO: Add validation
-
-		if (target == null){
+                System.out.println(patient.getId());
+		if (target.getId() == 0){
                     target = new Allergy(patient.getId(), txtAllergySubstance.getText(), txtAllergyEffect.getText(), Integer.parseInt(txtAllergySeverity.getText()));
                 } else {
                     target.setSubstance(txtAllergySubstance.getText());
@@ -76,14 +78,14 @@ public class FXMLEditAllergiesController extends BaseController<Allergy> {
                 }
 		boolean result;
 		if (target.getId() == 0) {
-                        System.out.println("inserting"); // testing
+                        System.out.println("inserting into " + patient.getId()); // testing
 			result = dbManager.insert(target);
 		} else {
-                        System.out.println("updating");
+                        System.out.println("updating"); // testing
 			result = dbManager.update(target);
 		}
-
 		System.out.println(result);
+               ((Stage) txtAllergyEffect.getScene().getWindow()).close();
 	}
 
 	@Override
@@ -92,9 +94,8 @@ public class FXMLEditAllergiesController extends BaseController<Allergy> {
 	}
 
 	@Override
-	public void initData(BaseController parent, Patient patient, Allergy target) {
-		super.initData(parent, patient, target);
-
+	public void initData(BaseController parent, Patient patient, Allergy target, DatabaseManager<Allergy> manager) {
+		super.initData(parent, patient, target, manager);
 		populateData();
 	}
 

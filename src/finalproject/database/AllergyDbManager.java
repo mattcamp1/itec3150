@@ -1,6 +1,7 @@
 package finalproject.database;
 
 import java.util.List;
+import java.util.Observable;
 
 
 /**
@@ -11,13 +12,15 @@ import java.util.List;
  *
  *
  */
-public class AllergyDbManager implements DatabaseManager<Allergy> {
+public class AllergyDbManager extends Observable implements DatabaseManager<Allergy> {
 
     @Override
     public boolean insert(Allergy allergy) {
         AllergyDb manager = new AllergyDb();
         boolean success = manager.insertAllergy(allergy);
         manager.close();
+        setChanged();
+        notifyObservers();
         return success;
     }
 
@@ -26,6 +29,8 @@ public class AllergyDbManager implements DatabaseManager<Allergy> {
         AllergyDb manager = new AllergyDb();
         boolean success = manager.updateAllergy(allergy);
         manager.close();
+        setChanged();
+        notifyObservers();
         return success;
     }
 
@@ -50,6 +55,8 @@ public class AllergyDbManager implements DatabaseManager<Allergy> {
         AllergyDb manager = new AllergyDb();
         boolean success = manager.deleteAllergy(aId);
         manager.close();
+        setChanged();
+        notifyObservers();
         return success;
     }
 

@@ -1,6 +1,7 @@
 package finalproject.database;
 
 import java.util.List;
+import java.util.Observable;
 
 
 /**Class: PatientDbManager
@@ -13,7 +14,7 @@ import java.util.List;
  *
  */
 
-public class PatientDbManager implements DatabaseManager<Patient>{
+public class PatientDbManager extends Observable implements DatabaseManager<Patient>{
 
     /**
      * Inserts a patient into the database.
@@ -25,6 +26,8 @@ public class PatientDbManager implements DatabaseManager<Patient>{
         PatientDb manager = new PatientDb();
         boolean success = manager.insertPatient(patient);
         manager.close();
+        setChanged();
+        notifyObservers();
         return success;
     }
 
@@ -39,6 +42,8 @@ public class PatientDbManager implements DatabaseManager<Patient>{
         PatientDb manager = new PatientDb();
         boolean success = manager.updatePatient(patient);
         manager.close();
+        setChanged();
+        notifyObservers();
         return success;
     }
     
@@ -76,6 +81,8 @@ public class PatientDbManager implements DatabaseManager<Patient>{
         PatientDb manager = new PatientDb();
         boolean success = manager.deletePatient(patientId);
         manager.close();
+        setChanged();
+        notifyObservers();
         return success;
     }
     
@@ -83,6 +90,8 @@ public class PatientDbManager implements DatabaseManager<Patient>{
        PatientDb manager = new PatientDb();
         boolean success = manager.deleteAllPatients();
         manager.close();
+        setChanged();
+        notifyObservers();
         return success; 
     }
 }

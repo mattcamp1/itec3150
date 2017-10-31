@@ -9,6 +9,8 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Collection;
 import java.util.List;
+import java.util.Observable;
+import java.util.Observer;
 import java.util.ResourceBundle;
 import java.util.regex.Pattern;
 
@@ -32,7 +34,7 @@ import javafx.stage.StageStyle;
  * summary information
  *
  */
-public class FXMLPatientSummaryController extends BaseController<Patient> {
+public class FXMLPatientSummaryController extends BaseController<Patient> implements Observer {
 
     private PatientDbManager patientManager;
 
@@ -41,6 +43,10 @@ public class FXMLPatientSummaryController extends BaseController<Patient> {
 
     private final Medication DEFAULT_MEDICATION = new Medication(-1, "", "", 0, 0);
     private final Allergy DEFAULT_ALLERGY = new Allergy(-1, "", "", 0);
+
+    private AllergyDbManager allergyManager = new AllergyDbManager();
+    private MedicationDbManager medicationManager = new MedicationDbManager();
+    private VisitDbManager visitManager = new VisitDbManager();
 
     @FXML
     private AnchorPane anchorPane;
@@ -274,26 +280,29 @@ public class FXMLPatientSummaryController extends BaseController<Patient> {
 
             Stage stage = new Stage(StageStyle.DECORATED);
             stage.setScene(new Scene((AnchorPane) loader.load()));
-
+            DatabaseManager<?> manager;
             BaseController controller;
             switch (dialog) {
                 case Allergies:
                     controller = loader.<FXMLEditAllergiesController>getController();
+                    manager = allergyManager;
                     break;
 
                 case Meds:
                     controller = loader.<FXMLEditMedsController>getController();
+                    manager = medicationManager;
                     break;
 
                 case Visit:
                     controller = loader.<FXMLPatientVisitController>getController();
+                    manager = visitManager;
                     break;
 
                 default:
                     throw new IllegalArgumentException();
             }
 
-            controller.initData(this, patient, target);
+            controller.initData(this, patient, target, manager);
             stage.setResizable(false);
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.showAndWait();
@@ -327,6 +336,10 @@ public class FXMLPatientSummaryController extends BaseController<Patient> {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         populateData();
+        patientManager.addObserver(this);
+        allergyManager.addObserver(this);
+        medicationManager.addObserver(this);
+        visitManager.addObserver(this);
     }
 
     @Override
@@ -336,11 +349,10 @@ public class FXMLPatientSummaryController extends BaseController<Patient> {
         populatePatientInfo(patient);
     }
 
-    @Override
-    public void initData(BaseController parent, Patient patient, Patient target) {
-        super.initData(parent, patient, target);
-    }
-
+//    @Override
+//    public void initData(BaseController parent, Patient patient, Patient target) {
+//        super.initData(parent, patient, target);
+//    }
     private void populatePatientList() {
         try {
             listviewPatients.getItems().clear();
@@ -356,7 +368,6 @@ public class FXMLPatientSummaryController extends BaseController<Patient> {
         if (patient == null) {
             return;
         }
-
         txtPatientInsurance.setText(patient.getInsurance());
         txtPatientEmail.setText(patient.getEmail());
         txtPatientPhoneLineNumber.setText(patient.getPhoneNumber().substring(6));
@@ -394,16 +405,29 @@ public class FXMLPatientSummaryController extends BaseController<Patient> {
         patient = listviewPatients.getSelectionModel().getSelectedItem();
         populateData();
     }
-    
-    private void fillMeds(int patientId){
+
+    private void fillMeds(int patientId) {
         listviewPatientMeds.getItems().clear();
         List<Medication> list = (new MedicationDbManager()).getList(patientId);
         listviewPatientMeds.getItems().addAll(list);
     }
-    
-    private void fillAllergies(int patientId){
+
+    private void fillAllergies(int patientId) {
         listviewPatientAllergies.getItems().clear();
         List<Allergy> list = (new AllergyDbManager()).getList(patientId);
         listviewPatientAllergies.getItems().addAll(list);
+    }
+
+    @Override
+    public void update(Observable o, Object arg) {
+        if (o instanceof PatientDbManager) {
+            populatePatientList();
+        } else if (o instanceof AllergyDbManager) {
+            fillAllergies(patient.getId());
+        } else if (o instanceof MedicationDbManager) {
+            fillMeds(patient.getId());
+        } else {
+            // is visit db manager ... no need for this yet
+        }
     }
 }

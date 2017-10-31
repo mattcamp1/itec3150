@@ -47,10 +47,10 @@ public class FXMLPatientVisitController extends BaseController<PatientVisit> {
 		// NO-OP
 	}
 
-	@Override
-	public void initData(BaseController parent, Patient patient, PatientVisit target) {
-		super.initData(parent, patient, target);
-	}
+//	@Override
+//	public void initData(BaseController parent, Patient patient, PatientVisit target) {
+//		super.initData(parent, patient, target);
+//	}
 
 	@Override
 	public void populateData() {

@@ -1,5 +1,6 @@
 package finalproject;
 
+import finalproject.database.DatabaseManager;
 import finalproject.database.Medication;
 import finalproject.database.Patient;
 
@@ -63,8 +64,8 @@ public class FXMLEditMedsController extends BaseController<Medication> {
 	}
 
 	@Override
-	public void initData(BaseController parent, Patient patient,  Medication target) {
-		super.initData(parent, patient, target);
+	public void initData(BaseController parent, Patient patient,  Medication target, DatabaseManager<Medication> manager) {
+		super.initData(parent, patient, target, manager);
 	}
 
 	@Override
