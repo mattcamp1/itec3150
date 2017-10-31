@@ -69,7 +69,7 @@ public class FXMLEditAllergiesController extends BaseController<Allergy> {
 		// TODO: Figure out why I get "true" as a result, but the allergy is not added to the Allergy database
 		target = new Allergy(patient.getId(), txtAllergySubstance.getText(), txtAllergyEffect.getText(), Integer.parseInt(txtAllergySeverity.getText()));
 		boolean result;
-		if (target.getId() == -1) {
+		if (target.getId() == 0) {
 			result = dbManager.insert(target);
 		} else {
 			result = dbManager.update(target);
