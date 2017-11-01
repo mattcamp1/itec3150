@@ -373,6 +373,20 @@ public class FXMLPatientSummaryController extends BaseController<Patient> implem
     }
 
     @FXML
+	private void btnRemoveAllergy_OnAction(ActionEvent e) {
+		if (listviewPatientAllergies.getSelectionModel().getSelectedItem() != null) {
+			allergyManager.delete(listviewPatientAllergies.getSelectionModel().getSelectedItem().getId());
+		}
+	}
+
+	@FXML
+	private void btnRemoveMedication_OnAction(ActionEvent e) {
+		if (listviewPatientMeds.getSelectionModel().getSelectedItem() != null) {
+			medicationManager.delete(listviewPatientMeds.getSelectionModel().getSelectedItem().getId());
+		}
+	}
+
+    @FXML
     private void listviewPatients_OnMouseClicked(MouseEvent event) {
         patient = listviewPatients.getSelectionModel().getSelectedItem();
         populateData();
