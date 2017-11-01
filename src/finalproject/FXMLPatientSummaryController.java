@@ -84,6 +84,55 @@ public class FXMLPatientSummaryController extends BaseController<Patient> implem
     @FXML
     private DatePicker dpickDateOfBirth;
 
+	private <T> Stage showDialog(Dialogs dialog, Patient patient, T target) {
+		try {
+			FXMLLoader loader = new FXMLLoader(
+					getClass().getResource(dialog.toString())
+			);
+
+			Stage stage = new Stage(StageStyle.DECORATED);
+			stage.setScene(new Scene((AnchorPane) loader.load()));
+			DatabaseManager<?> manager;
+			BaseController controller;
+			switch (dialog) {
+				case Allergies:
+					controller = loader.<FXMLEditAllergiesController>getController();
+					manager = allergyManager;
+					break;
+
+				case Meds:
+					controller = loader.<FXMLEditMedsController>getController();
+					manager = medicationManager;
+					break;
+
+				case VisitList:
+					controller = loader.<FXMLVisitListController>getController();
+					manager = visitManager;
+					break;
+
+				case VisitModify:
+					controller = loader.<FXMLPatientVisitController>getController();
+					manager = visitManager;
+					break;
+
+				default:
+					throw new IllegalArgumentException();
+			}
+
+			controller.initData(this, patient, target, manager);
+			stage.setResizable(false);
+			stage.initModality(Modality.APPLICATION_MODAL);
+			stage.showAndWait();
+			return stage;
+
+		} catch (IOException e) {
+			e.printStackTrace();
+			return null;
+		} catch (IllegalArgumentException e) {
+			return null;
+		}
+	}
+
     private void populateCombos() {
         cboxPatientMaritalStatus.getItems().clear();
         cboxPatientMaritalStatus.getItems().addAll(MaritalStatus.values());
@@ -92,11 +141,7 @@ public class FXMLPatientSummaryController extends BaseController<Patient> implem
     // TODO
     @FXML
     void btnViewVisits_OnAction(ActionEvent event) {
-        Patient patient = listviewPatients.getSelectionModel().getSelectedItem();
-        if (patient == null) {
-            return;
-        }
-        showDialog(Dialogs.Visit, patient, new PatientVisit());
+        showDialog(Dialogs.VisitList, patient, null);
     }
 
     public ValidationStatus validateForm() {
@@ -224,50 +269,6 @@ public class FXMLPatientSummaryController extends BaseController<Patient> implem
         }
     }
 
-    private <T> Stage showDialog(Dialogs dialog, Patient patient, T target) {
-        try {
-            FXMLLoader loader = new FXMLLoader(
-                    getClass().getResource(dialog.toString())
-            );
-
-            Stage stage = new Stage(StageStyle.DECORATED);
-            stage.setScene(new Scene((AnchorPane) loader.load()));
-            DatabaseManager<?> manager;
-            BaseController controller;
-            switch (dialog) {
-                case Allergies:
-                    controller = loader.<FXMLEditAllergiesController>getController();
-                    manager = allergyManager;
-                    break;
-
-                case Meds:
-                    controller = loader.<FXMLEditMedsController>getController();
-                    manager = medicationManager;
-                    break;
-
-                case Visit:
-                    controller = loader.<FXMLPatientVisitController>getController();
-                    manager = visitManager;
-                    break;
-
-                default:
-                    throw new IllegalArgumentException();
-            }
-
-            controller.initData(this, patient, target, manager);
-            stage.setResizable(false);
-            stage.initModality(Modality.APPLICATION_MODAL);
-            stage.showAndWait();
-            return stage;
-
-        } catch (IOException e) {
-            e.printStackTrace();
-            return null;
-        } catch (IllegalArgumentException e) {
-            return null;
-        }
-    }
-
     @FXML
     void btnEditMedication_OnAction(ActionEvent event) {
         if (patient == null || patient.getId() == 0) {
@@ -307,6 +308,7 @@ public class FXMLPatientSummaryController extends BaseController<Patient> implem
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         populateData();
+
         patientManager.addObserver(this);
         allergyManager.addObserver(this);
         medicationManager.addObserver(this);

@@ -17,7 +17,7 @@
 
 <!-- TODO: Add in remaining elemnts from PatientVisit class -->
 
-<AnchorPane fx:id="anchor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="finalproject.FXMLPatientVisitController">
+<AnchorPane fx:id="anchor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="finalproject.FXMLPatientVisitController">
    <children>
       <VBox alignment="TOP_CENTER" prefHeight="600.0" prefWidth="400.0" spacing="20.0">
          <children>
@@ -46,7 +46,7 @@
                         <Insets />
                      </GridPane.margin>
                   </Label>
-                  <DatePicker fx:id="txtDate" GridPane.columnIndex="1" />
+                  <DatePicker fx:id="dpickDateOfVisit" GridPane.columnIndex="1" />
                   <Label alignment="CENTER" text="Reason" GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
                   <TextArea fx:id="txtReason" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                      <GridPane.margin>
@@ -108,8 +108,8 @@
             </GridPane>
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="40.0">
                <children>
-                  <Button fx:id="btnSubmit" mnemonicParsing="false" text="Submit" />
-                  <Button fx:id="btnCancel" mnemonicParsing="false" text="Cancel" />
+                  <Button fx:id="btnSave" mnemonicParsing="false" onAction="#btnSave_OnAction" text="Submit" />
+                  <Button fx:id="btnReset" mnemonicParsing="false" onAction="#btnReset_OnAction" text="Reset" />
                </children>
             </HBox>
          </children>

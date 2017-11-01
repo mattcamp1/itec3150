@@ -10,7 +10,8 @@ package finalproject.database;
  */
 public enum Dialogs {
 	Summary ("FXMLPatientSummary.fxml"),
-	Visit ("FXMLPatientVisit.fxml"),
+	VisitModify ("FXMLPatientVisit.fxml"),
+	VisitList ("FXMLVisitList.fxml"),
 	Allergies ("FXMLEditAllergies.fxml"),
 	Meds ("FXMLEditMeds.fxml");
 

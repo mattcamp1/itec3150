@@ -22,8 +22,6 @@ public class PatientVisit {
     private String date;
     private String reason;
 
-    public PatientVisit() { }
-
     public PatientVisit(int patientId, String date, String doctorName, String bloodPressure, int pulse, int temperature, String reason, String doctorNotes) {
         this.patientId = patientId;
         this.doctorName = doctorName;
@@ -33,6 +31,12 @@ public class PatientVisit {
         this.doctorNotes = doctorNotes;
         this.date = date;
         this.reason = reason;
+    }
+
+	// What a great name, right?
+    public PatientVisit getVisitWithCorrectPatientId(int patientId) {
+        setPatientId(patientId);
+        return this;
     }
 
     public int getPatientId() {
