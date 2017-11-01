@@ -29,7 +29,7 @@ public abstract class BaseController<T> implements Initializable, IValidation {
 	@FXML
 	protected AnchorPane anchor;
 
-	protected DatabaseManager<T> dbManager;  // TODO: Check if I really do need this
+	protected DatabaseManager<T> dbManager;
 	protected BaseController parent;  // TODO: Check if I really do need this
 	protected Patient patient;
 	protected T target;
