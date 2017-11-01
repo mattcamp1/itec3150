@@ -7,13 +7,13 @@ import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.Collection;
-import java.util.List;
-import java.util.Observable;
-import java.util.Observer;
-import java.util.ResourceBundle;
+import java.util.*;
 import java.util.regex.Pattern;
 
+import finalproject.helpers.Reference;
+import finalproject.sorters.AllergySeverityNameComparator;
+import finalproject.sorters.MedicationNameComparator;
+import finalproject.sorters.PatientNameComparator;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -33,12 +33,6 @@ import javafx.stage.StageStyle;
  * summary information
  */
 public class FXMLPatientSummaryController extends BaseController<Patient> implements Observer {
-
-    private final String EMAIL_REGEX = "(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|\"(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21\\x23-\\x5b\\x5d-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])*\")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21-\\x5a\\x53-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])+)\\])";
-    private final String[] PHONE_REGEX = {"[0-9]{3}", "[0-9]{4}"};
-
-    private final Medication DEFAULT_MEDICATION = new Medication(-1, "", "", 0, 0);
-    private final Allergy DEFAULT_ALLERGY = new Allergy(-1, "", "", 0);
 
     private AllergyDbManager allergyManager = new AllergyDbManager();
     private MedicationDbManager medicationManager = new MedicationDbManager();
@@ -141,7 +135,7 @@ public class FXMLPatientSummaryController extends BaseController<Patient> implem
     // TODO
     @FXML
     void btnViewVisits_OnAction(ActionEvent event) {
-        showDialog(Dialogs.VisitList, patient, null);
+        showDialog(Dialogs.VisitList, patient, visitManager.getList(patient.getId()));
     }
 
     public ValidationStatus validateForm() {
@@ -170,13 +164,13 @@ public class FXMLPatientSummaryController extends BaseController<Patient> implem
             status.addFieldError("Phone Number");
         } else {
             phone = "";
-            if (Pattern.matches(PHONE_REGEX[0], txtPatientPhoneAreaCode.getText())) {
+            if (Pattern.matches(Reference.PHONE_REGEX[0], txtPatientPhoneAreaCode.getText())) {
                 phone = txtPatientPhoneAreaCode.getText();
 
-                if (Pattern.matches(PHONE_REGEX[0], txtPatientPhonePrefix.getText())) {
+                if (Pattern.matches(Reference.PHONE_REGEX[0], txtPatientPhonePrefix.getText())) {
                     phone += txtPatientPhonePrefix.getText();
 
-                    if (Pattern.matches(PHONE_REGEX[1], txtPatientPhoneLineNumber.getText())) {
+                    if (Pattern.matches(Reference.PHONE_REGEX[1], txtPatientPhoneLineNumber.getText())) {
                         phone += txtPatientPhoneLineNumber.getText();
                     } else {
                         status.addFieldError("Phone Number");
@@ -192,7 +186,7 @@ public class FXMLPatientSummaryController extends BaseController<Patient> implem
         if (txtPatientEmail.getText().isEmpty()) {
             status.addFieldError("Email");
         } else {
-            if (Pattern.matches(EMAIL_REGEX, txtPatientEmail.getText())) {
+            if (Pattern.matches(Reference.EMAIL_REGEX, txtPatientEmail.getText())) {
                 email = txtPatientEmail.getText();
             } else {
                 status.addFieldError("Email");
@@ -202,7 +196,7 @@ public class FXMLPatientSummaryController extends BaseController<Patient> implem
         if (dpickDateOfBirth.getValue() == null) {
             status.addFieldError("Date of Birth");
         } else {
-            dob = dpickDateOfBirth.getValue().format(DateTimeFormatter.ofPattern("MM/dd/yyyy"));
+            dob = dpickDateOfBirth.getValue().format(Reference.DATE_FORMAT);
         }
 
         if (cboxPatientMaritalStatus.getSelectionModel().isEmpty() || cboxPatientMaritalStatus.getSelectionModel().getSelectedItem() == null) {
@@ -330,7 +324,8 @@ public class FXMLPatientSummaryController extends BaseController<Patient> implem
     private void populatePatientList() {
         try {
             listviewPatients.getItems().clear();
-            Collection<Patient> patients = patientManager.getList(-1);
+            List<Patient> patients = patientManager.getList(-1);
+            patients.sort(new PatientNameComparator());
             listviewPatients.getItems().addAll(patients);
         } catch (NullPointerException e) {
             AlertHelper.ShowError("An error occurred", "Error accessing PATIENT table", e);
@@ -366,7 +361,7 @@ public class FXMLPatientSummaryController extends BaseController<Patient> implem
         if (patient == null || patient.getId() == 0) {
             return; // alert dialog?
         }
-        showDialog(Dialogs.Allergies, patient, DEFAULT_ALLERGY);
+        showDialog(Dialogs.Allergies, patient, Reference.DEFAULT_ALLERGY);
     }
 
     @FXML
@@ -374,7 +369,7 @@ public class FXMLPatientSummaryController extends BaseController<Patient> implem
         if (patient == null || patient.getId() == 0) {
             return; // alert dialog?
         }
-        showDialog(Dialogs.Meds, patient, DEFAULT_MEDICATION);
+        showDialog(Dialogs.Meds, patient, Reference.DEFAULT_MEDICATION);
     }
 
     @FXML
@@ -386,12 +381,14 @@ public class FXMLPatientSummaryController extends BaseController<Patient> implem
     private void fillMeds(int patientId) {
         listviewPatientMeds.getItems().clear();
         List<Medication> list = (new MedicationDbManager()).getList(patientId);
+        list.sort(new MedicationNameComparator());
         listviewPatientMeds.getItems().addAll(list);
     }
 
     private void fillAllergies(int patientId) {
         listviewPatientAllergies.getItems().clear();
         List<Allergy> list = (new AllergyDbManager()).getList(patientId);
+        list.sort(new AllergySeverityNameComparator());
         listviewPatientAllergies.getItems().addAll(list);
     }
 
