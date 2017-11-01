@@ -30,7 +30,6 @@ public class Patient {
         this.dob = dob;
         this.maritalStatus = maritalStatus;
         this.insurance = insurance;
-        this.id = -1;
     }
 
     public int getId() {
