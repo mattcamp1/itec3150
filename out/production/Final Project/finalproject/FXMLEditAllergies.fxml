@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="300.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="finalproject.FXMLEditAllergiesController">
+<AnchorPane fx:id="anchor" prefHeight="300.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="finalproject.FXMLEditAllergiesController">
    <children>
       <VBox alignment="CENTER" layoutX="6.0" prefHeight="300.0" prefWidth="400.0" spacing="30.0">
          <children>
@@ -40,7 +40,7 @@
                   <Label text="Severity" GridPane.rowIndex="2" />
                   <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="10.0" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="2" GridPane.valignment="CENTER">
                      <children>
-                        <Slider fx:id="sldrAllergySeverity" blockIncrement="1.0" majorTickUnit="1.0" max="10.0" minorTickCount="1" prefWidth="200.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" />
+                        <Slider fx:id="sldrAllergySeverity" blockIncrement="1.0" majorTickUnit="1.0" max="10.0" minorTickCount="1" onMouseClicked="#sldrAllergySeverity_OnMouseClicked" onMouseDragged="#sldrAllergySeverity_OnMouseClicked" prefWidth="200.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" />
                         <TextField fx:id="txtAllergySeverity" prefColumnCount="2" />
                      </children>
                      <padding>
@@ -59,8 +59,8 @@
                   </TextField>
                   <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="10.0" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
                      <children>
-                        <Button fx:id="btnSaveAllergy" mnemonicParsing="false" onAction="#handleSaveAllergy" text="Save Allergy" />
-                        <Button fx:id="btnResetAllergy" mnemonicParsing="false" onAction="#handleReset" text="Reset" />
+                        <Button fx:id="btnSave" mnemonicParsing="false" onAction="#btnSave_OnAction" text="Save Allergy" />
+                        <Button fx:id="btnReset" mnemonicParsing="false" onAction="#btnReset_OnAction" text="Reset" />
                      </children>
                   </HBox>
                </children>

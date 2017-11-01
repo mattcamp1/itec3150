@@ -18,7 +18,7 @@ public class ValidationStatus {
 
 	public ValidationStatus() {
 		fieldsWithErrors = new Stack<String>();
-		isValid = false;
+		isValid = true;
 	}
 
 	public void addFieldError(String fieldName) {
@@ -33,6 +33,7 @@ public class ValidationStatus {
 			if (!fieldsWithErrors.isEmpty()) errors.append(", ");
 		}
 
+		isValid = false;
 		return errors.toString();
 	}
 

@@ -1,6 +1,5 @@
 package finalproject;
 
-import finalproject.database.Patient;
 import finalproject.database.PatientVisit;
 
 import java.net.URL;
@@ -58,7 +57,17 @@ public class FXMLPatientVisitController extends BaseController<PatientVisit> {
 	}
 
 	@Override
-	public PatientVisit validateForm() {
+	public void reset() {
+
+	}
+
+	@Override
+	public ValidationStatus validateForm() {
 		return null;
+	}
+
+	@Override
+	public void saveToDatabase() {
+
 	}
 }

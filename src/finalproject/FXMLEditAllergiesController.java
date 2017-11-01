@@ -7,22 +7,22 @@ import finalproject.database.Patient;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import javafx.event.ActionEvent;
+import finalproject.helpers.AlertHelper;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 import javafx.scene.control.Slider;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
-import javafx.stage.Stage;
+import javafx.scene.input.MouseEvent;
 
 
-/**Class: FXMLEditAllergiesController
+/**
+ * Class: FXMLEditAllergiesController
+ *
  * @author Matthew Camp
  * Version 1.0
  * Course: Advanced Programming Fall 2017
  * Written: , 2017
  * Controller class for the JavaFX GUI handling allergies
- *
  */
 public class FXMLEditAllergiesController extends BaseController<Allergy> {
 
@@ -38,54 +38,25 @@ public class FXMLEditAllergiesController extends BaseController<Allergy> {
 	@FXML
 	private TextField txtAllergySubstance;
 
-	@FXML
-	private Button btnSaveAllergy;
-
-	@FXML
-	private Button btnResetAllergy;
-
 	@Override
 	public void populateData() {
-		if (target.getId() == 0) {
-			sldrAllergySeverity.adjustValue(0);
-			txtAllergyEffect.setText(null);
-			txtAllergySubstance.setText(null);
-			txtAllergySeverity.setText("0");
-		} else {
-			sldrAllergySeverity.adjustValue(target.getSeverity());
-			txtAllergyEffect.setText(target.getEffects());
-			txtAllergySubstance.setText(target.getSubstance());
-			txtAllergySeverity.setText(String.valueOf(target.getSeverity()));
-		}
+		sldrAllergySeverity.adjustValue(target.getSeverity());
+		txtAllergyEffect.setText(target.getEffects());
+		txtAllergySubstance.setText(target.getSubstance());
+		txtAllergySeverity.setText(String.valueOf(target.getSeverity()));
+	}
+
+	@Override
+	public void reset() {
+		txtAllergySubstance.setText(null);
+		txtAllergyEffect.setText(null);
+		txtAllergySeverity.setText(null);
+		sldrAllergySeverity.adjustValue(0);
 	}
 
 	@FXML
-	void handleReset(ActionEvent event) {
-		target = null;
-		populateData();
-	}
-
-	@FXML
-	void handleSaveAllergy(ActionEvent event) {
-		// TODO: Add validation
-                System.out.println(patient.getId());
-		if (target.getId() == 0){
-                    target = new Allergy(patient.getId(), txtAllergySubstance.getText(), txtAllergyEffect.getText(), Integer.parseInt(txtAllergySeverity.getText()));
-                } else {
-                    target.setSubstance(txtAllergySubstance.getText());
-                    target.setEffects(txtAllergyEffect.getText());
-                    target.setSeverity(Integer.parseInt(txtAllergySeverity.getText()));
-                }
-		boolean result;
-		if (target.getId() == 0) {
-                        System.out.println("inserting into " + patient.getId()); // testing
-			result = dbManager.insert(target);
-		} else {
-                        System.out.println("updating"); // testing
-			result = dbManager.update(target);
-		}
-		System.out.println(result);
-               ((Stage) txtAllergyEffect.getScene().getWindow()).close();
+	void sldrAllergySeverity_OnMouseClicked(MouseEvent event) {
+		txtAllergySeverity.setText(String.valueOf((int) sldrAllergySeverity.getValue()));
 	}
 
 	@Override
@@ -100,7 +71,58 @@ public class FXMLEditAllergiesController extends BaseController<Allergy> {
 	}
 
 	@Override
-	public Allergy validateForm() {
-		return null;
+	public ValidationStatus validateForm() {
+		ValidationStatus status = new ValidationStatus();
+		String substance = "";
+		String effect = "";
+		int severity = 0;
+
+		// Validate Substance
+		if (txtAllergySubstance.getText().isEmpty()) {
+			status.addFieldError("Substance");
+		} else {
+			substance = txtAllergySubstance.getText();
+		}
+
+		// Validate Allergy Effect
+		if (txtAllergyEffect.getText().isEmpty()) {
+			status.addFieldError("Allergy Effect");
+		} else {
+			effect = txtAllergyEffect.getText();
+		}
+
+		// Validate severity
+		if (txtAllergySeverity.getText().isEmpty() || (txtAllergySeverity.getText() != String.valueOf(sldrAllergySeverity.getValue()))) {
+			status.addFieldError("Severity");
+		} else {
+			severity = (int) sldrAllergySeverity.getValue();
+		}
+
+		if (target.getId() == 0) {
+			target = new Allergy(patient.getId(), substance, effect, severity);
+		} else {
+			target.setSubstance(substance);
+			target.setEffects(effect);
+			target.setSeverity(severity);
+		}
+
+		// Return validation status with updated target information
+		return status;
+	}
+
+	@Override
+	public void saveToDatabase() {
+		boolean result;
+		if (target.getId() == 0) {
+			System.out.println("inserting into " + patient.getId()); // testing
+			result = dbManager.insert(target);
+		} else {
+			System.out.println("updating"); // testing
+			result = dbManager.update(target);
+		}
+
+		if (!result) {
+			AlertHelper.ShowWarning("Database Error", "Allergy Table", "There was an error submitting your information to the database.");
+		}
 	}
 }

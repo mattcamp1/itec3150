@@ -42,13 +42,22 @@ public class FXMLVisitListController extends BaseController<PatientVisit> {
     }
 
     @Override
-    public PatientVisit validateForm() {
-        // TODO: Send patient visit data back to parent form
+    public ValidationStatus validateForm() {
         return null;
+    }
+
+    @Override
+    public void saveToDatabase() {
+
     }
 
     @Override
     public void populateData() {
     	// TODO: Fill in data
+    }
+
+    @Override
+    public void reset() {
+
     }
 }

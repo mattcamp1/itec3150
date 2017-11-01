@@ -76,7 +76,7 @@ public class Medication {
     // change for list view
     @Override
     public String toString() {
-        return this.name + " " + this.reason + " " + this.doseCount + " " + this.doseMilligrams + "END";
+        return this.name + " " + this.doseMilligrams + "mg (" + this.doseCount + "x daily)";
     }
 
 //        public static Medication getMedicationFromString(String medication){

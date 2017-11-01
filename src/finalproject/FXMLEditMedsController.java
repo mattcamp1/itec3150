@@ -7,6 +7,7 @@ import finalproject.database.Patient;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import finalproject.helpers.AlertHelper;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -27,12 +28,6 @@ public class FXMLEditMedsController extends BaseController<Medication> {
 	private TextField txtMedName;
 
 	@FXML
-	private Button btnSaveMedication;
-
-	@FXML
-	private Button btnResetMedication;
-
-	@FXML
 	private TextField txtMedDose;
 
 	@FXML
@@ -43,16 +38,6 @@ public class FXMLEditMedsController extends BaseController<Medication> {
 
 	private boolean isEdit;
 
-	@FXML
-	void handleReset(ActionEvent event) {
-
-	}
-
-	@FXML
-	void handleSaveMedication(ActionEvent event) {
-
-	}
-
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		// NO-OP
@@ -60,7 +45,18 @@ public class FXMLEditMedsController extends BaseController<Medication> {
 
 	@Override
 	public void populateData() {
-		// TODO: Fill in data
+		txtMedName.setText(target.getName());
+		txtMedDose.setText(String.valueOf(target.getDoseMilligrams()));
+		txtMedDoseCount.setText(String.valueOf(target.getDoseCount()));
+		txtMedReason.setText(target.getReason());
+	}
+
+	@Override
+	public void reset() {
+		txtMedName.setText(null);
+		txtMedDose.setText(null);
+		txtMedDoseCount.setText(null);
+		txtMedReason.setText(null);
 	}
 
 	@Override
@@ -69,7 +65,73 @@ public class FXMLEditMedsController extends BaseController<Medication> {
 	}
 
 	@Override
-	public Medication validateForm() {
-		return null;
+	public ValidationStatus validateForm() {
+		ValidationStatus status = new ValidationStatus();
+		String med = "";
+		int doseMillis = 0;
+		int doseCount = 0;
+		String reason = "";
+
+		// Validate Medication Name
+		if (txtMedName.getText().isEmpty()) {
+			status.addFieldError("Medication Name");
+		} else {
+			med = txtMedName.getText();
+		}
+
+		// Validate dose in mg
+		if (txtMedDose.getText().isEmpty()) {
+			status.addFieldError("Dose in Milligrams");
+		} else {
+			try {
+				doseMillis = Integer.parseInt(txtMedDose.getText());
+			} catch (NumberFormatException e) {
+				status.addFieldError("Dose in Milligrams");
+			}
+		}
+
+		// Validate dose count
+		if (txtMedDoseCount.getText().isEmpty()) {
+			status.addFieldError("Dose Count");
+		} else {
+			try {
+				doseCount = Integer.parseInt(txtMedDoseCount.getText());
+			} catch (NumberFormatException e) {
+				status.addFieldError("Dose Count");
+			}
+		}
+
+		if (txtMedReason.getText().isEmpty()) {
+			status.addFieldError("Reason");
+		} else {
+			reason = txtMedReason.getText();
+		}
+
+		if (target.getId() == 0) {
+			target = new Medication(patient.getId(), med, reason, doseMillis, doseCount);  // I had to force initialization to 0...weird
+		} else {
+			target.setName(med);
+			target.setReason(reason);
+			target.setDoseMilligrams(doseMillis);
+			target.setDoseCount(doseCount);
+		}
+
+		return status;
+	}
+
+	@Override
+	public void saveToDatabase() {
+		boolean result;
+		if (target.getId() == 0) {
+			System.out.println("inserting into " + patient.getId()); // testing
+			result = dbManager.insert(target);
+		} else {
+			System.out.println("updating"); // testing
+			result = dbManager.update(target);
+		}
+
+		if (!result) {
+			AlertHelper.ShowWarning("Database Error", "Medication Table", "There was an error submitting your information to the database.");
+		}
 	}
 }

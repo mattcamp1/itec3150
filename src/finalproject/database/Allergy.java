@@ -49,7 +49,7 @@ public class Allergy {
     // change for list view
     @Override
     public String toString() {
-        return this.substance + " " + this.effects + " " + this.severity + "END";
+        return this.substance;
     }
 
     

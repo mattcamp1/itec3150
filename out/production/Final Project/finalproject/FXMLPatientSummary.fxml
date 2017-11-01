@@ -16,7 +16,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" fx:id="anchorPane" prefHeight="700.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="finalproject.FXMLPatientSummaryController">
+<AnchorPane id="AnchorPane" fx:id="anchor" prefHeight="700.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="finalproject.FXMLPatientSummaryController">
    <children>
       <GridPane alignment="CENTER" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
         <columnConstraints>
@@ -35,13 +35,13 @@
                   <Font size="28.0" />
                </font>
             </Label>
-            <ListView fx:id="listviewPatients" onMouseClicked="#listviewOnMouseClicked" prefHeight="307.0" prefWidth="216.0" GridPane.rowIndex="1" />
+            <ListView fx:id="listviewPatients" onMouseClicked="#listviewPatients_OnMouseClicked" prefHeight="307.0" prefWidth="216.0" GridPane.rowIndex="1" />
             <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="10.0" GridPane.rowIndex="2">
                <children>
-                  <Button fx:id="btnNewParient" mnemonicParsing="false" onAction="#handleAddPatient" text="New Patient" />
-                  <Button fx:id="btnRemovePatient" mnemonicParsing="false" onAction="#handleRemovePatient" text="Remove Patient" />
+                  <Button fx:id="btnNewPatient" mnemonicParsing="false" onAction="#btnNewPatient_OnAction" text="New Patient" />
+                  <Button fx:id="btnRemovePatient" mnemonicParsing="false" onAction="#btnRemovePatient_OnAction" text="Remove Patient" />
                   <Separator prefWidth="200.0" />
-                  <Button fx:id="viewVisitButton" mnemonicParsing="false" onAction="#viewVisits" text="View Visits" />
+                  <Button fx:id="btnViewVisits" mnemonicParsing="false" onAction="#btnViewVisits_OnAction" text="View Visits" />
                </children>
                <opaqueInsets>
                   <Insets />
@@ -104,8 +104,8 @@
                               <Insets bottom="5.0" top="5.0" />
                            </padding>
                         </ListView>
-                        <Button fx:id="addAllergyButton" mnemonicParsing="false" onAction="#addAllergy" text="Add" />
-                        <Button fx:id="btnPatientEditAllergies" alignment="CENTER" mnemonicParsing="false" onAction="#handleEditAllergies" text="Edit" textAlignment="CENTER" wrapText="true">
+                        <Button fx:id="btnAddAllergy" mnemonicParsing="false" onAction="#btnAddAllergy_OnAction" text="Add" />
+                        <Button fx:id="btnEditAllergy" alignment="CENTER" mnemonicParsing="false" onAction="#btnEditAllergy_OnAction" text="Edit" textAlignment="CENTER" wrapText="true">
                            <HBox.margin>
                               <Insets />
                            </HBox.margin>
@@ -124,8 +124,8 @@
                                     <Insets bottom="5.0" top="5.0" />
                                  </padding>
                               </ListView>
-                              <Button fx:id="addMedicationButton" mnemonicParsing="false" onAction="#addMedication" text="Add" />
-                              <Button fx:id="btnPatientEditMeds" alignment="CENTER" mnemonicParsing="false" onAction="#handleEditMeds" text="Edit" textAlignment="CENTER" wrapText="true">
+                              <Button fx:id="btnAddMedication" mnemonicParsing="false" onAction="#btnAddMedication_OnAction" text="Add" />
+                              <Button fx:id="btnEditMedication" alignment="CENTER" mnemonicParsing="false" onAction="#btnEditMedication_OnAction" text="Edit" textAlignment="CENTER" wrapText="true">
                                  <HBox.margin>
                                     <Insets />
                                  </HBox.margin>
@@ -138,7 +138,7 @@
                      </children>
                   </HBox>
                   <TextField fx:id="txtPatientInsurance" GridPane.columnIndex="1" GridPane.rowIndex="9" />
-                  <Button fx:id="btnConfirmPatient" alignment="CENTER" mnemonicParsing="false" onAction="#handleConfirmPatient" text="Confirm Patient" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="10" GridPane.valignment="CENTER" />
+                  <Button fx:id="btnSave" alignment="CENTER" mnemonicParsing="false" onAction="#btnSave_OnAction" text="Confirm Patient" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="10" GridPane.valignment="CENTER" />
                   <DatePicker fx:id="dpickDateOfBirth" GridPane.columnIndex="1" GridPane.rowIndex="5" />
                </children>
                <GridPane.margin>
