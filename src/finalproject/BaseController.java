@@ -10,13 +10,14 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 
-/**Class: BaseController
+/**
+ * Class: BaseController
+ *
  * @author Matthew Camp
  * Version 1.0
  * Course: Advanced Programming Fall 2017
  * Written: , 2017
  * Base class for any controllers
- *
  */
 public abstract class BaseController<T> implements Initializable, IValidation {
 

@@ -6,13 +6,14 @@ import java.io.StringWriter;
 import javafx.scene.control.Alert;
 
 
-/**Class: AlertHelper
+/**
+ * Class: AlertHelper
+ *
  * @author Matthew Camp
  * Version 1.0
  * Course: Advanced Programming Fall 2017
  * Written: , 2017
  * Helper class to make showing alerts in JavaFX easier
- *
  */
 public class AlertHelper {
 

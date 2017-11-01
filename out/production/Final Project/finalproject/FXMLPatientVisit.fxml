@@ -17,43 +17,49 @@
 
 <!-- TODO: Add in remaining elemnts from PatientVisit class -->
 
-<AnchorPane fx:id="anchor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="finalproject.FXMLPatientVisitController">
+<AnchorPane fx:id="anchor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="finalproject.FXMLPatientVisitController">
    <children>
       <VBox alignment="TOP_CENTER" prefHeight="600.0" prefWidth="400.0" spacing="20.0">
          <children>
-            <Label alignment="CENTER" contentDisplay="CENTER" text="Patient Visit" textAlignment="CENTER">
-               <font>
-                  <Font size="25.0" />
-               </font>
-               <padding>
-                  <Insets top="10.0" />
-               </padding>
-            </Label>
+            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <Label alignment="CENTER" contentDisplay="CENTER" text="Patient Visit" textAlignment="CENTER">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                     <padding>
+                        <Insets top="10.0" />
+                     </padding>
+                  </Label>
+                  <Label fx:id="lblPatientName" text="&lt;Patient Name&gt;" />
+               </children>
+            </VBox>
             <GridPane hgap="20.0" prefHeight="600.0" vgap="10.0">
               <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="195.0" minWidth="10.0" prefWidth="100.0" />
                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="285.0" minWidth="10.0" prefWidth="270.0" />
               </columnConstraints>
               <rowConstraints>
-                <RowConstraints maxHeight="138.0" minHeight="0.0" prefHeight="24.0" vgrow="SOMETIMES" />
-                <RowConstraints maxHeight="203.0" minHeight="0.0" prefHeight="115.0" vgrow="SOMETIMES" />
-                <RowConstraints maxHeight="201.0" minHeight="0.0" prefHeight="144.0" vgrow="SOMETIMES" />
-                  <RowConstraints maxHeight="235.0" minHeight="0.0" prefHeight="148.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="138.0" minHeight="10.0" prefHeight="28.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="138.0" minHeight="0.0" prefHeight="28.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="203.0" minHeight="0.0" prefHeight="58.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="201.0" minHeight="0.0" prefHeight="160.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="235.0" minHeight="0.0" prefHeight="121.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Label contentDisplay="CENTER" text="Date" GridPane.halignment="RIGHT">
+                  <Label contentDisplay="CENTER" text="Date" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
                      <GridPane.margin>
                         <Insets />
                      </GridPane.margin>
                   </Label>
-                  <DatePicker fx:id="txtDate" GridPane.columnIndex="1" />
-                  <Label alignment="CENTER" text="Reason" GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
-                  <TextArea fx:id="txtReason" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                  <DatePicker fx:id="dpickDateOfVisit" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <Label alignment="CENTER" text="Reason" GridPane.halignment="RIGHT" GridPane.rowIndex="2" />
+                  <TextArea fx:id="txtReason" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
                      <GridPane.margin>
                         <Insets right="20.0" />
                      </GridPane.margin>
                   </TextArea>
-                  <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" spacing="10.0" GridPane.columnSpan="2" GridPane.rowIndex="2">
+                  <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" spacing="10.0" GridPane.columnSpan="2" GridPane.rowIndex="3">
                      <children>
                         <Separator prefWidth="200.0" />
                         <Label alignment="CENTER" text="Vitals">
@@ -79,10 +85,10 @@
                                     <Insets />
                                  </GridPane.margin>
                               </Label>
-                              <HBox prefHeight="1.0" prefWidth="200.0" spacing="10.0" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="1" GridPane.valignment="BOTTOM">
+                              <HBox alignment="CENTER" prefHeight="1.0" prefWidth="200.0" spacing="10.0" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                                  <children>
-                                    <TextField fx:id="txtVitalBPTop" alignment="BOTTOM_CENTER" />
-                                    <TextField fx:id="txtVitalBPBottom" />
+                                    <TextField fx:id="txtVitalBPTop" alignment="CENTER" />
+                                    <TextField fx:id="txtVitalBPBottom" alignment="CENTER" />
                                  </children>
                               </HBox>
                               <Label text="Temperature" GridPane.halignment="RIGHT" GridPane.rowIndex="2" />
@@ -95,12 +101,18 @@
                         <Separator prefHeight="1.0" prefWidth="370.0" />
                      </children>
                   </VBox>
-                  <Label text="Doctor Notes" GridPane.halignment="RIGHT" GridPane.rowIndex="3" />
-                  <TextArea fx:id="txtDoctorNotes" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                  <Label text="Doctor Notes" GridPane.halignment="RIGHT" GridPane.rowIndex="4" />
+                  <TextArea fx:id="txtDoctorNotes" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
                      <GridPane.margin>
                         <Insets right="20.0" />
                      </GridPane.margin>
                   </TextArea>
+                  <Label alignment="CENTER_RIGHT" text="Doctor Name" GridPane.halignment="RIGHT" GridPane.valignment="CENTER" />
+                  <TextField fx:id="txtDoctorName" GridPane.columnIndex="1">
+                     <GridPane.margin>
+                        <Insets right="20.0" />
+                     </GridPane.margin>
+                  </TextField>
                </children>
                <padding>
                   <Insets left="10.0" right="10.0" />
@@ -108,8 +120,8 @@
             </GridPane>
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="40.0">
                <children>
-                  <Button fx:id="btnSubmit" mnemonicParsing="false" text="Submit" />
-                  <Button fx:id="btnCancel" mnemonicParsing="false" text="Cancel" />
+                  <Button fx:id="btnSave" mnemonicParsing="false" onAction="#btnSave_OnAction" text="Submit" />
+                  <Button fx:id="btnReset" mnemonicParsing="false" onAction="#btnReset_OnAction" text="Reset" />
                </children>
             </HBox>
          </children>

@@ -6,6 +6,15 @@ import finalproject.database.PatientVisit;
 
 import java.time.format.DateTimeFormatter;
 
+/**
+ * Class: Reference
+ *
+ * @author Matthew Camp
+ * Version 1.0
+ * Course: Advanced Programming Fall 2017
+ * Written: , 2017
+ * Reference class to hold final variables
+ */
 public class Reference {
 
 	public static final DateTimeFormatter DATE_FORMAT = DateTimeFormatter.ofPattern("MM/dd/yyyy");

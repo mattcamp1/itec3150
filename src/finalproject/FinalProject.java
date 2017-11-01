@@ -8,26 +8,25 @@ import javafx.stage.Stage;
 
 
 /**
- *
  * @author jnbcb
  */
 public class FinalProject extends Application {
 
-    @Override
-    public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("FXMLPatientSummary.fxml"));
-        Scene scene = new Scene(root);
-        stage.setResizable(false);
-        stage.setScene(scene);
+	@Override
+	public void start(Stage stage) throws Exception {
+		Parent root = FXMLLoader.load(getClass().getResource("FXMLPatientSummary.fxml"));
+		Scene scene = new Scene(root);
+		stage.setResizable(false);
+		stage.setScene(scene);
 
-        stage.show();
-    }
+		stage.show();
+	}
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        launch(args);
-    }
-    
+	/**
+	 * @param args the command line arguments
+	 */
+	public static void main(String[] args) {
+		launch(args);
+	}
+
 }

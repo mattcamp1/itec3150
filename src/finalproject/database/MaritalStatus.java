@@ -2,11 +2,11 @@ package finalproject.database;
 
 
 public enum MaritalStatus {
-	Single ("Single"),
-	Married ("Married"),
-	Divorced ("Divorced"),
-	Widowed ("Widowed"),
-	Other ("Other");
+	Single("Single"),
+	Married("Married"),
+	Divorced("Divorced"),
+	Widowed("Widowed"),
+	Other("Other");
 
 	private final String name;
 

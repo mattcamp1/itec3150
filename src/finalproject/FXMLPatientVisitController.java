@@ -16,13 +16,14 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
 
-/**Class: FXMLPatientSummaryController
+/**
+ * Class: FXMLPatientSummaryController
+ *
  * @author Matthew Camp
  * Version 1.0
  * Course: Advanced Programming Fall 2017
  * Written: , 2017
  * Controller class for the main JavaFX GUI handling patient visits to doctor
- *
  */
 public class FXMLPatientVisitController extends BaseController<PatientVisit> {
 
@@ -32,26 +33,26 @@ public class FXMLPatientVisitController extends BaseController<PatientVisit> {
 	@FXML
 	private TextField txtDoctorName;
 
-    @FXML
-    private DatePicker dpickDateOfVisit;
+	@FXML
+	private DatePicker dpickDateOfVisit;
 
-    @FXML
-    private TextArea txtReason;
+	@FXML
+	private TextArea txtReason;
 
-    @FXML
-    private TextField txtVitalPulse;
+	@FXML
+	private TextField txtVitalPulse;
 
-    @FXML
-    private TextField txtVitalBPTop;
+	@FXML
+	private TextField txtVitalBPTop;
 
-    @FXML
-    private TextField txtVitalBPBottom;
+	@FXML
+	private TextField txtVitalBPBottom;
 
-    @FXML
-    private TextField txtVitalTemp;
+	@FXML
+	private TextField txtVitalTemp;
 
-    @FXML
-    private TextArea txtDoctorNotes;
+	@FXML
+	private TextArea txtDoctorNotes;
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -191,5 +192,6 @@ public class FXMLPatientVisitController extends BaseController<PatientVisit> {
 
 		if (!result) {
 			AlertHelper.ShowWarning("Database Error", "Visit Table", "There was an error submitting your information to the database.");
-		}	}
+		}
+	}
 }

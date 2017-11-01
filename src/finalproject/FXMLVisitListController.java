@@ -30,24 +30,24 @@ import javafx.stage.StageStyle;
 public class FXMLVisitListController extends BaseController<PatientVisit> {
 
 	@FXML
-    ListView<PatientVisit> listviewVisitList;
+	ListView<PatientVisit> listviewVisitList;
 
-    /**
-     * Initializes the controller class.
-     */
-    @Override
-    public void initialize(URL url, ResourceBundle rb) {
-        // NO-OP
-    }    
+	/**
+	 * Initializes the controller class.
+	 */
+	@Override
+	public void initialize(URL url, ResourceBundle rb) {
+		// NO-OP
+	}
 
-    @FXML
-    private void btnViewVisit_OnAction(ActionEvent event) {
-    	ShowVisitDialog(target);
-    }
+	@FXML
+	private void btnViewVisit_OnAction(ActionEvent event) {
+		ShowVisitDialog(target);
+	}
 
-    @FXML
-    private void btnAddVisit_OnAction(ActionEvent event) {
-    	ShowVisitDialog(null);
+	@FXML
+	private void btnAddVisit_OnAction(ActionEvent event) {
+		ShowVisitDialog(null);
 	}
 
 	private void ShowVisitDialog(PatientVisit visitToDisplay) {
@@ -67,30 +67,30 @@ public class FXMLVisitListController extends BaseController<PatientVisit> {
 		}
 	}
 
-    @FXML
+	@FXML
 	private void listviewVisitList_OnMouseClicked(MouseEvent event) {
-    	target = listviewVisitList.getSelectionModel().getSelectedItem();
+		target = listviewVisitList.getSelectionModel().getSelectedItem();
 	}
 
-    @Override
-    public ValidationStatus validateForm() {
-    	// NO-OP
-    	return null;
-    }
+	@Override
+	public ValidationStatus validateForm() {
+		// NO-OP
+		return null;
+	}
 
-    @Override
-    public void saveToDatabase() {
-    	// NO-OP
-    }
+	@Override
+	public void saveToDatabase() {
+		// NO-OP
+	}
 
-    @Override
-    public void populateData() {
-    	listviewVisitList.getItems().clear();
-    	listviewVisitList.getItems().addAll(dbManager.getList(patient.getId()));
-    }
+	@Override
+	public void populateData() {
+		listviewVisitList.getItems().clear();
+		listviewVisitList.getItems().addAll(dbManager.getList(patient.getId()));
+	}
 
-    @Override
-    public void reset() {
-    	// NO-OP
-    }
+	@Override
+	public void reset() {
+		// NO-OP
+	}
 }

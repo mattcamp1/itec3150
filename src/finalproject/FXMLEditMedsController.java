@@ -14,13 +14,14 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 
 
-/**Class: FXMLEditMedsController
+/**
+ * Class: FXMLEditMedsController
+ *
  * @author Matthew Camp
  * Version 1.0
  * Course: Advanced Programming Fall 2017
  * Written: , 2017
  * Controller class for the JavaFX GUI handling medications
- *
  */
 public class FXMLEditMedsController extends BaseController<Medication> {
 
@@ -60,7 +61,7 @@ public class FXMLEditMedsController extends BaseController<Medication> {
 	}
 
 	@Override
-	public void initData(BaseController parent, Patient patient,  Medication target, DatabaseManager<Medication> manager) {
+	public void initData(BaseController parent, Patient patient, Medication target, DatabaseManager<Medication> manager) {
 		super.initData(parent, patient, target, manager);
 	}
 
