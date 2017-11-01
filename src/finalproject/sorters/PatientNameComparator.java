@@ -4,6 +4,15 @@ import finalproject.database.Patient;
 
 import java.util.Comparator;
 
+/**
+ * Class: PatientNameComparator
+ *
+ * @author Matthew Camp
+ * Version 1.0
+ * Course: Advanced Programming Fall 2017
+ * Written: , 2017
+ * Allows for sorting patients by name
+ */
 public class PatientNameComparator implements Comparator<Patient> {
 
 	@Override

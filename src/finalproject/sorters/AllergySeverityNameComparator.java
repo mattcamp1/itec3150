@@ -4,6 +4,15 @@ import finalproject.database.Allergy;
 
 import java.util.Comparator;
 
+/**
+ * Class: AllergySeveritynameComparator
+ *
+ * @author Matthew Camp
+ * Version 1.0
+ * Course: Advanced Programming Fall 2017
+ * Written: , 2017
+ * Allows for sorting alleries by severity and then by name
+ */
 public class AllergySeverityNameComparator implements Comparator<Allergy> {
 
 	@Override
