@@ -9,6 +9,7 @@ import java.util.ResourceBundle;
 
 import finalproject.database.VisitDbManager;
 import finalproject.helpers.AlertHelper;
+import finalproject.helpers.Reference;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -31,8 +32,6 @@ public class FXMLVisitListController extends BaseController<PatientVisit> {
 	@FXML
     ListView<PatientVisit> listviewVisitList;
 
-	private final PatientVisit DEFAULT_VISIT = new PatientVisit(-1, "", "", "", 0, 0, "", "");
-
     /**
      * Initializes the controller class.
      */
@@ -43,18 +42,23 @@ public class FXMLVisitListController extends BaseController<PatientVisit> {
 
     @FXML
     private void btnViewVisit_OnAction(ActionEvent event) {
+    	ShowVisitDialog(target);
     }
 
     @FXML
     private void btnAddVisit_OnAction(ActionEvent event) {
-    	FXMLLoader loader = new FXMLLoader(getClass().getResource(Dialogs.VisitModify.toString()));
+    	ShowVisitDialog(null);
+	}
 
-    	Stage stage = new Stage(StageStyle.DECORATED);
+	private void ShowVisitDialog(PatientVisit visitToDisplay) {
+		FXMLLoader loader = new FXMLLoader(getClass().getResource(Dialogs.VisitModify.toString()));
+
+		Stage stage = new Stage(StageStyle.DECORATED);
 		try {
 			stage.setScene(new Scene((AnchorPane) loader.load()));
 
 			BaseController controller = loader.<FXMLPatientVisitController>getController();
-			controller.initData(this, patient, DEFAULT_VISIT.getVisitWithCorrectPatientId(patient.getId()), new VisitDbManager());
+			controller.initData(this, patient, visitToDisplay, dbManager);
 			stage.setResizable(false);
 			stage.initModality(Modality.APPLICATION_MODAL);
 			stage.showAndWait();
@@ -70,18 +74,19 @@ public class FXMLVisitListController extends BaseController<PatientVisit> {
 
     @Override
     public ValidationStatus validateForm() {
-        return null;
+    	// NO-OP
+    	return null;
     }
 
     @Override
     public void saveToDatabase() {
-
+    	// NO-OP
     }
 
     @Override
     public void populateData() {
     	listviewVisitList.getItems().clear();
-    	listviewVisitList.getItems().addAll(dbManager.getList(-1));
+    	listviewVisitList.getItems().addAll(dbManager.getList(patient.getId()));
     }
 
     @Override
