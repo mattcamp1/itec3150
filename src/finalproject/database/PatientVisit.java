@@ -33,12 +33,6 @@ public class PatientVisit {
         this.reason = reason;
     }
 
-	// What a great name, right?
-    public PatientVisit getVisitWithCorrectPatientId(int patientId) {
-        setPatientId(patientId);
-        return this;
-    }
-
     public int getPatientId() {
         return patientId;
     }
@@ -114,7 +108,7 @@ public class PatientVisit {
     // change for list view
     @Override
     public String toString(){
-        return this.visitId + " " + this.doctorNotes + this.patientId;
+        return date;
     }
     
 }

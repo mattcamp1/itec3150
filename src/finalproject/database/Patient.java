@@ -99,7 +99,7 @@ public class Patient {
     // change for listview
     @Override
     public String toString(){
-        return this.getId() + " " + this.getName() + " " + this.getInsurance();
+        return String.valueOf(this.getId()) + " " + this.getName() + " " + this.getInsurance();
     }
 
 }
