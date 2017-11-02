@@ -135,7 +135,7 @@ public class FXMLPatientSummaryController extends BaseController<Patient> implem
 	// TODO
 	@FXML
 	void btnViewVisits_OnAction(ActionEvent event) {
-		showDialog(Dialogs.VisitList, patient, visitManager.getList(patient.getId()));
+		showDialog(Dialogs.VisitList, patient, null);
 	}
 
 	public ValidationStatus validateForm() {

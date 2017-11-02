@@ -62,6 +62,8 @@ public class FXMLPatientVisitController extends BaseController<PatientVisit> {
 	@Override
 	public void populateData() {
 		lblPatientName.setText(patient.getName());
+		if (target == null) return;
+
 		txtDoctorName.setText(target.getDoctorName());
 		txtReason.setText(target.getReason());
 		txtVitalPulse.setText(String.valueOf(target.getPulse()));
