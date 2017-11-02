@@ -6,36 +6,41 @@
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane fx:id="anchor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="218.0" prefWidth="381.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="finalproject.FXMLVisitListController">
-   <children>
-      <SplitPane dividerPositions="0.5118733509234829" prefHeight="218.0" prefWidth="381.0">
-        <items>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
-               <children>
-                  <ListView fx:id="visitListView" layoutX="-2.0" layoutY="30.0" prefHeight="187.0" prefWidth="198.0" />
-                  <Label layoutX="82.0" layoutY="14.0" text="Visits" />
-               </children>
-            </AnchorPane>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="216.0" prefWidth="268.0">
-               <children>
-                  <SplitPane dividerPositions="0.5" orientation="VERTICAL" prefHeight="216.0" prefWidth="182.0">
-                    <items>
-                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
-                           <children>
-                              <Button fx:id="viewVisitButton" layoutX="64.0" layoutY="40.0" mnemonicParsing="false" onAction="#viewVisit" text="View" />
-                           </children>
-                        </AnchorPane>
-                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
-                           <children>
-                              <Button fx:id="addViewButton" layoutX="64.0" layoutY="40.0" mnemonicParsing="false" onAction="#addVisit" text="Add" />
-                           </children>
-                        </AnchorPane>
-                    </items>
-                  </SplitPane>
-               </children>
-            </AnchorPane>
-        </items>
-      </SplitPane>
-   </children>
+<AnchorPane fx:id="anchor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+            prefHeight="218.0" prefWidth="381.0" xmlns="http://javafx.com/javafx/8.0.121"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="finalproject.FXMLVisitListController">
+    <children>
+        <SplitPane dividerPositions="0.5118733509234829" prefHeight="218.0" prefWidth="381.0">
+            <items>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                    <children>
+                        <ListView fx:id="listviewVisitList" layoutX="-2.0" layoutY="30.0"
+                                  onMouseClicked="#listviewVisitList_OnMouseClicked" prefHeight="187.0"
+                                  prefWidth="198.0"/>
+                        <Label layoutX="82.0" layoutY="14.0" text="Visits"/>
+                    </children>
+                </AnchorPane>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="216.0" prefWidth="268.0">
+                    <children>
+                        <SplitPane dividerPositions="0.5" orientation="VERTICAL" prefHeight="216.0" prefWidth="182.0">
+                            <items>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                                    <children>
+                                        <Button fx:id="btnViewVisit" layoutX="64.0" layoutY="40.0"
+                                                mnemonicParsing="false" onAction="#btnViewVisit_OnAction" text="View"/>
+                                    </children>
+                                </AnchorPane>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                                    <children>
+                                        <Button fx:id="btnAddVisit" layoutX="64.0" layoutY="40.0"
+                                                mnemonicParsing="false" onAction="#btnAddVisit_OnAction" text="Add"/>
+                                    </children>
+                                </AnchorPane>
+                            </items>
+                        </SplitPane>
+                    </children>
+                </AnchorPane>
+            </items>
+        </SplitPane>
+    </children>
 </AnchorPane>
