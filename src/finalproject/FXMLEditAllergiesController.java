@@ -8,7 +8,6 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import finalproject.helpers.AlertHelper;
-import finalproject.helpers.Reference;
 import javafx.fxml.FXML;
 import javafx.scene.control.Slider;
 import javafx.scene.control.TextArea;
@@ -66,8 +65,8 @@ public class FXMLEditAllergiesController extends BaseController<Allergy> {
 	}
 
 	@Override
-	public void initData(Patient patient, Allergy target, DatabaseManager<Allergy> manager) {
-		super.initData(patient, target, manager);
+	public void initData(BaseController parent, Patient patient, Allergy target, DatabaseManager<Allergy> manager) {
+		super.initData(parent, patient, target, manager);
 		populateData();
 	}
 
@@ -123,7 +122,7 @@ public class FXMLEditAllergiesController extends BaseController<Allergy> {
 		}
 
 		if (!result) {
-			AlertHelper.ShowWarning(Reference.AlertText.DATABASE_ERROR, "Allergy Table", Reference.AlertText.DATABASE_SAVE_ERROR);
+			AlertHelper.ShowWarning("Database Error", "Allergy Table", "There was an error submitting your information to the database.");
 		}
 	}
 }

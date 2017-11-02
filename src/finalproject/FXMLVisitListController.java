@@ -14,7 +14,6 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
@@ -33,9 +32,6 @@ public class FXMLVisitListController extends BaseController<PatientVisit> {
 	@FXML
 	ListView<PatientVisit> listviewVisitList;
 
-	@FXML
-	Label lblPatientName;
-
 	/**
 	 * Initializes the controller class.
 	 */
@@ -46,10 +42,6 @@ public class FXMLVisitListController extends BaseController<PatientVisit> {
 
 	@FXML
 	private void btnViewVisit_OnAction(ActionEvent event) {
-		if (target == null) {
-			AlertHelper.ShowWarning(Reference.AlertText.INVALID_SELECTION, null, Reference.AlertText.INVALID_SELECTION_VISIT);
-		}
-
 		ShowVisitDialog(target);
 	}
 
@@ -66,12 +58,12 @@ public class FXMLVisitListController extends BaseController<PatientVisit> {
 			stage.setScene(new Scene((AnchorPane) loader.load()));
 
 			BaseController controller = loader.<FXMLPatientVisitController>getController();
-			controller.initData(patient, visitToDisplay, dbManager);
+			controller.initData(this, patient, visitToDisplay, dbManager);
 			stage.setResizable(false);
 			stage.initModality(Modality.APPLICATION_MODAL);
 			stage.showAndWait();
 		} catch (IOException e) {
-			AlertHelper.ShowError(Reference.AlertText.DIALOG_ERROR, Reference.AlertText.PATIENTVISIT_DIALOG_ERROR, e);
+			AlertHelper.ShowError("Dialog Error", "Error opening PatientVisit dialog", e);
 		}
 	}
 
@@ -93,8 +85,6 @@ public class FXMLVisitListController extends BaseController<PatientVisit> {
 
 	@Override
 	public void populateData() {
-		lblPatientName.setText(patient.getName());
-
 		listviewVisitList.getItems().clear();
 		listviewVisitList.getItems().addAll(dbManager.getList(patient.getId()));
 	}
