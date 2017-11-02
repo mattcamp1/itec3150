@@ -10,6 +10,8 @@ import java.util.ResourceBundle;
 import finalproject.database.VisitDbManager;
 import finalproject.helpers.AlertHelper;
 import finalproject.helpers.Reference;
+import java.util.Observable;
+import java.util.Observer;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -21,76 +23,81 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
-
 /**
  * FXML Controller class
  *
  * @author jnbcb
  */
-public class FXMLVisitListController extends BaseController<PatientVisit> {
+public class FXMLVisitListController extends BaseController<PatientVisit> implements Observer {
+    
+    private VisitDbManager manager = new VisitDbManager();
+    @FXML
+    ListView<PatientVisit> listviewVisitList;
 
-	@FXML
-	ListView<PatientVisit> listviewVisitList;
+    /**
+     * Initializes the controller class.
+     */
+    @Override
+    public void initialize(URL url, ResourceBundle rb) {
+        manager.addObserver(this);
+    }
 
-	/**
-	 * Initializes the controller class.
-	 */
-	@Override
-	public void initialize(URL url, ResourceBundle rb) {
-		// NO-OP
-	}
+    @FXML
+    private void btnViewVisit_OnAction(ActionEvent event) {
+        ShowVisitDialog(target);
+    }
 
-	@FXML
-	private void btnViewVisit_OnAction(ActionEvent event) {
-		ShowVisitDialog(target);
-	}
+    @FXML
+    private void btnAddVisit_OnAction(ActionEvent event) {
+        ShowVisitDialog(null);
+    }
 
-	@FXML
-	private void btnAddVisit_OnAction(ActionEvent event) {
-		ShowVisitDialog(null);
-	}
+    private void ShowVisitDialog(PatientVisit visitToDisplay) {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource(Dialogs.VisitModify.toString()));
 
-	private void ShowVisitDialog(PatientVisit visitToDisplay) {
-		FXMLLoader loader = new FXMLLoader(getClass().getResource(Dialogs.VisitModify.toString()));
+        Stage stage = new Stage(StageStyle.DECORATED);
+        try {
+            stage.setScene(new Scene((AnchorPane) loader.load()));
 
-		Stage stage = new Stage(StageStyle.DECORATED);
-		try {
-			stage.setScene(new Scene((AnchorPane) loader.load()));
+            BaseController controller = loader.<FXMLPatientVisitController>getController();
+            controller.initData(this, patient, visitToDisplay, manager);
+            stage.setResizable(false);
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.showAndWait();
+        } catch (IOException e) {
+            AlertHelper.ShowError("Dialog Error", "Error opening PatientVisit dialog", e);
+        }
+    }
 
-			BaseController controller = loader.<FXMLPatientVisitController>getController();
-			controller.initData(this, patient, visitToDisplay, dbManager);
-			stage.setResizable(false);
-			stage.initModality(Modality.APPLICATION_MODAL);
-			stage.showAndWait();
-		} catch (IOException e) {
-			AlertHelper.ShowError("Dialog Error", "Error opening PatientVisit dialog", e);
-		}
-	}
+    @FXML
+    private void listviewVisitList_OnMouseClicked(MouseEvent event) {
+        target = listviewVisitList.getSelectionModel().getSelectedItem();
+    }
 
-	@FXML
-	private void listviewVisitList_OnMouseClicked(MouseEvent event) {
-		target = listviewVisitList.getSelectionModel().getSelectedItem();
-	}
+    @Override
+    public ValidationStatus validateForm() {
+        // NO-OP
+        return null;
+    }
 
-	@Override
-	public ValidationStatus validateForm() {
-		// NO-OP
-		return null;
-	}
+    @Override
+    public void saveToDatabase() {
+        // NO-OP
+    }
 
-	@Override
-	public void saveToDatabase() {
-		// NO-OP
-	}
+    @Override
+    public void populateData() {
+        listviewVisitList.getItems().clear();
+        listviewVisitList.getItems().addAll(dbManager.getList(patient.getId()));
+    }
 
-	@Override
-	public void populateData() {
-		listviewVisitList.getItems().clear();
-		listviewVisitList.getItems().addAll(dbManager.getList(patient.getId()));
-	}
+    @Override
+    public void reset() {
+        // NO-OP
+    }
 
-	@Override
-	public void reset() {
-		// NO-OP
-	}
+    @Override
+    public void update(Observable o, Object arg) {
+        populateData();
+    }
 }

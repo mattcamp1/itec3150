@@ -33,7 +33,7 @@ import javafx.stage.StageStyle;
  * summary information
  */
 public class FXMLPatientSummaryController extends BaseController<Patient> implements Observer {
-
+        
 	private AllergyDbManager allergyManager = new AllergyDbManager();
 	private MedicationDbManager medicationManager = new MedicationDbManager();
 	private VisitDbManager visitManager = new VisitDbManager();

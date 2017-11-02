@@ -166,7 +166,7 @@ public class FXMLPatientVisitController extends BaseController<PatientVisit> {
 		// Validation not needed for notes -- not a required field
 		notes = txtDoctorNotes.getText();
 
-		if (target.getVisitId() == 0) {
+		if (target == null || target.getVisitId() == 0) {
 			target = new PatientVisit(patient.getId(), date, docName, pressure, pulse, temp, reason, notes);
 		} else {
 			target.setDate(date);
