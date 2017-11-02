@@ -8,9 +8,8 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import finalproject.helpers.AlertHelper;
-import javafx.event.ActionEvent;
+import finalproject.helpers.Reference;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 
 
@@ -61,8 +60,8 @@ public class FXMLEditMedsController extends BaseController<Medication> {
 	}
 
 	@Override
-	public void initData(BaseController parent, Patient patient, Medication target, DatabaseManager<Medication> manager) {
-		super.initData(parent, patient, target, manager);
+	public void initData(Patient patient, Medication target, DatabaseManager<Medication> manager) {
+		super.initData(patient, target, manager);
 	}
 
 	@Override
@@ -132,7 +131,7 @@ public class FXMLEditMedsController extends BaseController<Medication> {
 		}
 
 		if (!result) {
-			AlertHelper.ShowWarning("Database Error", "Medication Table", "There was an error submitting your information to the database.");
+			AlertHelper.ShowWarning(Reference.AlertText.DATABASE_ERROR, "Medication Table", Reference.AlertText.DATABASE_SAVE_ERROR);
 		}
 	}
 }

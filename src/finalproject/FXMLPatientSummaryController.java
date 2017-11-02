@@ -78,16 +78,15 @@ public class FXMLPatientSummaryController extends BaseController<Patient> implem
 	@FXML
 	private DatePicker dpickDateOfBirth;
 
-	private <T> Stage showDialog(Dialogs dialog, Patient patient, T target) {
+	private <T> void showDialog(Dialogs dialog, Patient patient, T target) {
 		try {
-			FXMLLoader loader = new FXMLLoader(
-					getClass().getResource(dialog.toString())
-			);
+			FXMLLoader loader = new FXMLLoader(getClass().getResource(dialog.toString()));
 
 			Stage stage = new Stage(StageStyle.DECORATED);
-			stage.setScene(new Scene((AnchorPane) loader.load()));
+			stage.setScene(new Scene(loader.load()));
 			DatabaseManager<?> manager;
 			BaseController controller;
+
 			switch (dialog) {
 				case Allergies:
 					controller = loader.<FXMLEditAllergiesController>getController();
@@ -109,21 +108,24 @@ public class FXMLPatientSummaryController extends BaseController<Patient> implem
 					manager = visitManager;
 					break;
 
+				case Summary:
 				default:
 					throw new IllegalArgumentException();
 			}
 
-			controller.initData(this, patient, target, manager);
+			if (controller == null || manager == null) {
+				AlertHelper.ShowWarning("Error", null, "There was an error loading the controller or database manager.");
+			}
+
+			if (controller != null) {
+				controller.initData(patient, target, manager);
+			}
+
 			stage.setResizable(false);
 			stage.initModality(Modality.APPLICATION_MODAL);
-			stage.showAndWait();
-			return stage;
-
+			stage.show();
 		} catch (IOException e) {
-			e.printStackTrace();
-			return null;
-		} catch (IllegalArgumentException e) {
-			return null;
+			AlertHelper.ShowError(Reference.AlertText.FORM_LOAD_ERROR, dialog.toString(), e);
 		}
 	}
 
@@ -135,6 +137,11 @@ public class FXMLPatientSummaryController extends BaseController<Patient> implem
 	// TODO
 	@FXML
 	void btnViewVisits_OnAction(ActionEvent event) {
+		if (patient == null) {
+			AlertHelper.ShowWarning("Invalid Selection", null, "Please select a patient before attempting to view visits.");
+			return;
+		}
+
 		showDialog(Dialogs.VisitList, patient, null);
 	}
 
@@ -237,7 +244,7 @@ public class FXMLPatientSummaryController extends BaseController<Patient> implem
 		}
 
 		if (!result) {
-			AlertHelper.ShowWarning("Database Error", "Patient Table", "There was an error submitting your information to the database.");
+			AlertHelper.ShowWarning(Reference.AlertText.DATABASE_ERROR, "Patient Table", Reference.AlertText.DATABASE_SAVE_ERROR);
 		}
 	}
 
@@ -367,8 +374,10 @@ public class FXMLPatientSummaryController extends BaseController<Patient> implem
 	@FXML
 	private void btnAddMedication_OnAction(ActionEvent event) {
 		if (patient == null || patient.getId() == 0) {
-			return; // alert dialog?
+			AlertHelper.ShowWarning("Patient Error", null, "No patient selected");
+			return;
 		}
+
 		showDialog(Dialogs.Meds, patient, Reference.DEFAULT_MEDICATION);
 	}
 

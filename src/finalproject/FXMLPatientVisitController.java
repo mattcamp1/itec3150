@@ -193,7 +193,7 @@ public class FXMLPatientVisitController extends BaseController<PatientVisit> {
 		}
 
 		if (!result) {
-			AlertHelper.ShowWarning("Database Error", "Visit Table", "There was an error submitting your information to the database.");
+			AlertHelper.ShowWarning(Reference.AlertText.DATABASE_ERROR, "PatientVisit Table", Reference.AlertText.DATABASE_SAVE_ERROR);
 		}
 	}
 }

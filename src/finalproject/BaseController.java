@@ -31,12 +31,10 @@ public abstract class BaseController<T> implements Initializable, IValidation {
 	protected AnchorPane anchor;
 
 	protected DatabaseManager<T> dbManager;
-	protected BaseController parent;  // TODO: Check if I really do need this
 	protected Patient patient;
 	protected T target;
 
-	public void initData(BaseController parent, Patient patient, T target, DatabaseManager<T> dbManager) {
-		this.parent = parent;
+	public  void initData(Patient patient, T target, DatabaseManager<T> dbManager) {
 		this.patient = patient;
 		this.target = target;
 		this.dbManager = dbManager;
