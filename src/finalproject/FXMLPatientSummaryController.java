@@ -33,389 +33,399 @@ import javafx.stage.StageStyle;
  * summary information
  */
 public class FXMLPatientSummaryController extends BaseController<Patient> implements Observer {
-        
-	private AllergyDbManager allergyManager = new AllergyDbManager();
-	private MedicationDbManager medicationManager = new MedicationDbManager();
-	private VisitDbManager visitManager = new VisitDbManager();
-	private PatientDbManager patientManager = new PatientDbManager();
 
-	@FXML
-	private ListView<Patient> listviewPatients;
+    private AllergyDbManager allergyManager = new AllergyDbManager();
+    private MedicationDbManager medicationManager = new MedicationDbManager();
+    private VisitDbManager visitManager = new VisitDbManager();
+    private PatientDbManager patientManager = new PatientDbManager();
 
-	@FXML
-	private Label lblPatientId;
+    @FXML
+    private ListView<Patient> listviewPatients;
 
-	@FXML
-	private TextField txtPatientName;
+    @FXML
+    private Label lblPatientId;
 
-	@FXML
-	private TextField txtPatientAddress;
+    @FXML
+    private TextField txtPatientName;
 
-	@FXML
-	private TextField txtPatientEmail;
+    @FXML
+    private TextField txtPatientAddress;
 
-	@FXML
-	private ComboBox<MaritalStatus> cboxPatientMaritalStatus;
+    @FXML
+    private TextField txtPatientEmail;
 
-	@FXML
-	private TextField txtPatientPhoneAreaCode;
+    @FXML
+    private ComboBox<MaritalStatus> cboxPatientMaritalStatus;
 
-	@FXML
-	private TextField txtPatientPhonePrefix;
+    @FXML
+    private TextField txtPatientPhoneAreaCode;
 
-	@FXML
-	private TextField txtPatientPhoneLineNumber;
+    @FXML
+    private TextField txtPatientPhonePrefix;
 
-	@FXML
-	private ListView<Allergy> listviewPatientAllergies;
+    @FXML
+    private TextField txtPatientPhoneLineNumber;
 
-	@FXML
-	private ListView<Medication> listviewPatientMeds;
+    @FXML
+    private ListView<Allergy> listviewPatientAllergies;
 
-	@FXML
-	private TextField txtPatientInsurance;
+    @FXML
+    private ListView<Medication> listviewPatientMeds;
 
-	@FXML
-	private DatePicker dpickDateOfBirth;
+    @FXML
+    private TextField txtPatientInsurance;
 
-	private <T> Stage showDialog(Dialogs dialog, Patient patient, T target) {
-		try {
-			FXMLLoader loader = new FXMLLoader(
-					getClass().getResource(dialog.toString())
-			);
+    @FXML
+    private DatePicker dpickDateOfBirth;
 
-			Stage stage = new Stage(StageStyle.DECORATED);
-			stage.setScene(new Scene((AnchorPane) loader.load()));
-			DatabaseManager<?> manager;
-			BaseController controller;
-			switch (dialog) {
-				case Allergies:
-					controller = loader.<FXMLEditAllergiesController>getController();
-					manager = allergyManager;
-					break;
+    private <T> Stage showDialog(Dialogs dialog, Patient patient, T target) {
+        try {
+            FXMLLoader loader = new FXMLLoader(
+                    getClass().getResource(dialog.toString())
+            );
 
-				case Meds:
-					controller = loader.<FXMLEditMedsController>getController();
-					manager = medicationManager;
-					break;
+            Stage stage = new Stage(StageStyle.DECORATED);
+            stage.setScene(new Scene((AnchorPane) loader.load()));
+            DatabaseManager<?> manager;
+            BaseController controller;
+            switch (dialog) {
+                case Allergies:
+                    controller = loader.<FXMLEditAllergiesController>getController();
+                    manager = allergyManager;
+                    break;
 
-				case VisitList:
-					controller = loader.<FXMLVisitListController>getController();
-					manager = visitManager;
-					break;
+                case Meds:
+                    controller = loader.<FXMLEditMedsController>getController();
+                    manager = medicationManager;
+                    break;
 
-				case VisitModify:
-					controller = loader.<FXMLPatientVisitController>getController();
-					manager = visitManager;
-					break;
+                case VisitList:
+                    controller = loader.<FXMLVisitListController>getController();
+                    manager = visitManager;
+                    break;
 
-				default:
-					throw new IllegalArgumentException();
-			}
+                case VisitModify:
+                    controller = loader.<FXMLPatientVisitController>getController();
+                    manager = visitManager;
+                    break;
 
-			controller.initData(this, patient, target, manager);
-			stage.setResizable(false);
-			stage.initModality(Modality.APPLICATION_MODAL);
-			stage.showAndWait();
-			return stage;
+                default:
+                    throw new IllegalArgumentException();
+            }
 
-		} catch (IOException e) {
-			e.printStackTrace();
-			return null;
-		} catch (IllegalArgumentException e) {
-			return null;
-		}
-	}
+            controller.initData(this, patient, target, manager);
+            stage.setResizable(false);
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.showAndWait();
+            return stage;
 
-	private void populateCombos() {
-		cboxPatientMaritalStatus.getItems().clear();
-		cboxPatientMaritalStatus.getItems().addAll(MaritalStatus.values());
-	}
+        } catch (IOException e) {
+            e.printStackTrace();
+            return null;
+        } catch (IllegalArgumentException e) {
+            return null;
+        }
+    }
 
-	// TODO
-	@FXML
-	void btnViewVisits_OnAction(ActionEvent event) {
-		showDialog(Dialogs.VisitList, patient, null);
-	}
+    private void populateCombos() {
+        cboxPatientMaritalStatus.getItems().clear();
+        cboxPatientMaritalStatus.getItems().addAll(MaritalStatus.values());
+    }
 
-	public ValidationStatus validateForm() {
-		ValidationStatus status = new ValidationStatus();
-		String name = "";
-		String address = "";
-		String phone = "";
-		String email = "";
-		String dob = "";
-		String marriage = "";
-		String insurance = "";
+    // TODO
+    @FXML
+    void btnViewVisits_OnAction(ActionEvent event) {
+        if (patient == null){
+            AlertHelper.ShowWarning("Error", null, "Please select a patient.");
+            return;
+        }
+        showDialog(Dialogs.VisitList, patient, null);
+    }
 
-		if (txtPatientName.getText().isEmpty()) {
-			status.addFieldError("Name");
-		} else {
-			name = txtPatientName.getText();
-		}
+    public ValidationStatus validateForm() {
+        ValidationStatus status = new ValidationStatus();
+        String name = "";
+        String address = "";
+        String phone = "";
+        String email = "";
+        String dob = "";
+        String marriage = "";
+        String insurance = "";
 
-		if (txtPatientAddress.getText().isEmpty()) {
-			status.addFieldError("Address");
-		} else {
-			address = txtPatientAddress.getText();
-		}
+        if (txtPatientName.getText().isEmpty()) {
+            status.addFieldError("Name");
+        } else {
+            name = txtPatientName.getText();
+        }
 
-		if (txtPatientPhoneAreaCode.getText().isEmpty() || txtPatientPhonePrefix.getText().isEmpty() || txtPatientPhoneLineNumber.getText().isEmpty()) {
-			status.addFieldError("Phone Number");
-		} else {
-			phone = "";
-			if (Pattern.matches(Reference.PHONE_REGEX[0], txtPatientPhoneAreaCode.getText())) {
-				phone = txtPatientPhoneAreaCode.getText();
+        if (txtPatientAddress.getText().isEmpty()) {
+            status.addFieldError("Address");
+        } else {
+            address = txtPatientAddress.getText();
+        }
 
-				if (Pattern.matches(Reference.PHONE_REGEX[0], txtPatientPhonePrefix.getText())) {
-					phone += txtPatientPhonePrefix.getText();
+        if (txtPatientPhoneAreaCode.getText().isEmpty() || txtPatientPhonePrefix.getText().isEmpty() || txtPatientPhoneLineNumber.getText().isEmpty()) {
+            status.addFieldError("Phone Number");
+        } else {
+            phone = "";
+            if (Pattern.matches(Reference.PHONE_REGEX[0], txtPatientPhoneAreaCode.getText())) {
+                phone = txtPatientPhoneAreaCode.getText();
 
-					if (Pattern.matches(Reference.PHONE_REGEX[1], txtPatientPhoneLineNumber.getText())) {
-						phone += txtPatientPhoneLineNumber.getText();
-					} else {
-						status.addFieldError("Phone Number");
-					}
-				} else {
-					status.addFieldError("Phone Number");
-				}
-			} else {
-				status.addFieldError("Phone Number");
-			}
-		}
+                if (Pattern.matches(Reference.PHONE_REGEX[0], txtPatientPhonePrefix.getText())) {
+                    phone += txtPatientPhonePrefix.getText();
 
-		if (txtPatientEmail.getText().isEmpty()) {
-			status.addFieldError("Email");
-		} else {
-			if (Pattern.matches(Reference.EMAIL_REGEX, txtPatientEmail.getText())) {
-				email = txtPatientEmail.getText();
-			} else {
-				status.addFieldError("Email");
-			}
-		}
+                    if (Pattern.matches(Reference.PHONE_REGEX[1], txtPatientPhoneLineNumber.getText())) {
+                        phone += txtPatientPhoneLineNumber.getText();
+                    } else {
+                        status.addFieldError("Phone Number");
+                    }
+                } else {
+                    status.addFieldError("Phone Number");
+                }
+            } else {
+                status.addFieldError("Phone Number");
+            }
+        }
 
-		if (dpickDateOfBirth.getValue() == null) {
-			status.addFieldError("Date of Birth");
-		} else {
-			dob = dpickDateOfBirth.getValue().format(Reference.DATE_FORMAT);
-		}
+        if (txtPatientEmail.getText().isEmpty()) {
+            status.addFieldError("Email");
+        } else {
+            if (Pattern.matches(Reference.EMAIL_REGEX, txtPatientEmail.getText())) {
+                email = txtPatientEmail.getText();
+            } else {
+                status.addFieldError("Email");
+            }
+        }
 
-		if (cboxPatientMaritalStatus.getSelectionModel().isEmpty() || cboxPatientMaritalStatus.getSelectionModel().getSelectedItem() == null) {
-			status.addFieldError("Marital Status");
-		} else {
-			marriage = cboxPatientMaritalStatus.getSelectionModel().getSelectedItem().toString();
-		}
+        if (dpickDateOfBirth.getValue() == null) {
+            status.addFieldError("Date of Birth");
+        } else {
+            dob = dpickDateOfBirth.getValue().format(Reference.DATE_FORMAT);
+        }
 
-		if (txtPatientInsurance.getText().isEmpty()) {
-			status.addFieldError("Insurance");
-		} else {
-			insurance = txtPatientInsurance.getText();
-		}
+        if (cboxPatientMaritalStatus.getSelectionModel().isEmpty() || cboxPatientMaritalStatus.getSelectionModel().getSelectedItem() == null) {
+            status.addFieldError("Marital Status");
+        } else {
+            marriage = cboxPatientMaritalStatus.getSelectionModel().getSelectedItem().toString();
+        }
 
-		if (patient == null || patient.getId() == 0) {
-			patient = new Patient(name, address, phone, email, dob, marriage, insurance);
-		} else {
-			patient.setName(name);
-			patient.setAddress(address);
-			patient.setPhoneNumber(phone);
-			patient.setEmail(email);
-			patient.setDob(dob);
-			patient.setMaritalStatus(marriage);
-			patient.setInsurance(insurance);
-		}
-		return status;
-	}
+        if (txtPatientInsurance.getText().isEmpty()) {
+            status.addFieldError("Insurance");
+        } else {
+            insurance = txtPatientInsurance.getText();
+        }
 
-	@Override
-	public void saveToDatabase() {
-		boolean result;
-		if (patient.getId() == 0) {
-			System.out.println("inserting into " + patient.getId()); // testing
-			result = patientManager.insert(patient); // dbManager for this controller is null, if you wish to use it
-		} else {                                     // call the initData method in finalproject.java and addObserver to it in initialize
-			System.out.println("updating"); // testing
-			result = patientManager.update(patient);
-		}
+        if (patient == null || patient.getId() == 0) {
+            patient = new Patient(name, address, phone, email, dob, marriage, insurance);
+        } else {
+            patient.setName(name);
+            patient.setAddress(address);
+            patient.setPhoneNumber(phone);
+            patient.setEmail(email);
+            patient.setDob(dob);
+            patient.setMaritalStatus(marriage);
+            patient.setInsurance(insurance);
+        }
+        return status;
+    }
 
-		if (!result) {
-			AlertHelper.ShowWarning("Database Error", "Patient Table", "There was an error submitting your information to the database.");
-		}
-	}
+    @Override
+    public void saveToDatabase() {
+        boolean result;
+        if (patient.getId() == 0) {
+            result = patientManager.insert(patient);
+        } else {
+            result = patientManager.update(patient);
+        }
+        if (!result) {
+            AlertHelper.ShowWarning("Database Error", "Patient Table", "There was an error submitting your information to the database.");
+        }
+    }
 
-	// comfirm patient
-	@FXML
-	protected void btnSave_OnAction(ActionEvent event) {
-		ValidationStatus status = validateForm();
-		if (status.getIsValid()) {
-			saveToDatabase();
-		} else {
-			AlertHelper.ShowWarning("Patient Error", null, status.getErrors());
-		}
-	}
+    // comfirm patient
+    @FXML
+    protected void btnSave_OnAction(ActionEvent event) {
+        ValidationStatus status = validateForm();
+        if (status.getIsValid()) {
+            saveToDatabase();
+        } else {
+            AlertHelper.ShowWarning("Patient Error", null, status.getErrors());
+        }
+    }
 
-	@FXML
-	void btnEditAllergy_OnAction(ActionEvent event) {
-		Allergy allergy = listviewPatientAllergies.getSelectionModel().getSelectedItem();
-		System.out.println(allergy); // testing
-		if (patient == null || allergy == null) {
-			AlertHelper.ShowWarning("Editing Error", null, "Please select a patient and allergy to edit.");
-		} else {
-			showDialog(Dialogs.Allergies, patient, allergy);
-		}
-	}
+    @FXML
+    void btnEditAllergy_OnAction(ActionEvent event) {
+        Allergy allergy = listviewPatientAllergies.getSelectionModel().getSelectedItem();
+        if (patient == null || allergy == null) {
+            AlertHelper.ShowWarning("Editing Error", null, "Please select a patient and allergy to edit.");
+        } else {
+            showDialog(Dialogs.Allergies, patient, allergy);
+        }
+    }
 
-	@FXML
-	void btnEditMedication_OnAction(ActionEvent event) {
-		if (patient == null || patient.getId() == 0) {
-			return; // alert dialog?
-		}
-		Patient patient = listviewPatients.getSelectionModel().getSelectedItem();
-		Medication med = listviewPatientMeds.getSelectionModel().getSelectedItem();
-		showDialog(Dialogs.Meds, patient, med);
-	}
+    @FXML
+    void btnEditMedication_OnAction(ActionEvent event) {
+        Patient patient = listviewPatients.getSelectionModel().getSelectedItem();
+        Medication med = listviewPatientMeds.getSelectionModel().getSelectedItem();
+        if (patient == null || patient.getId() == 0 || med == null) {
+            AlertHelper.ShowWarning("Editing Error", null, "Please select a patient and medication to edit.");
+            return;
+        }
+        showDialog(Dialogs.Meds, patient, med);
+    }
 
-	@FXML
-	void btnNewPatient_OnAction(ActionEvent event) {
-		patient = null;
-		listviewPatientAllergies.getItems().clear();
-		listviewPatientMeds.getItems().clear();
-		// clear everything
-		lblPatientId.setText("");
-		txtPatientName.clear();
-		txtPatientAddress.clear();
-		txtPatientPhoneAreaCode.clear();
-		txtPatientPhonePrefix.clear();
-		txtPatientPhoneLineNumber.clear();
-		txtPatientEmail.clear();
-		txtPatientInsurance.clear();
-		cboxPatientMaritalStatus.getSelectionModel().clearSelection();
-		dpickDateOfBirth.setValue(null);
-	}
+    @FXML
+    void btnNewPatient_OnAction(ActionEvent event) {
+        patient = null;
+        listviewPatientAllergies.getItems().clear();
+        listviewPatientMeds.getItems().clear();
+        lblPatientId.setText("");
+        txtPatientName.clear();
+        txtPatientAddress.clear();
+        txtPatientPhoneAreaCode.clear();
+        txtPatientPhonePrefix.clear();
+        txtPatientPhoneLineNumber.clear();
+        txtPatientEmail.clear();
+        txtPatientInsurance.clear();
+        cboxPatientMaritalStatus.getSelectionModel().clearSelection();
+        dpickDateOfBirth.setValue(null);
+    }
 
-	@FXML
-	void btnRemovePatient_OnAction(ActionEvent event) {
-		if (patient == null) {
-			return; // need logic for removing patient when none is selected.
-		}
-		patientManager.delete(patient.getId());
-	}
+    @FXML
+    void btnRemovePatient_OnAction(ActionEvent event) {
+        if (patient == null) {
+            AlertHelper.ShowWarning("Error", null, "Please select a patient.");
+            return;
+        }
+        patientManager.delete(patient.getId());
+        patient = null;
+        btnNewPatient_OnAction(null);
+    }
 
-	@Override
-	public void initialize(URL url, ResourceBundle rb) {
-		populateData();
+    @Override
+    public void initialize(URL url, ResourceBundle rb) {
+        populateData();
+        patientManager.addObserver(this);
+        allergyManager.addObserver(this);
+        medicationManager.addObserver(this);
+        visitManager.addObserver(this);
+    }
 
-		patientManager.addObserver(this);
-		allergyManager.addObserver(this);
-		medicationManager.addObserver(this);
-		visitManager.addObserver(this);
-	}
+    @Override
+    public void populateData() {
+        populateCombos();
+        populatePatientList();
+        populatePatientInfo(patient);
+    }
 
-	@Override
-	public void populateData() {
-		populateCombos();
-		populatePatientList();
-		populatePatientInfo(patient);
-	}
+    @Override
+    public void reset() {
 
-	@Override
-	public void reset() {
+    }
 
-	}
+    private void populatePatientList() {
+        try {
+            listviewPatients.getItems().clear();
+            List<Patient> patients = patientManager.getList(-1);
+            patients.sort(new PatientNameComparator());
+            listviewPatients.getItems().addAll(patients);
+        } catch (NullPointerException e) {
+            AlertHelper.ShowError("An error occurred", "Error accessing PATIENT table", e);
+        }
+    }
 
-	private void populatePatientList() {
-		try {
-			listviewPatients.getItems().clear();
-			List<Patient> patients = patientManager.getList(-1);
-			patients.sort(new PatientNameComparator());
-			listviewPatients.getItems().addAll(patients);
-		} catch (NullPointerException e) {
-			AlertHelper.ShowError("An error occurred", "Error accessing PATIENT table", e);
-		}
-	}
+    private void populatePatientInfo(Patient patient) {
+        if (patient == null) {
+            return;
+        }
+        txtPatientInsurance.setText(patient.getInsurance());
+        txtPatientEmail.setText(patient.getEmail());
+        txtPatientPhoneLineNumber.setText(patient.getPhoneNumber().substring(6));
+        txtPatientPhonePrefix.setText(patient.getPhoneNumber().substring(3, 6));
+        txtPatientPhoneAreaCode.setText(patient.getPhoneNumber().substring(0, 3));
+        txtPatientAddress.setText(patient.getAddress());
+        txtPatientName.setText(patient.getName());
+        lblPatientId.setText(String.valueOf(patient.getId()));
+        if (patient.getDob() != null || !patient.getDob().equals("")) {
+            dpickDateOfBirth.setValue(LocalDate.parse(patient.getDob(), DateTimeFormatter.ofPattern("MM/dd/yyyy")));
+        }
+        cboxPatientMaritalStatus.setValue(Enum.valueOf(MaritalStatus.class, patient.getMaritalStatus()));
+        fillMeds(patient.getId());
+        fillAllergies(patient.getId());
+    }
 
-	private void populatePatientInfo(Patient patient) {
-		if (patient == null) {
-			return;
-		}
+    @FXML
+    private void btnAddAllergy_OnAction(ActionEvent event) {
+        if (patient == null || patient.getId() == 0) {
+            AlertHelper.ShowWarning("Error", null, "Please select a patient.");
+            return;
+        }
+        showDialog(Dialogs.Allergies, patient, Reference.DEFAULT_ALLERGY);
+    }
 
-		txtPatientInsurance.setText(patient.getInsurance());
-		txtPatientEmail.setText(patient.getEmail());
-		txtPatientPhoneLineNumber.setText(patient.getPhoneNumber().substring(6));
-		txtPatientPhonePrefix.setText(patient.getPhoneNumber().substring(3, 6));
-		txtPatientPhoneAreaCode.setText(patient.getPhoneNumber().substring(0, 3));
-		txtPatientAddress.setText(patient.getAddress());
-		txtPatientName.setText(patient.getName());
-		lblPatientId.setText(String.valueOf(patient.getId()));
-		if (patient.getDob() != null || !patient.getDob().equals("")) {
-			dpickDateOfBirth.setValue(LocalDate.parse(patient.getDob(), DateTimeFormatter.ofPattern("MM/dd/yyyy")));
-		}
-		cboxPatientMaritalStatus.setValue(Enum.valueOf(MaritalStatus.class, patient.getMaritalStatus()));
+    @FXML
+    private void btnAddMedication_OnAction(ActionEvent event) {
+        if (patient == null || patient.getId() == 0) {
+            AlertHelper.ShowWarning("Error", null, "Please select a patient.");
+            return;
+        }
+        showDialog(Dialogs.Meds, patient, Reference.DEFAULT_MEDICATION);
+    }
 
-		//MedicationDbManager medDatabase = new MedicationDbManager();
-		//Collection<Medication> medList = medDatabase.getList(patient.getId());
-		fillMeds(patient.getId());
-		fillAllergies(patient.getId());
-	}
+    @FXML
+    private void btnRemoveAllergy_OnAction(ActionEvent e) {
+        if (listviewPatientAllergies.getSelectionModel().getSelectedItem() != null) {
+            allergyManager.delete(listviewPatientAllergies.getSelectionModel().getSelectedItem().getId());
+        } else {
+            AlertHelper.ShowWarning("Error", null, "Please select an allergy.");
+        }
+    }
 
-	@FXML
-	private void btnAddAllergy_OnAction(ActionEvent event) {
-		if (patient == null || patient.getId() == 0) {
-			return; // alert dialog?
-		}
-		showDialog(Dialogs.Allergies, patient, Reference.DEFAULT_ALLERGY);
-	}
+    @FXML
+    private void btnRemoveMedication_OnAction(ActionEvent e) {
+        if (listviewPatientMeds.getSelectionModel().getSelectedItem() != null) {
+            medicationManager.delete(listviewPatientMeds.getSelectionModel().getSelectedItem().getId());
+        } else {
+            AlertHelper.ShowWarning("Error", null, "Please select a medication.");
+        }
+    }
 
-	@FXML
-	private void btnAddMedication_OnAction(ActionEvent event) {
-		if (patient == null || patient.getId() == 0) {
-			return; // alert dialog?
-		}
-		showDialog(Dialogs.Meds, patient, Reference.DEFAULT_MEDICATION);
-	}
+    @FXML
+    private void listviewPatients_OnMouseClicked(MouseEvent event) {
+        patient = listviewPatients.getSelectionModel().getSelectedItem();
+        if (patient == null){
+            btnNewPatient_OnAction(null);
+        }
+        populateData();
+    }
 
-	@FXML
-	private void btnRemoveAllergy_OnAction(ActionEvent e) {
-		if (listviewPatientAllergies.getSelectionModel().getSelectedItem() != null) {
-			allergyManager.delete(listviewPatientAllergies.getSelectionModel().getSelectedItem().getId());
-		}
-	}
+    private void fillMeds(int patientId) {
+        listviewPatientMeds.getItems().clear();
+        List<Medication> list = (new MedicationDbManager()).getList(patientId);
+        list.sort(new MedicationNameComparator());
+        listviewPatientMeds.getItems().addAll(list);
+    }
 
-	@FXML
-	private void btnRemoveMedication_OnAction(ActionEvent e) {
-		if (listviewPatientMeds.getSelectionModel().getSelectedItem() != null) {
-			medicationManager.delete(listviewPatientMeds.getSelectionModel().getSelectedItem().getId());
-		}
-	}
+    private void fillAllergies(int patientId) {
+        listviewPatientAllergies.getItems().clear();
+        List<Allergy> list = (new AllergyDbManager()).getList(patientId);
+        list.sort(new AllergySeverityNameComparator());
+        listviewPatientAllergies.getItems().addAll(list);
+    }
 
-	@FXML
-	private void listviewPatients_OnMouseClicked(MouseEvent event) {
-		patient = listviewPatients.getSelectionModel().getSelectedItem();
-		populateData();
-	}
-
-	private void fillMeds(int patientId) {
-		listviewPatientMeds.getItems().clear();
-		List<Medication> list = (new MedicationDbManager()).getList(patientId);
-		list.sort(new MedicationNameComparator());
-		listviewPatientMeds.getItems().addAll(list);
-	}
-
-	private void fillAllergies(int patientId) {
-		listviewPatientAllergies.getItems().clear();
-		List<Allergy> list = (new AllergyDbManager()).getList(patientId);
-		list.sort(new AllergySeverityNameComparator());
-		listviewPatientAllergies.getItems().addAll(list);
-	}
-
-	@Override
-	public void update(Observable o, Object arg) {
-		if (o instanceof PatientDbManager) {
-			populatePatientList();
-		} else if (o instanceof AllergyDbManager) {
-			fillAllergies(patient.getId());
-		} else if (o instanceof MedicationDbManager) {
-			fillMeds(patient.getId());
-		} else {
-			// is visit db manager ... no need for this yet
-		}
-	}
+    @Override
+    public void update(Observable o, Object arg) {
+        if (patient == null) {
+            return;
+        }
+        if (o instanceof PatientDbManager) {
+            populatePatientList();
+        } else if (o instanceof AllergyDbManager) {
+            fillAllergies(patient.getId());
+        } else if (o instanceof MedicationDbManager) {
+            fillMeds(patient.getId());
+        } else {
+            // is visit db manager ... no need for this yet
+        }
+    }
 }

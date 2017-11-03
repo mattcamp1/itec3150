@@ -44,6 +44,10 @@ public class FXMLVisitListController extends BaseController<PatientVisit> implem
 
     @FXML
     private void btnViewVisit_OnAction(ActionEvent event) {
+        if (target == null || target.getVisitId() == 0){
+            AlertHelper.ShowWarning("Error", null, "Please select a visit.");
+            return;
+        }
         ShowVisitDialog(target);
     }
 
