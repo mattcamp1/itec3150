@@ -91,7 +91,7 @@ public class FXMLPatientVisitController extends BaseController<PatientVisit> {
         txtVitalBPBottom.setText("");
         txtVitalTemp.setText("");
         txtDoctorNotes.setText("");
-        dpickDateOfVisit.setValue("");
+        dpickDateOfVisit.setValue(null);
     }
 
     @Override
