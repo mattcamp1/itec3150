@@ -78,21 +78,4 @@ public class Medication {
 		return this.name + " " + this.doseMilligrams + "mg (" + this.doseCount + "x daily)";
 	}
 
-//        public static Medication getMedicationFromString(String medication){
-//            String[] array = medication.split(" ");
-//            String name = array[0];
-//            String reason = array[1];
-//            int doseCount = Integer.valueOf(array[2]);
-//            int doseMilligrams = Integer.valueOf(array[3]);
-//            return new Medication(name, reason, doseMilligrams, doseCount);
-//        }
-//        
-//        public static List<Medication> getMedicationList(String medications){
-//            String[] arrayMed = medications.split("END");
-//            List<Medication> list = new LinkedList<Medication>();
-//            for (int index = 0; index < arrayMed.length; index++){
-//                list.add(getMedicationFromString(arrayMed[index]));
-//            }
-//            return list;
-//        }
 }
