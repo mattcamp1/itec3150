@@ -44,9 +44,9 @@ public class FXMLEditAllergiesController extends BaseController<Allergy> {
 
     @Override
     public void reset() {
-        txtAllergySubstance.setText(null);
-        txtAllergyEffect.setText(null);
-        txtAllergySeverity.setText(null);
+        txtAllergySubstance.setText("");
+        txtAllergyEffect.setText("");
+        txtAllergySeverity.setText("");
         sldrAllergySeverity.adjustValue(0);
     }
 

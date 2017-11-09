@@ -50,10 +50,10 @@ public class FXMLEditMedsController extends BaseController<Medication> {
 
     @Override
     public void reset() {
-        txtMedName.setText(null);
-        txtMedDose.setText(null);
-        txtMedDoseCount.setText(null);
-        txtMedReason.setText(null);
+        txtMedName.setText("");
+        txtMedDose.setText("");
+        txtMedDoseCount.setText("");
+        txtMedReason.setText("");
     }
 
     @Override

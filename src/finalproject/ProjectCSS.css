@@ -1,8 +1,8 @@
 .button, .combo-box-base{
     -fx-background-color: 
         #3c7fb1,
-        linear-gradient(#fafdfe, #e8f5fc),
-        linear-gradient(#eaf6fd 0%, #d9f0fc 49%, #bee6fd 50%, #a7d9f5 100%);
+        linear-gradient(blueviolet, #e8f5fc),
+        linear-gradient(grey 0%, #d9f0fc 49%, darkgrey 50%, black 100%);
     -fx-background-insets: 0,1,2;
     -fx-background-radius: 3,2,1;
     -fx-padding: 3 10 3 10;
@@ -36,16 +36,15 @@
 }
 
 .label {
-    -fx-font-size: 12px;
+    -fx-font-size: 14px;
     -fx-font-weight: bold;
     -fx-text-fill: #FF4136;
-    -fx-fill: FIREBRICK;
-    -fx-effect: innershadow( three-pass-box , rgba(0,0,0,0.7) , 6, 0.0 , 0 , 2 );
+    -fx-fill: blueviolet;
+    -fx-effect: innershadow( three-pass-box , rgba(.6,.6,.2,0.7) , 7, 0.0 , 1 , 3 );
 }
 
 .root {
-    /*-fx-background-image: url();*/
-    -fx-background-color:#fafdfe;
+    -fx-background-image: url("background.jpg");
 }
 
 .text-input {
