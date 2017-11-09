@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="anchor" prefHeight="300.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="finalproject.FXMLEditAllergiesController">
+<AnchorPane fx:id="anchor" prefHeight="300.0" prefWidth="400.0" stylesheets="@ProjectCSS.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="finalproject.FXMLEditAllergiesController">
     <children>
         <VBox alignment="CENTER" layoutX="6.0" prefHeight="300.0" prefWidth="400.0" spacing="30.0" stylesheets="@ProjectCSS.css">
             <children>

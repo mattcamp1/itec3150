@@ -6,8 +6,9 @@
     -fx-background-insets: 0,1,2;
     -fx-background-radius: 3,2,1;
     -fx-padding: 3 10 3 10;
-    -fx-text-fill: black;
+    -fx-text-fill: blue;
     -fx-font-size: 12px;
+    -fx-font-weight: bold;
 }
 
 .button:hover {
@@ -23,11 +24,11 @@
 }
 
 .list-cell:even {
-    -fx-background-color:ghostwhite;
+    -fx-background-color: ghostwhite;
 }
 
 .list-cell:odd {
-    -fx-background-color:floralwhite;
+    -fx-background-color: floralwhite;
 }
 
 .list-cell:filled:hover {
