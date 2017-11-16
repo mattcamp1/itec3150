@@ -1,17 +1,12 @@
 package finalproject;
 
-import finalproject.database.DatabaseManager;
-import finalproject.database.Medication;
-import finalproject.database.Patient;
+import finalproject.database.*;
+import finalproject.helpers.*;
+import javafx.fxml.*;
+import javafx.scene.control.*;
 
-import java.net.URL;
-import java.util.ResourceBundle;
-
-import finalproject.helpers.AlertHelper;
-import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.TextField;
+import java.net.*;
+import java.util.*;
 
 /**
  * Class: FXMLEditMedsController

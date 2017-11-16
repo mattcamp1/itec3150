@@ -1,8 +1,8 @@
 package finalproject.sorters;
 
-import finalproject.database.Patient;
+import finalproject.database.*;
 
-import java.util.Comparator;
+import java.util.*;
 
 /**
  * Class: PatientNameComparator

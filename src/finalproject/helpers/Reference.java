@@ -1,10 +1,8 @@
 package finalproject.helpers;
 
-import finalproject.database.Allergy;
-import finalproject.database.Medication;
-import finalproject.database.PatientVisit;
+import finalproject.database.*;
 
-import java.time.format.DateTimeFormatter;
+import java.time.format.*;
 
 /**
  * Class: Reference

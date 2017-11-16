@@ -1,15 +1,11 @@
 package finalproject.database;
 
-import finalproject.database.PatientContract.PatientEntry;
-import finalproject.database.PatientContract.PatientVisitEntry;
-import java.io.File;
+import finalproject.database.PatientContract.*;
 
+import java.io.*;
 import java.sql.*;
-
-import java.util.LinkedList;
-import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.util.*;
+import java.util.logging.*;
 
 /**
  * Class: PatientDb

@@ -1,19 +1,14 @@
 package finalproject;
 
-import finalproject.database.PatientVisit;
+import finalproject.database.*;
+import finalproject.helpers.*;
+import javafx.fxml.*;
+import javafx.scene.control.*;
 
-import java.net.URL;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-import java.util.ResourceBundle;
-
-import finalproject.helpers.AlertHelper;
-import finalproject.helpers.Reference;
-import javafx.fxml.FXML;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
+import java.net.*;
+import java.time.*;
+import java.time.format.*;
+import java.util.*;
 
 /**
  * Class: FXMLPatientSummaryController

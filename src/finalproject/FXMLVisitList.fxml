@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ListView?>
-<?import javafx.scene.control.SplitPane?>
-<?import javafx.scene.layout.AnchorPane?>
-
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
 <AnchorPane fx:id="anchor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="218.0" prefWidth="381.0" stylesheets="@ProjectCSS.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="finalproject.FXMLVisitListController">
     <children>
         <SplitPane dividerPositions="0.5118733509234829" prefHeight="218.0" prefWidth="381.0">

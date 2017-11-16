@@ -1,27 +1,18 @@
 package finalproject;
 
-import finalproject.database.Dialogs;
-import finalproject.database.PatientVisit;
+import finalproject.database.*;
+import finalproject.helpers.*;
+import javafx.event.*;
+import javafx.fxml.*;
+import javafx.scene.*;
+import javafx.scene.control.*;
+import javafx.scene.input.*;
+import javafx.scene.layout.*;
+import javafx.stage.*;
 
-import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
-
-import finalproject.database.VisitDbManager;
-import finalproject.helpers.AlertHelper;
-import finalproject.helpers.Reference;
-import java.util.Observable;
-import java.util.Observer;
-import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
-import javafx.scene.control.ListView;
-import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.AnchorPane;
-import javafx.stage.Modality;
-import javafx.stage.Stage;
-import javafx.stage.StageStyle;
+import java.io.*;
+import java.net.*;
+import java.util.*;
 
 /**
  * FXML Controller class

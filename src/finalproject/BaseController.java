@@ -1,13 +1,12 @@
 package finalproject;
 
 import finalproject.database.*;
-import finalproject.helpers.AlertHelper;
-import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.layout.AnchorPane;
-import javafx.stage.Stage;
+import finalproject.helpers.*;
+import javafx.event.*;
+import javafx.fxml.*;
+import javafx.scene.control.*;
+import javafx.scene.layout.*;
+import javafx.stage.*;
 
 
 /**

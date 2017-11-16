@@ -1,8 +1,8 @@
 package finalproject.sorters;
 
-import finalproject.database.Allergy;
+import finalproject.database.*;
 
-import java.util.Comparator;
+import java.util.*;
 
 /**
  * Class: AllergyNameComparator

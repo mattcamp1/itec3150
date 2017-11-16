@@ -1,18 +1,13 @@
 package finalproject;
 
-import finalproject.database.Allergy;
-import finalproject.database.DatabaseManager;
-import finalproject.database.Patient;
+import finalproject.database.*;
+import finalproject.helpers.*;
+import javafx.fxml.*;
+import javafx.scene.control.*;
+import javafx.scene.input.*;
 
-import java.net.URL;
-import java.util.ResourceBundle;
-
-import finalproject.helpers.AlertHelper;
-import javafx.fxml.FXML;
-import javafx.scene.control.Slider;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
-import javafx.scene.input.MouseEvent;
+import java.net.*;
+import java.util.*;
 
 /**
  * Class: FXMLEditAllergiesController
