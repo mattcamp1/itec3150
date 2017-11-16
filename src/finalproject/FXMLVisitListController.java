@@ -64,7 +64,7 @@ public class FXMLVisitListController extends BaseController<PatientVisit> implem
             stage.setScene(new Scene((AnchorPane) loader.load()));
 
             BaseController controller = loader.<FXMLPatientVisitController>getController();
-            controller.initData(this, patient, visitToDisplay, manager);
+            controller.initData(patient, visitToDisplay, manager);
             stage.setResizable(false);
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.showAndWait();

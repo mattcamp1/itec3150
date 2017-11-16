@@ -113,7 +113,7 @@ public class FXMLPatientSummaryController extends BaseController<Patient> implem
                     throw new IllegalArgumentException();
             }
 
-            controller.initData(this, patient, target, manager);
+            controller.initData(patient, target, manager);
             stage.setResizable(false);
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.showAndWait();

@@ -2,37 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Final Project/finalproject/BaseController.class" afterPath="$PROJECT_DIR$/out/production/Final Project/finalproject/BaseController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Final Project/finalproject/FXMLEditMedsController.class" afterPath="$PROJECT_DIR$/out/production/Final Project/finalproject/FXMLEditMedsController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Final Project/finalproject/FXMLPatientSummaryController.class" afterPath="$PROJECT_DIR$/out/production/Final Project/finalproject/FXMLPatientSummaryController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Final Project/finalproject/FXMLPatientVisitController.class" afterPath="$PROJECT_DIR$/out/production/Final Project/finalproject/FXMLPatientVisitController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Final Project/finalproject/FinalProject.class" afterPath="$PROJECT_DIR$/out/production/Final Project/finalproject/FinalProject.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Final Project/finalproject/ValidationStatus.class" afterPath="$PROJECT_DIR$/out/production/Final Project/finalproject/ValidationStatus.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Final Project/finalproject/database/Allergy.class" afterPath="$PROJECT_DIR$/out/production/Final Project/finalproject/database/Allergy.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Final Project/finalproject/database/AllergyDb.class" afterPath="$PROJECT_DIR$/out/production/Final Project/finalproject/database/AllergyDb.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Final Project/finalproject/database/AllergyDbManager.class" afterPath="$PROJECT_DIR$/out/production/Final Project/finalproject/database/AllergyDbManager.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Final Project/finalproject/database/Dialogs.class" afterPath="$PROJECT_DIR$/out/production/Final Project/finalproject/database/Dialogs.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Final Project/finalproject/database/Medication.class" afterPath="$PROJECT_DIR$/out/production/Final Project/finalproject/database/Medication.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Final Project/finalproject/database/MedicationDb.class" afterPath="$PROJECT_DIR$/out/production/Final Project/finalproject/database/MedicationDb.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Final Project/finalproject/database/MedicationDbManager.class" afterPath="$PROJECT_DIR$/out/production/Final Project/finalproject/database/MedicationDbManager.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Final Project/finalproject/database/Patient.class" afterPath="$PROJECT_DIR$/out/production/Final Project/finalproject/database/Patient.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Final Project/finalproject/database/PatientContract$AllergyEntry.class" afterPath="$PROJECT_DIR$/out/production/Final Project/finalproject/database/PatientContract$AllergyEntry.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Final Project/finalproject/database/PatientContract$MedicationEntry.class" afterPath="$PROJECT_DIR$/out/production/Final Project/finalproject/database/PatientContract$MedicationEntry.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Final Project/finalproject/database/PatientContract$PatientEntry.class" afterPath="$PROJECT_DIR$/out/production/Final Project/finalproject/database/PatientContract$PatientEntry.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Final Project/finalproject/database/PatientContract$PatientVisitEntry.class" afterPath="$PROJECT_DIR$/out/production/Final Project/finalproject/database/PatientContract$PatientVisitEntry.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Final Project/finalproject/database/PatientContract.class" afterPath="$PROJECT_DIR$/out/production/Final Project/finalproject/database/PatientContract.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Final Project/finalproject/database/PatientDb.class" afterPath="$PROJECT_DIR$/out/production/Final Project/finalproject/database/PatientDb.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Final Project/finalproject/database/PatientDbManager.class" afterPath="$PROJECT_DIR$/out/production/Final Project/finalproject/database/PatientDbManager.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Final Project/finalproject/database/VisitDb.class" afterPath="$PROJECT_DIR$/out/production/Final Project/finalproject/database/VisitDb.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Final Project/finalproject/database/VisitDbManager.class" afterPath="$PROJECT_DIR$/out/production/Final Project/finalproject/database/VisitDbManager.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Final Project/finalproject/helpers/AlertHelper.class" afterPath="$PROJECT_DIR$/out/production/Final Project/finalproject/helpers/AlertHelper.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Final Project/finalproject/FXMLEditAllergies.fxml" afterPath="$PROJECT_DIR$/out/production/Final Project/finalproject/FXMLEditAllergies.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Final Project/finalproject/FXMLEditMeds.fxml" afterPath="$PROJECT_DIR$/out/production/Final Project/finalproject/FXMLEditMeds.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Final Project/finalproject/FXMLPatientSummary.fxml" afterPath="$PROJECT_DIR$/out/production/Final Project/finalproject/FXMLPatientSummary.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Final Project/finalproject/FXMLPatientVisit.fxml" afterPath="$PROJECT_DIR$/out/production/Final Project/finalproject/FXMLPatientVisit.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Final Project/finalproject/FXMLVisitList.fxml" afterPath="$PROJECT_DIR$/out/production/Final Project/finalproject/FXMLVisitList.fxml" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/Final Project.iml" afterPath="$PROJECT_DIR$/Final Project.iml" />
+      <change beforePath="$PROJECT_DIR$/src/finalproject/BaseController.java" afterPath="$PROJECT_DIR$/src/finalproject/BaseController.java" />
+      <change beforePath="$PROJECT_DIR$/src/finalproject/FXMLEditAllergiesController.java" afterPath="$PROJECT_DIR$/src/finalproject/FXMLEditAllergiesController.java" />
+      <change beforePath="$PROJECT_DIR$/src/finalproject/FXMLEditMedsController.java" afterPath="$PROJECT_DIR$/src/finalproject/FXMLEditMedsController.java" />
+      <change beforePath="$PROJECT_DIR$/src/finalproject/FXMLPatientSummaryController.java" afterPath="$PROJECT_DIR$/src/finalproject/FXMLPatientSummaryController.java" />
+      <change beforePath="$PROJECT_DIR$/src/finalproject/FXMLVisitListController.java" afterPath="$PROJECT_DIR$/src/finalproject/FXMLVisitListController.java" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -120,83 +97,39 @@
       <file leaf-file-name="FXMLPatientSummaryController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/finalproject/FXMLPatientSummaryController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="298">
-              <caret line="137" column="51" lean-forward="false" selection-start-line="137" selection-start-column="51" selection-end-line="137" selection-end-column="51" />
-              <folding>
-                <element signature="e#3525#3526#0" expanded="true" />
-                <element signature="e#3576#3577#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="FXMLPatientVisit.fxml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/finalproject/FXMLPatientVisit.fxml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2057">
-              <caret line="144" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="144" selection-end-column="0" />
-              <folding>
-                <marker date="1509593411239" expanded="true" signature="8863:8876" ph="..." />
-              </folding>
-            </state>
-          </provider>
-          <provider editor-type-id="JavaFX-Scene-Builder">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="FXMLPatientVisitController.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/finalproject/FXMLPatientVisitController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="74" column="41" lean-forward="true" selection-start-line="74" selection-start-column="41" selection-end-line="74" selection-end-column="41" />
+            <state relative-caret-position="1598">
+              <caret line="117" column="38" lean-forward="false" selection-start-line="117" selection-start-column="38" selection-end-line="117" selection-end-column="38" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="FXMLVisitList.fxml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/finalproject/FXMLVisitList.fxml">
+      <file leaf-file-name="FXMLPatientVisitController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/finalproject/FXMLPatientVisitController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="697">
-              <caret line="46" column="0" lean-forward="false" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
-              <folding>
-                <marker date="1509593411267" expanded="true" signature="2598:2611" ph="..." />
-                <marker date="1509593411267" expanded="true" signature="2598:2625" ph="..." />
-              </folding>
+            <state relative-caret-position="578">
+              <caret line="47" column="9" lean-forward="false" selection-start-line="47" selection-start-column="9" selection-end-line="47" selection-end-column="9" />
+              <folding />
             </state>
-          </provider>
-          <provider editor-type-id="JavaFX-Scene-Builder">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="FXMLPatientSummary.fxml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/finalproject/FXMLPatientSummary.fxml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="663">
-              <caret line="39" column="24" lean-forward="false" selection-start-line="39" selection-start-column="24" selection-end-line="39" selection-end-column="24" />
-              <folding>
-                <marker date="1509593411222" expanded="true" signature="11683:11696" ph="..." />
-              </folding>
-            </state>
-          </provider>
-          <provider editor-type-id="JavaFX-Scene-Builder">
-            <state />
           </provider>
         </entry>
       </file>
       <file leaf-file-name="FXMLVisitListController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/finalproject/FXMLVisitListController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="278">
-              <caret line="58" column="0" lean-forward="true" selection-start-line="58" selection-start-column="0" selection-end-line="58" selection-end-column="0" />
-              <folding>
-                <element signature="e#1006#1007#0" expanded="true" />
-                <element signature="e#1036#1037#0" expanded="true" />
-                <element signature="e#1100#1101#0" expanded="true" />
-                <element signature="e#1128#1129#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="1088">
+              <caret line="89" column="5" lean-forward="false" selection-start-line="89" selection-start-column="5" selection-end-line="89" selection-end-column="5" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ProjectCSS.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/finalproject/ProjectCSS.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="510">
+              <caret line="30" column="38" lean-forward="false" selection-start-line="30" selection-start-column="38" selection-end-line="30" selection-end-column="38" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -204,31 +137,45 @@
       <file leaf-file-name="IValidation.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/finalproject/IValidation.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="442">
-              <caret line="28" column="0" lean-forward="false" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
-              <folding>
-                <marker date="1509593411295" expanded="true" signature="24:27" ph="/**...*/" />
-                <marker date="1509593411295" expanded="true" signature="454:505" ph="/**...*/" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ValidationStatus.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/finalproject/ValidationStatus.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="493">
-              <caret line="29" column="45" lean-forward="false" selection-start-line="29" selection-start-column="45" selection-end-line="29" selection-end-column="45" />
+            <state relative-caret-position="459">
+              <caret line="27" column="1" lean-forward="false" selection-start-line="27" selection-start-column="1" selection-end-line="27" selection-end-column="1" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="FXMLEditAllergiesController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/finalproject/FXMLEditAllergiesController.java">
+      <file leaf-file-name="FinalProject.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/finalproject/FinalProject.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="612">
-              <caret line="48" column="13" lean-forward="false" selection-start-line="48" selection-start-column="13" selection-end-line="48" selection-end-column="13" />
+            <state relative-caret-position="136">
+              <caret line="12" column="13" lean-forward="false" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="background.jpg" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/finalproject/background.jpg">
+          <provider selected="true" editor-type-id="images">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PatientNameComparator.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/finalproject/sorters/PatientNameComparator.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="306">
+              <caret line="22" column="0" lean-forward="false" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="119">
+              <caret line="7" column="6" lean-forward="true" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="6" />
               <folding />
             </state>
           </provider>
@@ -237,14 +184,9 @@
       <file leaf-file-name="FXMLEditMedsController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/finalproject/FXMLEditMedsController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2006">
-              <caret line="130" column="46" lean-forward="false" selection-start-line="130" selection-start-column="46" selection-end-line="130" selection-end-column="46" />
-              <folding>
-                <marker date="1509593411219" expanded="true" signature="380:383" ph="/**...*/" />
-                <marker date="1509593411219" expanded="true" signature="1486:1542" ph="{...}" />
-                <marker date="1509593411219" expanded="true" signature="1595:2910" ph="{...}" />
-                <marker date="1509593411219" expanded="true" signature="2953:3367" ph="{...}" />
-              </folding>
+            <state relative-caret-position="867">
+              <caret line="62" column="0" lean-forward="false" selection-start-line="62" selection-start-column="0" selection-end-line="62" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -288,7 +230,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/foo.java" />
         <option value="$PROJECT_DIR$/src/Test.java" />
         <option value="$PROJECT_DIR$/src/Test.fxml" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/f2458422-4404-48e1-8897-aeffe242f4bf/console.sql" />
@@ -300,7 +241,6 @@
         <option value="$PROJECT_DIR$/src/finalproject/AlertHelper.java" />
         <option value="$PROJECT_DIR$/src/finalproject/helpers/LogHelper.java" />
         <option value="$PROJECT_DIR$/src/finalproject/database/BaseDbManager.java" />
-        <option value="$PROJECT_DIR$/src/finalproject/FXMLEditAllergiesController.java" />
         <option value="$PROJECT_DIR$/src/finalproject/helpers/DialogHelper.java" />
         <option value="$PROJECT_DIR$/src/finalproject/sorters/AllergySeverityComparator.java" />
         <option value="$PROJECT_DIR$/src/finalproject/sorters/MedicineComparator.java" />
@@ -326,19 +266,21 @@
         <option value="$PROJECT_DIR$/src/finalproject/sorters/AllergySeverityNameComparator.java" />
         <option value="$PROJECT_DIR$/src/finalproject/sorters/MedicationNameComparator.java" />
         <option value="$PROJECT_DIR$/src/finalproject/sorters/PatientNameComparator.java" />
-        <option value="$PROJECT_DIR$/src/finalproject/BaseController.java" />
         <option value="$PROJECT_DIR$/src/finalproject/FinalProject.java" />
         <option value="$PROJECT_DIR$/src/finalproject/FXMLEditAllergies.fxml" />
         <option value="$PROJECT_DIR$/src/finalproject/FXMLEditMeds.fxml" />
-        <option value="$PROJECT_DIR$/src/finalproject/FXMLEditMedsController.java" />
         <option value="$PROJECT_DIR$/src/finalproject/FXMLPatientSummary.fxml" />
         <option value="$PROJECT_DIR$/src/finalproject/FXMLPatientVisit.fxml" />
         <option value="$PROJECT_DIR$/src/finalproject/FXMLVisitList.fxml" />
         <option value="$PROJECT_DIR$/src/finalproject/IValidation.java" />
         <option value="$PROJECT_DIR$/src/finalproject/ValidationStatus.java" />
-        <option value="$PROJECT_DIR$/src/finalproject/FXMLVisitListController.java" />
-        <option value="$PROJECT_DIR$/src/finalproject/FXMLPatientSummaryController.java" />
         <option value="$PROJECT_DIR$/src/finalproject/FXMLPatientVisitController.java" />
+        <option value="$PROJECT_DIR$/src/finalproject/BaseController.java" />
+        <option value="$PROJECT_DIR$/src/finalproject/FXMLEditAllergiesController.java" />
+        <option value="$PROJECT_DIR$/src/finalproject/FXMLEditMedsController.java" />
+        <option value="$PROJECT_DIR$/src/finalproject/FXMLPatientSummaryController.java" />
+        <option value="$PROJECT_DIR$/src/finalproject/FXMLVisitListController.java" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -376,10 +318,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="AndroidView" />
-      <pane id="PackagesPane" />
-      <pane id="Scratches" />
       <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -390,18 +330,35 @@
             <path>
               <item name="Final Project" type="b2602c69:ProjectViewProjectNode" />
               <item name="Final Project" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="out" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Final Project" type="b2602c69:ProjectViewProjectNode" />
               <item name="Final Project" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="out" type="462c0819:PsiDirectoryNode" />
+              <item name="production" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Final Project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Final Project" type="462c0819:PsiDirectoryNode" />
+              <item name="out" type="462c0819:PsiDirectoryNode" />
+              <item name="production" type="462c0819:PsiDirectoryNode" />
+              <item name="Final Project" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Final Project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Final Project" type="462c0819:PsiDirectoryNode" />
+              <item name="out" type="462c0819:PsiDirectoryNode" />
+              <item name="production" type="462c0819:PsiDirectoryNode" />
+              <item name="Final Project" type="462c0819:PsiDirectoryNode" />
               <item name="finalproject" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="AndroidView" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -442,7 +399,15 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.FinalProject">
+  <component name="RunManager">
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+    </configuration>
     <configuration name="FinalProject" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
@@ -461,14 +426,6 @@
       <option name="PASS_PARENT_ENVS" value="true" />
       <module name="Final Project" />
       <envs />
-    </configuration>
-    <configuration default="true" type="Applet" factoryName="Applet">
-      <module />
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
@@ -504,12 +461,6 @@
       <envs />
       <patterns />
     </configuration>
-    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
-      <module name="" />
-      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m" />
-      <option name="PROGRAM_PARAMETERS" />
-      <predefined_log_file id="idea.log" enabled="true" />
-    </configuration>
     <configuration default="true" type="Remote" factoryName="Remote">
       <option name="USE_SOCKET_TRANSPORT" value="true" />
       <option name="SERVER_MODE" value="false" />
@@ -544,6 +495,12 @@
       <properties />
       <listeners />
     </configuration>
+    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
+      <module name="" />
+      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m" />
+      <option name="PROGRAM_PARAMETERS" />
+      <predefined_log_file id="idea.log" enabled="true" />
+    </configuration>
     <configuration default="true" type="DartUnitRunConfigurationType" factoryName="DartUnit">
       <option name="VMOptions" />
       <option name="arguments" />
@@ -564,6 +521,9 @@
   </component>
   <component name="ShelveChangesManager" show_recycled="false">
     <option name="remove_strategy" value="false" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -586,6 +546,8 @@
       <workItem from="1509477900195" duration="4621000" />
       <workItem from="1509489217283" duration="6067000" />
       <workItem from="1509626381919" duration="387000" />
+      <workItem from="1510855178710" duration="389000" />
+      <workItem from="1510855746727" duration="432000" />
     </task>
     <task id="LOCAL-00001" summary="Fixed exception when viewing visits.">
       <created>1509626731938</created>
@@ -598,32 +560,32 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="32998000" />
+    <option name="totallyTimeSpent" value="33819000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32627118" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32944915" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3724213" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21610169" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20846905" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18230277" sideWeight="0.6703755" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18656716" sideWeight="0.6703755" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1828125" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24945295" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3298969" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -631,6 +593,7 @@
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Profiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32627118" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32894737" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
@@ -684,9 +647,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/f2458422-4404-48e1-8897-aeffe242f4bf/console.sql" />
-    <entry file="jar://D:/Program Files/Java/jdk1.8.0_144/javafx-src.zip!/javafx/fxml/FXMLLoader.java" />
-    <entry file="file://$PROJECT_DIR$/src/finalproject/DbHelper.java" />
     <entry file="file://$PROJECT_DIR$/src/finalproject/Dialogs.java" />
     <entry file="jar://D:/Program Files/Java/jdk1.8.0_144/src.zip!/java/util/Stack.java" />
     <entry file="file://$PROJECT_DIR$/src/finalproject/helpers/LogHelper.java" />
@@ -746,8 +706,8 @@
         <state relative-caret-position="255">
           <caret line="15" column="0" lean-forward="true" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
           <folding>
-            <element signature="e#217#218#0" expanded="true" />
-            <element signature="e#232#233#0" expanded="true" />
+            <element signature="e#217#218#0" expanded="false" />
+            <element signature="e#232#233#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -778,8 +738,8 @@
         <state relative-caret-position="255">
           <caret line="15" column="27" lean-forward="true" selection-start-line="15" selection-start-column="27" selection-end-line="15" selection-end-column="27" />
           <folding>
-            <element signature="e#1201#1202#0" expanded="true" />
-            <element signature="e#1226#1227#0" expanded="true" />
+            <element signature="e#1201#1202#0" expanded="false" />
+            <element signature="e#1226#1227#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -824,7 +784,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
           <caret line="11" column="42" lean-forward="true" selection-start-line="11" selection-start-column="42" selection-end-line="11" selection-end-column="42" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -836,37 +795,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/finalproject/helpers/Reference.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="23" column="53" lean-forward="false" selection-start-line="23" selection-start-column="53" selection-end-line="23" selection-end-column="53" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/finalproject/sorters/AllergyNameComparator.java" />
     <entry file="file://$PROJECT_DIR$/src/finalproject/sorters/AllergySeverityNameComparator.java" />
     <entry file="file://$PROJECT_DIR$/src/finalproject/sorters/MedicationNameComparator.java" />
-    <entry file="file://$PROJECT_DIR$/src/finalproject/sorters/PatientNameComparator.java" />
-    <entry file="file://$PROJECT_DIR$/src/finalproject/BaseController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="267">
-          <caret line="34" column="30" lean-forward="true" selection-start-line="34" selection-start-column="30" selection-end-line="34" selection-end-column="30" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/finalproject/FinalProject.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="32" column="0" lean-forward="true" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/finalproject/FXMLEditAllergies.fxml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="459">
@@ -889,76 +820,15 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/finalproject/FXMLEditAllergiesController.java">
+    <entry file="file://$PROJECT_DIR$/src/finalproject/FXMLPatientVisit.fxml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="612">
-          <caret line="48" column="13" lean-forward="false" selection-start-line="48" selection-start-column="13" selection-end-line="48" selection-end-column="13" />
+        <state relative-caret-position="2261">
+          <caret line="133" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="133" selection-end-column="0" />
           <folding />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/finalproject/FXMLEditMedsController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2006">
-          <caret line="130" column="46" lean-forward="false" selection-start-line="130" selection-start-column="46" selection-end-line="130" selection-end-column="46" />
-          <folding>
-            <marker date="1509593411219" expanded="true" signature="380:383" ph="/**...*/" />
-            <marker date="1509593411219" expanded="true" signature="1486:1542" ph="{...}" />
-            <marker date="1509593411219" expanded="true" signature="1595:2910" ph="{...}" />
-            <marker date="1509593411219" expanded="true" signature="2953:3367" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/finalproject/FXMLPatientSummary.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="663">
-          <caret line="39" column="24" lean-forward="false" selection-start-line="39" selection-start-column="24" selection-end-line="39" selection-end-column="24" />
-          <folding>
-            <marker date="1509593411222" expanded="true" signature="11683:11696" ph="..." />
-          </folding>
-        </state>
-      </provider>
       <provider editor-type-id="JavaFX-Scene-Builder">
         <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/finalproject/FXMLPatientVisit.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2057">
-          <caret line="144" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="144" selection-end-column="0" />
-          <folding>
-            <marker date="1509593411239" expanded="true" signature="8863:8876" ph="..." />
-          </folding>
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/finalproject/FXMLVisitList.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="697">
-          <caret line="46" column="0" lean-forward="false" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
-          <folding>
-            <marker date="1509593411267" expanded="true" signature="2598:2611" ph="..." />
-            <marker date="1509593411267" expanded="true" signature="2598:2625" ph="..." />
-          </folding>
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/finalproject/IValidation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="28" column="0" lean-forward="false" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
-          <folding>
-            <marker date="1509593411295" expanded="true" signature="24:27" ph="/**...*/" />
-            <marker date="1509593411295" expanded="true" signature="454:505" ph="/**...*/" />
-          </folding>
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/finalproject/ValidationStatus.java">
@@ -969,34 +839,129 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/finalproject/FXMLPatientSummaryController.java">
+    <entry file="file://$PROJECT_DIR$/src/finalproject/FXMLVisitList.fxml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="298">
-          <caret line="137" column="51" lean-forward="false" selection-start-line="137" selection-start-column="51" selection-end-line="137" selection-end-column="51" />
+        <state relative-caret-position="680">
+          <caret line="40" column="0" lean-forward="true" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/finalproject/FXMLPatientSummary.fxml">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="663">
+          <caret line="39" column="24" lean-forward="false" selection-start-line="39" selection-start-column="24" selection-end-line="39" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/finalproject/helpers/Reference.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="23" column="53" lean-forward="false" selection-start-line="23" selection-start-column="53" selection-end-line="23" selection-end-column="53" />
           <folding>
-            <element signature="e#3525#3526#0" expanded="true" />
-            <element signature="e#3576#3577#0" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/finalproject/FXMLVisitListController.java">
+    <entry file="file://$PROJECT_DIR$/src/finalproject/BaseController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="278">
-          <caret line="58" column="0" lean-forward="true" selection-start-line="58" selection-start-column="0" selection-end-line="58" selection-end-column="0" />
+        <state relative-caret-position="448">
+          <caret line="43" column="31" lean-forward="false" selection-start-line="43" selection-start-column="31" selection-end-line="43" selection-end-column="31" />
           <folding>
-            <element signature="e#1006#1007#0" expanded="true" />
-            <element signature="e#1036#1037#0" expanded="true" />
-            <element signature="e#1100#1101#0" expanded="true" />
-            <element signature="e#1128#1129#0" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/finalproject/FXMLEditAllergiesController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="901">
+          <caret line="65" column="23" lean-forward="false" selection-start-line="65" selection-start-column="23" selection-end-line="65" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/finalproject/FXMLEditMedsController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="867">
+          <caret line="62" column="0" lean-forward="false" selection-start-line="62" selection-start-column="0" selection-end-line="62" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/finalproject/FXMLPatientSummaryController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1598">
+          <caret line="117" column="38" lean-forward="false" selection-start-line="117" selection-start-column="38" selection-end-line="117" selection-end-column="38" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/finalproject/FXMLPatientVisitController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="74" column="41" lean-forward="true" selection-start-line="74" selection-start-column="41" selection-end-line="74" selection-end-column="41" />
+        <state relative-caret-position="578">
+          <caret line="47" column="9" lean-forward="false" selection-start-line="47" selection-start-column="9" selection-end-line="47" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/finalproject/FXMLVisitListController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1088">
+          <caret line="89" column="5" lean-forward="false" selection-start-line="89" selection-start-column="5" selection-end-line="89" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/finalproject/ProjectCSS.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="30" column="38" lean-forward="false" selection-start-line="30" selection-start-column="38" selection-end-line="30" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/finalproject/IValidation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="27" column="1" lean-forward="false" selection-start-line="27" selection-start-column="1" selection-end-line="27" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/finalproject/FinalProject.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="12" column="13" lean-forward="false" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/finalproject/background.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/finalproject/sorters/PatientNameComparator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="22" column="0" lean-forward="false" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="6" lean-forward="true" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="6" />
           <folding />
         </state>
       </provider>

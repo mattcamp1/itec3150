@@ -61,8 +61,8 @@ public class FXMLEditAllergiesController extends BaseController<Allergy> {
     }
 
     @Override
-    public void initData(BaseController parent, Patient patient, Allergy target, DatabaseManager<Allergy> manager) {
-        super.initData(parent, patient, target, manager);
+    public void initData(Patient patient, Allergy target, DatabaseManager<Allergy> manager) {
+        super.initData(patient, target, manager);
         populateData();
     }
 

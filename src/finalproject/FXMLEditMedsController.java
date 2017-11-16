@@ -57,8 +57,8 @@ public class FXMLEditMedsController extends BaseController<Medication> {
     }
 
     @Override
-    public void initData(BaseController parent, Patient patient, Medication target, DatabaseManager<Medication> manager) {
-        super.initData(parent, patient, target, manager);
+    public void initData(Patient patient, Medication target, DatabaseManager<Medication> manager) {
+        super.initData(patient, target, manager);
     }
 
     @Override
